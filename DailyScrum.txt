@@ -38,3 +38,12 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - Adjust database structure
 - Update project proposal
 3. Need assistance / figure things out
+
+
+2021/04/08 Ying
+1. Done / not done since last scrum:
+- project proposal
+2. To do until next Scrum:
+- Design Main Page UI
+- Update project proposal
+3. Need assistance / figure things out
