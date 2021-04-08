@@ -5,12 +5,27 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 2. What I plan to do from this scrum to next? (next 24 hours)
 3. Where do I need assistance? What do I need to figure out?
 ==========================================================
-Example entries for one day, both team members:
+
+
+2021/04/09 Edwin
+1. Done / not done since last scrum:
+- setup git repository: https://bitbucket.org/edwin_jac/yzy/src/master/
+- setup azuredatabase: ipd24yzycrm.database.windows.net
+2. To do until next Scrum:
+- submit project proposal
+- create tables in azure database
+- database first code generation
+- library <learning>
+- MVP code structure
+3. Need assistance / figure things out
+
+----------------------------------------------------------
 
 2021/04/08 Edwin
 1. Done / not done since last scrum:
 - project proposal
 2. To do until next Scrum:
 - setup git repo.
-- setup the database
+- setup the database (KptdLQY+T>d6>t)
+- submit project proposal
 3. Need assistance / figure things out
