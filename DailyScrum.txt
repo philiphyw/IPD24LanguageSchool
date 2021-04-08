@@ -29,3 +29,12 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - setup the database (KptdLQY+T>d6>t)
 - submit project proposal
 3. Need assistance / figure things out
+
+
+2021/04/08 PH
+1. Done / not done since last scrum:
+- project proposal
+2. To do until next Scrum:
+- Adjust database structure
+- Update project proposal
+3. Need assistance / figure things out
