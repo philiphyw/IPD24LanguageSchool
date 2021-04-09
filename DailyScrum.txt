@@ -19,11 +19,16 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 
 2021/04/09 Ying
 1. Done / not done since last scrum:
-- project proposal
-2. To do until next Scrum:
 - Design Main Page UI
 - Update project proposal
+
+2. To do until next Scrum:
+- Code the Main Page UI
+- XAML Animation Design in pages
 3. Need assistance / figure things out
+-Deside the final layout of main page
+-Discuss the color pattern
+
 
 
 2021/04/09 Edwin
