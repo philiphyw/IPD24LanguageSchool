@@ -13,12 +13,11 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - setup azuredatabase: ipd24yzycrm.database.windows.net
 2. To do until next Scrum:
 - submit project proposal
+- break down use case and update trello
 - create tables in azure database
 - database first code generation
-- library <learning>
-- MVP code structure
 3. Need assistance / figure things out
-
+- library <learning>
 ----------------------------------------------------------
 
 2021/04/08 Edwin
