@@ -234,3 +234,64 @@ ALTER TABLE EVALUATIONS
 
 GO
 ;
+
+
+
+/* ***** IMPORT DUMMY DATA FROM CSV FILES ***** */
+ USE YZY;
+ GO
+
+ BULK INSERT Users FROM 'D:\IPD24-Language School\Dummy Data\Users.csv'
+   WITH (
+      FIELDTERMINATOR = ',',
+      ROWTERMINATOR = '\n',
+	  		KEEPNULLS,
+		FIRSTROW = 2
+);
+GO
+
+
+ BULK INSERT Categories FROM 'D:\IPD24-Language School\Dummy Data\Categories.csv'
+   WITH (
+      FIELDTERMINATOR = ',',
+      ROWTERMINATOR = '\n',
+	  		KEEPNULLS,
+		FIRSTROW = 2
+);
+GO
+
+ BULK INSERT Courses FROM 'D:\IPD24-Language School\Dummy Data\Courses.csv'
+   WITH (
+      FIELDTERMINATOR = ',',
+      ROWTERMINATOR = '\n',
+	  		KEEPNULLS,
+		FIRSTROW = 2
+);
+GO
+
+ BULK INSERT Payments FROM 'D:\IPD24-Language School\Dummy Data\Payments.csv'
+   WITH (
+      FIELDTERMINATOR = ',',
+      ROWTERMINATOR = '\n',
+	  		KEEPNULLS,
+		FIRSTROW = 2
+);
+GO
+
+ BULK INSERT Registers FROM 'D:\IPD24-Language School\Dummy Data\Registers.csv'
+   WITH (
+      FIELDTERMINATOR = ',',
+      ROWTERMINATOR = '\n',
+	  		KEEPNULLS,
+		FIRSTROW = 2
+);
+GO
+
+ BULK INSERT Evaluations FROM 'D:\IPD24-Language School\Dummy Data\Evaluations.csv'
+   WITH (
+      FIELDTERMINATOR = ',',
+      ROWTERMINATOR = '\n',
+	  		KEEPNULLS,
+		FIRSTROW = 2
+);
+GO
