@@ -6,6 +6,40 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 3. Where do I need assistance? What do I need to figure out?
 ==========================================================
 
+2021/04/10 PH
+1. Done / not done since last scrum:
+- break down use case and update trello
+- finish the first version of database after review with customer
+- generate dummy data
+2. To do until next Scrum:
+- use database first to generate entities on library
+- study string localization (https://stackoverflow.com/questions/1142802/how-to-use-localization-in-c-sharp)
+3. Need assistance / figure things out
+
+2021/04/10 Ying
+1. Done / not done since last scrum:
+- Deside the final version of Main Page UI
+- Update the UI design
+2. To do until next Scrum:
+- study the responsive design and add animation function
+- XAML Animation  and responsive Design in Main page
+3. Need assistance / figure things out
+- study string localization
+- study MPV structure
+
+2021/04/10 Edwin
+1. Done / not done since last scrum:
+- break down use case and update trello
+- create tables in sql server database
+- string localization (.cs & .xaml)
+- threading
+- databinding for MVP layers/library
+2. To do until next Scrum:
+- setup code structure
+3. Need assistance / figure things out
+
+----------------------------------------------------------
+
 2021/04/09 PH
 1. Done / not done since last scrum:
 - Adjust database structure
@@ -29,8 +63,6 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 -Deside the final layout of main page
 -Discuss the color pattern
 
-
-
 2021/04/09 Edwin
 1. Done / not done since last scrum:
 - setup git repository: https://bitbucket.org/edwin_jac/yzy/src/master/
@@ -42,6 +74,7 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - database first code generation
 3. Need assistance / figure things out
 - library <learning>
+
 ----------------------------------------------------------
 
 2021/04/08 Edwin
@@ -53,7 +86,6 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - submit project proposal
 3. Need assistance / figure things out
 
-
 2021/04/08 PH
 1. Done / not done since last scrum:
 - project proposal
@@ -61,7 +93,6 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - Adjust database structure
 - Update project proposal
 3. Need assistance / figure things out
-
 
 2021/04/08 Ying
 1. Done / not done since last scrum:
