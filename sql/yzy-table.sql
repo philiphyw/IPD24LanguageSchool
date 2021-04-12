@@ -47,6 +47,8 @@ FILEGROUP Aragon_FG
 
 
 
+
+
 /* ***** CREATE TABELS  ***** */
 
 
@@ -61,12 +63,12 @@ GO
 CREATE TABLE Users
 (
 UserID INT IDENTITY(1,1) NOT NULL,
-UserRole NVARCHAR(20) NOT NULL CHECK (UserRole IN('Admin', 'Student', 'Teacher')),
+UserRole INT NOT NULL , -- In order to generate Enum in EntityFramework, need to set data type in INT. 1:'Admin', 2:'Teacher', 3:'Student'
 FName NVARCHAR(30) NOT NULL,
 MName NVARCHAR(30) NULL,
 LName NVARCHAR(30) NOT NULL,
 UserSIN NCHAR(9) MASKED WITH (FUNCTION = 'DEFAULT()') NOT NULL,
-Gender NVARCHAR(10) NOT NULL CHECK (Gender IN('Female', 'Male', 'Other')),
+Gender INT NOT NULL, -- In order to generate Enum in EntityFramework, need to set data type in )INT. 1:'Female', 2:'Male', 3:'Other'
 StreetNo  NVARCHAR(50) NOT NULL,
 StreetName NVARCHAR(50) NOT NULL,
 City NVARCHAR(30) NOT NULL,
@@ -151,7 +153,7 @@ CREATE TABLE Registers
 RegisterID INT IDENTITY(1,1) NOT NULL,
 UserID INT NOT NULL, -- Fk Users , only for Students
 CourseID INT NOT NULL, -- Fk Courses
-RegisterStatus  NVARCHAR(10) not null CHECK(RegisterStatus IN('Pending','Done','Cancelled')), -- Pending, Done, Cancelled
+RegisterStatus INT not null , -- In order to generate Enum in EntityFramework, need to set data type in INT. 1:'Pending', 2:'Done', 3:'Cancelled'
 PaymentID int null, -- FK Payments
 
 
@@ -175,8 +177,6 @@ CONSTRAINT PK_EVALUATIONS PRIMARY KEY (EvaluationID)
 
 
 );
-
-
 
 
 
