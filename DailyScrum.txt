@@ -13,8 +13,8 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - generate dummy data
 - use database first to generate entities on library
 2. To do until next Scrum:
-- study string localization (https://stackoverflow.com/questions/1142802/how-to-use-localization-in-c-sharp) not only for UI, but also for contents/data.
-- 
+- study string localization (https://stackoverflow.com/questions/1142802/how-to-use-localization-in-c-sharp)
+- Set up basic structure for data entities 
 3. Need assistance / figure things out
 
 2021/04/12 Ying
