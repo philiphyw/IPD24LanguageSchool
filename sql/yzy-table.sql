@@ -61,12 +61,12 @@ GO
 CREATE TABLE Users
 (
 UserID INT IDENTITY(1,1) NOT NULL,
-UserRole NVARCHAR(20) NOT NULL,
+UserRole NVARCHAR(20) NOT NULL CHECK (UserRole IN('Admin', 'Student', 'Teacher')),
 FName NVARCHAR(30) NOT NULL,
 MName NVARCHAR(30) NULL,
 LName NVARCHAR(30) NOT NULL,
 UserSIN NCHAR(9) MASKED WITH (FUNCTION = 'DEFAULT()') NOT NULL,
-Gender NVARCHAR(10) NOT NULL,
+Gender NVARCHAR(10) NOT NULL CHECK (Gender IN('Female', 'Male', 'Other')),
 StreetNo  NVARCHAR(50) NOT NULL,
 StreetName NVARCHAR(50) NOT NULL,
 City NVARCHAR(30) NOT NULL,
@@ -133,6 +133,8 @@ CourseID INT IDENTITY(1,1) NOT NULL,
 CategoryID INT not null, -- Fk Categories
 UserID INT not null, -- fk users, only for teacher
 CourseDesc NVARCHAR(100) not null,
+StartDate Date NOT NULL,
+EndDate Date NOT NULL,
 Tuition Money not null,
 
 CONSTRAINT PK_COURSES PRIMARY KEY (CourseID)
@@ -149,7 +151,7 @@ CREATE TABLE Registers
 RegisterID INT IDENTITY(1,1) NOT NULL,
 UserID INT NOT NULL, -- Fk Users , only for Students
 CourseID INT NOT NULL, -- Fk Courses
-RegisterStatus  NVARCHAR(10) not null, -- Pending, Paied, Cancelled
+RegisterStatus  NVARCHAR(10) not null CHECK(RegisterStatus IN('Pending','Done','Cancelled')), -- Pending, Done, Cancelled
 PaymentID int null, -- FK Payments
 
 
@@ -241,7 +243,7 @@ GO
  USE YZY;
  GO
 
- BULK INSERT Users FROM 'D:\IPD24-Language School\Dummy Data\Users.csv'
+ BULK INSERT Users FROM 'D:\IPD24-Language School\technologies\Dummy Data\Users.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -251,7 +253,7 @@ GO
 GO
 
 
- BULK INSERT Categories FROM 'D:\IPD24-Language School\Dummy Data\Categories.csv'
+ BULK INSERT Categories FROM 'D:\IPD24-Language School\technologies\Dummy Data\Categories.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -260,7 +262,7 @@ GO
 );
 GO
 
- BULK INSERT Courses FROM 'D:\IPD24-Language School\Dummy Data\Courses.csv'
+ BULK INSERT Courses FROM 'D:\IPD24-Language School\technologies\Dummy Data\Courses.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -269,7 +271,7 @@ GO
 );
 GO
 
- BULK INSERT Payments FROM 'D:\IPD24-Language School\Dummy Data\Payments.csv'
+ BULK INSERT Payments FROM 'D:\IPD24-Language School\technologies\Dummy Data\Payments.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -278,7 +280,7 @@ GO
 );
 GO
 
- BULK INSERT Registers FROM 'D:\IPD24-Language School\Dummy Data\Registers.csv'
+ BULK INSERT Registers FROM 'D:\IPD24-Language School\technologies\Dummy Data\Registers.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -287,7 +289,7 @@ GO
 );
 GO
 
- BULK INSERT Evaluations FROM 'D:\IPD24-Language School\Dummy Data\Evaluations.csv'
+ BULK INSERT Evaluations FROM 'D:\IPD24-Language School\technologies\Dummy Data\Evaluations.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
