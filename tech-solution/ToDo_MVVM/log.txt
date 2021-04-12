@@ -1,0 +1,2 @@
+No connection string named 'ToDoDBContext' could be found in the application config file.
+No Entity Framework provider found for the ADO.NET provider with invariant name 'System.Data.SqlClient'. Make sure the provider is registered in the 'entityFramework' section of the application config file. See http://go.microsoft.com/fwlink/?LinkId=260882 for more information.
