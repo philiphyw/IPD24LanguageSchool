@@ -11,21 +11,24 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - break down use case and update trello
 - finish the first version of database after review with customer
 - generate dummy data
-2. To do until next Scrum:
 - use database first to generate entities on library
-- study string localization (https://stackoverflow.com/questions/1142802/how-to-use-localization-in-c-sharp)
+2. To do until next Scrum:
+- study string localization (https://stackoverflow.com/questions/1142802/how-to-use-localization-in-c-sharp) not only for UI, but also for contents/data.
+- 
 3. Need assistance / figure things out
 
 2021/04/12 Ying
-1. Done / not done since last scrum:
-- Deside the final version of Main Page UI
-- Update the UI design
-2. To do until next Scrum:
-- study the responsive design and add animation function
-- XAML Animation  and responsive Design in Main page
-3. Need assistance / figure things out
-- study string localization
-- study MPV structure
+1.Done/not done since update trello
+-MateralDesign In XAML Toolkit
+-Finish Responsive and Animation Page
+-Finish main layout of FirstPage UI
+2.To do until next Scrum:
+-Set up Database in Local Computer
+-Test Database
+-Try Login page
+3.Need assistance / figure things out
+-Wecam capture in C#
+-Try "student to do"
 
 2021/04/12 Edwin
 1. Done / not done since last scrum:
