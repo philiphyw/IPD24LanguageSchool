@@ -6,7 +6,7 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 3. Where do I need assistance? What do I need to figure out?
 ==========================================================
 
-2021/04/10 PH
+2021/04/12 PH
 1. Done / not done since last scrum:
 - break down use case and update trello
 - finish the first version of database after review with customer
@@ -16,7 +16,7 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - study string localization (https://stackoverflow.com/questions/1142802/how-to-use-localization-in-c-sharp)
 3. Need assistance / figure things out
 
-2021/04/10 Ying
+2021/04/12 Ying
 1. Done / not done since last scrum:
 - Deside the final version of Main Page UI
 - Update the UI design
@@ -27,15 +27,14 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - study string localization
 - study MPV structure
 
-2021/04/10 Edwin
+2021/04/12 Edwin
 1. Done / not done since last scrum:
 - break down use case and update trello
-- create tables in sql server database
 - string localization (.cs & .xaml)
-- threading
 - databinding for MVP layers/library
-2. To do until next Scrum:
 - setup code structure
+2. To do until next Scrum:
+- threading
 3. Need assistance / figure things out
 
 ----------------------------------------------------------
