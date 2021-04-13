@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button_add_content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="button_delete_content" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="button_update_content" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="combo_delegated" xml:space="preserve">
+    <value>Delegated</value>
+  </data>
+  <data name="combo_done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="combo_pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="label_difficulty_content" xml:space="preserve">
+    <value>Difficulty</value>
+  </data>
+  <data name="label_duedate_content" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="label_id_content" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="label_status_content" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="label_task_content" xml:space="preserve">
+    <value>Task</value>
+  </data>
   <data name="windows_title" xml:space="preserve">
-    <value>YZY School</value>
+    <value>To Do</value>
   </data>
 </root>

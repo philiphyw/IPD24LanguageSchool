@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button_add_content" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="button_delete_content" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="button_update_content" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="combo_delegated" xml:space="preserve">
+    <value>安排</value>
+  </data>
+  <data name="combo_done" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="combo_pending" xml:space="preserve">
+    <value>待做</value>
+  </data>
+  <data name="label_difficulty_content" xml:space="preserve">
+    <value>困难度</value>
+  </data>
+  <data name="label_duedate_content" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="label_id_content" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="label_status_content" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="label_task_content" xml:space="preserve">
+    <value>任务</value>
+  </data>
   <data name="windows_title" xml:space="preserve">
-    <value>YZY School</value>
+    <value>备忘录</value>
   </data>
 </root>
