@@ -59,5 +59,14 @@ namespace YZYStudentGUI.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to YZY School.
+        /// </summary>
+        public static string windows_title {
+            get {
+                return ResourceManager.GetString("windows_title", resourceCulture);
+            }
+        }
     }
 }
