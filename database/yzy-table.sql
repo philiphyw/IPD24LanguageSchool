@@ -14,7 +14,7 @@ USE master;
  ON PRIMARY
  (
 	NAME = 'YZY_PRM',
-	FILENAME = 'D:\IPD24-Language School Backup\Database\YZY_PRM.MDF',
+	FILENAME = 'D:\IPD24-Language School\database\YZY_PRM.MDF',
 	SIZE = 1MB,
 	MAXSIZE = 64MB,
 	FILEGROWTH = 1MB
@@ -22,14 +22,14 @@ USE master;
 FILEGROUP Aragon_FG
   ( NAME = 'YZY_FG_DAT1',
     FILENAME =
-       'D:\IPD24-Language School Backup\Database\YZY_FG_1.NDF',
+       'D:\IPD24-Language School\database\YZY_FG_1.NDF',
     SIZE = 1MB,
     MAXSIZE=64MB,
     FILEGROWTH=1MB
 	),
   ( NAME = 'YZYn_FG_DAT2',
     FILENAME =
-       'D:\IPD24-Language School Backup\Database\YZY_FG_2.NDF',
+       'D:\IPD24-Language School\database\YZY_FG_2.NDF',
     SIZE = 1MB,
     MAXSIZE=64MB,
     FILEGROWTH=1MB
@@ -37,7 +37,7 @@ FILEGROUP Aragon_FG
  LOG ON
  (
 	NAME = 'Aragon_LOG',
-	FILENAME = 'D:\IPD24-Language School Backup\Database\YZY_LOG.LDF',
+	FILENAME = 'D:\IPD24-Language School\database\YZY_LOG.LDF',
 	SIZE = 1MB,
 	MAXSIZE = 16MB,
 	FILEGROWTH = 1MB
