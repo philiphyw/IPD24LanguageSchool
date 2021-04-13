@@ -11,9 +11,9 @@ namespace YZYLibrary
     {
         private YZYDbContext ctx;
         public ObservableCollection<Payment> Payments { get; set; }
-        public PaymentCommand DeleteCommand { get; set; }
-        public PaymentCommand UpdateCommand { get; set; }
-        public PaymentCommand AddCommand { get; set; }
+        public YZYCommand DeleteCommand { get; set; }
+        public YZYCommand UpdateCommand { get; set; }
+        public YZYCommand AddCommand { get; set; }
 
         public PaymentViewModel()
         {
@@ -29,9 +29,9 @@ namespace YZYLibrary
             }
             Payments = new ObservableCollection<Payment>();
             LoadPayments();
-            DeleteCommand = new PaymentCommand(this.OnDelete, this.CanExecute);
-            UpdateCommand = new PaymentCommand(this.OnUpdate, this.CanExecute);
-            AddCommand = new PaymentCommand(this.OnAdd, this.CanExecute);
+            DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
+            UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
+            AddCommand = new YZYCommand(this.OnAdd, this.CanExecute);
         }
 
         private void LoadPayments()
