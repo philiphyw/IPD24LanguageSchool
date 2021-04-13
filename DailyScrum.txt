@@ -29,6 +29,18 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - threading
 3. Need assistance / figure things out
 
+
+2021/04/13 Ying
+1.Done/not done since update trello
+-MVVM code registeration page
+-Courses page UI design
+2.To do until next Scrum:
+-use Wecam
+-group discuss to make sure the project layout
+-UserControl
+3.Need assistance / figure things out
+- detailed MVVM
+- detailed UserControl
 ----------------------------------------------------------
 
 2021/04/12 PH
