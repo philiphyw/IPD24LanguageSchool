@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace YZYLibrary
 {
-    class PaymentCommand : ICommand
+    public class YZYCommand : ICommand
     {
         Action _TargetExecuteMethod;
         Func<bool> _TargetCanExecuteMethod;
 
-        public PaymentCommand(Action executeMethod)
+        public YZYCommand(Action executeMethod)
         {
             _TargetExecuteMethod = executeMethod;
             _TargetCanExecuteMethod = null;
         }
 
-        public PaymentCommand(Action executeMethod, Func<bool> canExecuteMethod)
+        public YZYCommand(Action executeMethod, Func<bool> canExecuteMethod)
         {
             _TargetExecuteMethod = executeMethod;
             _TargetCanExecuteMethod = canExecuteMethod;
