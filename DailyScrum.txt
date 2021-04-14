@@ -17,6 +17,19 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 3. Need assistance / figure things out
 
 
+2021/04/14 Ying
+1.Done/not done since update trello
+-SignIn page UI
+-UserControl
+-Admin GUI main layout
+2.To do until next Scrum:
+-Validate data in registeration View
+-banding SignIn page
+
+3.Need assistance / figure things out
+- Webcam
+
+
 
 ----------------------------------------------------------
 2021/04/13 PH
