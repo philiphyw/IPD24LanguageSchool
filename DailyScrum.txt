@@ -6,6 +6,19 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 3. Where do I need assistance? What do I need to figure out?
 ==========================================================
 
+2021/04/14 PH
+1. Done / not done since last scrum:
+- Final adjustment for database
+- Regenerated entities
+2. To do until next Scrum:
+- Apply new validation method to entities
+- Bind data for course management UI.
+
+3. Need assistance / figure things out
+
+
+
+----------------------------------------------------------
 2021/04/13 PH
 1. Done / not done since last scrum:
 - Built dicitonary for string localization
