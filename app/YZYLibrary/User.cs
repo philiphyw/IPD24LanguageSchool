@@ -33,7 +33,7 @@ namespace YZYLibrary
             this.Payments = new HashSet<Payment>();
             this.Registers = new HashSet<Register>();
         }
-
+        /*
         [NotMapped]
         // added for where a full name is needed
         public string FullName
@@ -43,7 +43,7 @@ namespace YZYLibrary
                 return FName + " " + LName;
             }
         }
-    
+        */
         public int UserID { get; set; }
         public UserRoleEnum UserRole { get; set; }
         public string FName { get; set; }
