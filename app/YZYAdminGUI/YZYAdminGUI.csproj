@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SearchCourseViewModel.cs" />
     <Compile Include="UCSearchingCourse.xaml.cs">
       <DependentUpon>UCSearchingCourse.xaml</DependentUpon>
     </Compile>
@@ -136,6 +137,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YZYLibrary\YZYLibrary.csproj">
+      <Project>{7965fda8-70c9-461f-acc1-6f77025cb1d9}</Project>
+      <Name>YZYLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

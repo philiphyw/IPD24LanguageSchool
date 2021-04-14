@@ -4,18 +4,19 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YZYLibrary;
 
-namespace YZYLibrary
+namespace YZYAdminGUI
 {
-    class PaymentViewModel
+    class SearchCourseViewModel
     {
         private YZYDbContext ctx;
-        public ObservableCollection<Payment> Payments { get; set; }
+        public ObservableCollection<Course> Courses { get; set; }
         public YZYCommand DeleteCommand { get; set; }
         public YZYCommand UpdateCommand { get; set; }
         public YZYCommand AddCommand { get; set; }
 
-        public PaymentViewModel()
+        public SearchCourseViewModel()
         {
             Log.setLogOnFile();
             try
@@ -27,23 +28,22 @@ namespace YZYLibrary
                 Log.WriteLine(ex.Message);
                 Environment.Exit(1);
             }
-            Payments = new ObservableCollection<Payment>();
-            LoadPayments();
+            Courses = new ObservableCollection<Course>();
+            LoadCourse();
             DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
             UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
             AddCommand = new YZYCommand(this.OnAdd, this.CanExecute);
         }
 
-        private void LoadPayments()
+        private void LoadCourse()
         {
             try
             {
-
-                var PaymentList = ctx.Payments.ToList();
-                Payments.Clear();
-                foreach (var item in PaymentList)
+                var CourseList = ctx.Courses.ToList();
+                Courses.Clear();
+                foreach (var item in CourseList)
                 {
-                    Payments.Add(item);
+                    Courses.Add(item);
                 }
             }
             catch (SystemException ex)
@@ -52,28 +52,28 @@ namespace YZYLibrary
             }
         }
 
-        private Payment _selectedPayment;
-        public Payment SelectedPayment
+        private Course _selectedCourse;
+        public Course SelectedCourse
         {
             get
             {
-                return _selectedPayment;
+                return _selectedCourse;
             }
             set
             {
-                _selectedPayment = value;
+                _selectedCourse = value;
             }
         }
 
         public void OnDelete()
         {
-            ctx.Payments.Remove(SelectedPayment);
+            ctx.Courses.Remove(SelectedCourse);
             ctx.SaveChanges();
-            LoadPayments();
+            LoadCourse();
         }
         public bool CanExecute()
         {
-            if (SelectedPayment != null)
+            if (SelectedCourse != null)
             {
                 return true;
             }
@@ -83,16 +83,19 @@ namespace YZYLibrary
         {
             try
             {
-                var item = (from r in ctx.Payments where r.PaymentID == SelectedPayment.PaymentID select r).FirstOrDefault<Payment>();
+                var item = (from r in ctx.Courses where r.CourseID == SelectedCourse.CourseID select r).FirstOrDefault<Course>();
                 if (item != null)
                 {
-                    item.UserID = SelectedPayment.UserID;
-                    item.PayAccount = SelectedPayment.PayAccount;
-                    item.Amount = SelectedPayment.Amount;
-                    item.PayDate = SelectedPayment.PayDate;
+                    item.CourseID = SelectedCourse.CourseID;
+                    item.StartDate = SelectedCourse.StartDate;
+                    item.EndDate = SelectedCourse.EndDate;
+                    item.CourseDesc = SelectedCourse.CourseDesc;
+                    item.Tuition = SelectedCourse.Tuition;
+                    item.UserID = SelectedCourse.UserID;
+                    item.CategoryID = SelectedCourse.CategoryID;
                 }
                 ctx.SaveChanges();
-                LoadPayments();
+                LoadCourse();
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))
@@ -106,9 +109,9 @@ namespace YZYLibrary
             {
                 //WORKROUND: wdit a selected item to Add
                 //TOFIX: add item cannot reuse controller bound with list view
-                ctx.Payments.Add(SelectedPayment);
+                ctx.Courses.Add(SelectedCourse);
                 ctx.SaveChanges();
-                LoadPayments();
+                LoadCourse();
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))
