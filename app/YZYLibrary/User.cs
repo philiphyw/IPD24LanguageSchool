@@ -11,9 +11,20 @@ namespace YZYLibrary
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class User
+    using System.ComponentModel;
+
+    public partial class User : INotifyPropertyChanged
     {
+        // below method to implement INotifyPropertyChanged interface
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
