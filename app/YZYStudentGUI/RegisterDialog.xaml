@@ -35,14 +35,28 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
-                    <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Password, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Confirm Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
-                    <TextBox Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="First Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=FName, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="Middle Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=MName, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="Last Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LName, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="SIN" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserSIN, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="7" Grid.Column="0" materialDesign:HintAssist.Hint="Gender" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=Gender, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="First Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=FName, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewFirstName"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Middle Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=MName, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Last Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LName, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Password, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="Confirm Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+                    <TextBox Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="SIN" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserSIN, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="Gender" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=Gender, Mode=TwoWay}"/>
                     <TextBox Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Street No." Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetNo, Mode=TwoWay}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Street Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetName, Mode=TwoWay}"/>
                     <TextBox Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="City" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=City, Mode=TwoWay}"/>

@@ -14,7 +14,7 @@ USE master;
  ON PRIMARY
  (
 	NAME = 'YZY_PRM',
-	FILENAME = 'C:\IPD\yzy\database\YZY_PRM.MDF',
+	FILENAME = 'E:\Ying\JohnAbbott\IPD-24\Database\YZY_PRM.MDF',
 	SIZE = 1MB,
 	MAXSIZE = 64MB,
 	FILEGROWTH = 1MB
@@ -22,14 +22,14 @@ USE master;
 FILEGROUP YZY_FG
   ( NAME = 'YZY_FG_DAT1',
     FILENAME =
-       'C:\IPD\yzy\database\YZY_FG_1.NDF',
+       'E:\Ying\JohnAbbott\IPD-24\Database\YZY_FG_1.NDF',
     SIZE = 1MB,
     MAXSIZE=64MB,
     FILEGROWTH=1MB
 	),
   ( NAME = 'YZYn_FG_DAT2',
     FILENAME =
-       'C:\IPD\yzy\database\YZY_FG_2.NDF',
+       'E:\Ying\JohnAbbott\IPD-24\Database\YZY_FG_2.NDF',
     SIZE = 1MB,
     MAXSIZE=64MB,
     FILEGROWTH=1MB
@@ -37,7 +37,7 @@ FILEGROUP YZY_FG
  LOG ON
  (
 	NAME = 'YZY_LOG',
-	FILENAME = 'C:\IPD\yzy\database\YZY_LOG.LDF',
+	FILENAME = 'E:\Ying\JohnAbbott\IPD-24\Database\YZY_LOG.LDF',
 	SIZE = 1MB,
 	MAXSIZE = 16MB,
 	FILEGROWTH = 1MB
