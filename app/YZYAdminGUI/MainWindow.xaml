@@ -5,9 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YZYAdminGUI"
         xmlns:p="clr-namespace:YZYAdminGUI.Properties"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.windows_title}" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        Title="{x:Static p:Resources.windows_title}" Height="600" Width="950" ResizeMode="CanResize">
+    <DockPanel Margin="-5">
+        <Grid DockPanel.Dock="Top" Height="66" Background="#ffbf80" Margin="0,-5,0,0">
+            <TextBlock Text="WELCOME" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_close_Click">
+                <materialDesign:PackIcon Kind="Power"/>
+            </Button>
+        </Grid>
+        <Grid DockPanel.Dock="Top" >
+            <dragablz:TabablzControl>
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+                <TabItem Header="Courses" DataContext="{Binding welcomviewmodel}">
+                    <local:UCWelcom/>
+                    <!--<TextBlock Text="Hello World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                </TabItem>
+                <TabItem Header="Teachers">
+                    <TextBlock Text="Amazing designs!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </TabItem>
+                <TabItem Header="Assignments">
+                    <TextBlock Text="Ask for any question!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </TabItem>
+                <TabItem Header="Statistic">
+
+                    <TextBlock Text="Ask for any question!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <!--<TabItem.Header>
+                        <materialDesign:PackIcon Kind="Heart" Foreground="white"/>
+                    </TabItem.Header>
+                    <TextBlock Text="github.com/Abel13/TabMenu2" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                </TabItem>
+                <TabItem Header="My profile" HorizontalAlignment="right">
+                    <TextBlock Text="profile" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </TabItem>
+
+            </dragablz:TabablzControl>
+        </Grid>
+    </DockPanel>
 </Window>

@@ -16,24 +16,15 @@ using System.Windows.Shapes;
 namespace YZYAdminGUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UCWelcom.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UCWelcom : UserControl
     {
-        public MainWindow()
+        public UCWelcom()
         {
             InitializeComponent();
         }
 
-        private void Button_close_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
-        }
     }
 }
