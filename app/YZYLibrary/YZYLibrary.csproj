@@ -84,6 +84,7 @@
       <DependentUpon>YZYDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
+    <Compile Include="YZYCommand.cs" />
     <Compile Include="YZYDbContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
