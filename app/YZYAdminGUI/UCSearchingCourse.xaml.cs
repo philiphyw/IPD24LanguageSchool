@@ -20,9 +20,13 @@ namespace YZYAdminGUI
     /// </summary>
     public partial class UCSearchingCourse : UserControl
     {
+        private SearchCourseViewModel _vmSearchCourse;
         public UCSearchingCourse()
         {
             InitializeComponent();
+
+            _vmSearchCourse = new SearchCourseViewModel();
+            this.DataContext = _vmSearchCourse;
         }
     }
 }

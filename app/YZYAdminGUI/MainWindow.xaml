@@ -35,8 +35,8 @@
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController/>
                 </dragablz:TabablzControl.InterTabController>
-                <TabItem Header="Courses" DataContext="{Binding welcomviewmodel}">
-                    <local:UCWelcom/>
+                <TabItem Header="{x:Static p:Resources.content_course_tab}"> <!-- DataContext="{Binding SearchCourseViewModel}" -->
+                    <local:UCSearchingCourse Margin="10" HorizontalAlignment="Center"/>
                     <!--<TextBlock Text="Hello World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                 </TabItem>
                 <TabItem Header="Teachers">

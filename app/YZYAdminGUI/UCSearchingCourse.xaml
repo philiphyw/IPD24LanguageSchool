@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:p="clr-namespace:YZYAdminGUI.Properties"
              xmlns:local="clr-namespace:YZYAdminGUI"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -11,7 +12,7 @@
         <DockPanel>
             <StatusBar DockPanel.Dock="Bottom" Height="50">
                 <StatusBarItem Height="41">
-                    <TextBlock Text = "Number of Courses: " />
+                    <TextBlock Text = "{x:Static p:Resources.content_course_number}" />
                 </StatusBarItem>
                 <StatusBarItem Width="607">
                     <TextBlock Text=""/>
@@ -28,21 +29,19 @@
                 <materialDesign:ColorZone
                 CornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderBrush="#ffbf80" BorderThickness="1" Margin="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ScrollViewer Grid.Row="0" Grid.Column="0" Margin="8" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <ListView>
+                        <ListView x:Name="lvCourse" ItemsSource="{Binding Path=Courses}" SelectedItem="{Binding Path=SelectedCourse}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="CourseID" />
-                                    <GridViewColumn Header="Category" />
-                                    <GridViewColumn Header="CourseName" />
-                                    <GridViewColumn Header="Teacher Name" />
-                                    <GridViewColumn Header="Start Date" />
-                                    <GridViewColumn Header="End Date" />
+                                    <GridViewColumn Header="{x:Static p:Resources.column_category}" DisplayMemberBinding="{Binding Category.CateDesc}" />
+                                    <GridViewColumn Header="{x:Static p:Resources.column_teacher_name}" DisplayMemberBinding="{Binding User.FullName}" />
+                                    <GridViewColumn Header="{x:Static p:Resources.column_start_date}" DisplayMemberBinding="{Binding StartDate}" />
+                                    <GridViewColumn Header="{x:Static p:Resources.column_end_date}" DisplayMemberBinding="{Binding EndDate}" />
                                 </GridView>
                             </ListView.View>
                             <ListView.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Edit" Name="miEdit" />
-                                    <MenuItem Header="Delete" Name="miDelete"/>
+                                    <MenuItem Header="{x:Static p:Resources.content_edit}" Name="miEdit" />
+                                    <MenuItem Header="{x:Static p:Resources.content_delete}" Name="miDelete"/>
                                 </ContextMenu>
                             </ListView.ContextMenu>
                         </ListView>
@@ -61,20 +60,20 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="CourseId:" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="{x:Static p:Resources.column_course_id}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
                     <Label Grid.Row="0" Grid.Column="1" Content="--" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="Category" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Category" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True" Width="200"  materialDesign:TextFieldAssist.HasClearButton="True"/>
-                    <Label Grid.Row="2" Grid.Column="0" Content="Course Name:" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="{x:Static p:Resources.column_category}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_category}" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True" Width="200"  materialDesign:TextFieldAssist.HasClearButton="True"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="{x:Static p:Resources.column_course_name}" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
                     <TextBox Grid.Row="2" Grid.Column="1"  Width="200" Height="30"/>
-                    <Label Grid.Row="3" Grid.Column="0" Content="Teacher Name:" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
-                    <ComboBox Grid.Row="3" Grid.Column="1" materialDesign:HintAssist.Hint="Choose Teacher Name" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True" Width="200"  materialDesign:TextFieldAssist.HasClearButton="True"/>
-                    <Label Grid.Row="4" Grid.Column="0" Content="Start Date:" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <DatePicker Grid.Row="4" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                    <Label Grid.Row="5" Grid.Column="0" Content="End Date:" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <DatePicker Grid.Row="5" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <Label Grid.Row="3" Grid.Column="0" Content="{x:Static p:Resources.column_teacher_name}" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
+                    <ComboBox Grid.Row="3" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_teacher_name}" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True" Width="200"  materialDesign:TextFieldAssist.HasClearButton="True"/>
+                    <Label Grid.Row="4" Grid.Column="0" Content="{x:Static p:Resources.column_start_date}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                    <DatePicker Grid.Row="4" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_start_date}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <Label Grid.Row="5" Grid.Column="0" Content="{x:Static p:Resources.column_end_date}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                    <DatePicker Grid.Row="5" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_end_date}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                     <StackPanel  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
                         <materialDesign:PopupBox
                       Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
@@ -90,23 +89,23 @@
                             </materialDesign:PopupBox.ToggleCheckedContent>
                             <StackPanel>
                                 <Button
-                              ToolTip="Add"
-                              Content="Add" Foreground="#FF2196F3"/>
+                              ToolTip="{x:Static p:Resources.content_add}"
+                              Content="{x:Static p:Resources.content_add}" Foreground="#FF2196F3"/>
                                 <Button
-                              ToolTip="Update"
-                              Content="Update" Foreground="#FF2196F3"/>
+                              ToolTip="{x:Static p:Resources.content_update}"
+                              Content="{x:Static p:Resources.content_update}" Foreground="#FF2196F3"/>
                                 <!--<Button
                               ToolTip="Update"
                               IsEnabled="False"
                               Content="2" />-->
                                 <Button
-                              ToolTip="Reset"
-                              Content="Reset" Foreground="#FF2196F3"/>
+                              ToolTip="{x:Static p:Resources.content_reset}"
+                              Content="{x:Static p:Resources.content_reset}" Foreground="#FF2196F3"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
                         <Button
                           Style="{StaticResource MaterialDesignFloatingActionButton}"
-                          ToolTip="MaterialDesignFloatingActionButton"  Margin="10,10,20,10" Width="40" Height="40">
+                          ToolTip="{x:Static p:Resources.content_delete}"  Margin="10,10,20,10" Width="40" Height="40">
                             <materialDesign:PackIcon Kind="Delete"/>
                         </Button>
                     </StackPanel>

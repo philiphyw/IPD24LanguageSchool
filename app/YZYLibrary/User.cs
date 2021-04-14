@@ -12,6 +12,7 @@ namespace YZYLibrary
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class User : INotifyPropertyChanged
     {
@@ -31,6 +32,16 @@ namespace YZYLibrary
             this.Courses = new HashSet<Course>();
             this.Payments = new HashSet<Payment>();
             this.Registers = new HashSet<Register>();
+        }
+
+        [NotMapped]
+        // added for where a full name is needed
+        public string FullName
+        {
+            get
+            {
+                return FName + " " + LName;
+            }
         }
     
         public int UserID { get; set; }

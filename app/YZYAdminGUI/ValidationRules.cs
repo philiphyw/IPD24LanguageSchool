@@ -14,7 +14,7 @@ namespace YZYAdminGUI
         {
             if (value <= 0)
             {
-                throw new InvalidParameterException(Properties.Resources.invalid_course_id + $": {value}");
+                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
             }
         }
     }

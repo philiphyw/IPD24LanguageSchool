@@ -117,95 +117,131 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="add_button_content" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="amount" xml:space="preserve">
+  <data name="column_amount" xml:space="preserve">
     <value>Amount</value>
   </data>
-  <data name="category" xml:space="preserve">
+  <data name="column_category" xml:space="preserve">
     <value>Category</value>
   </data>
-  <data name="category_description" xml:space="preserve">
+  <data name="column_category_description" xml:space="preserve">
     <value>Category Description</value>
   </data>
-  <data name="category_id" xml:space="preserve">
+  <data name="column_category_id" xml:space="preserve">
     <value>Category ID</value>
   </data>
-  <data name="cell" xml:space="preserve">
+  <data name="column_cell" xml:space="preserve">
     <value>Cell</value>
   </data>
-  <data name="city" xml:space="preserve">
+  <data name="column_city" xml:space="preserve">
     <value>City</value>
   </data>
-  <data name="delete_button_content" xml:space="preserve">
-    <value>Delete</value>
+  <data name="column_course_id" xml:space="preserve">
+    <value>Course ID</value>
   </data>
-  <data name="difficulty" xml:space="preserve">
+  <data name="column_course_name" xml:space="preserve">
+    <value>Course Name</value>
+  </data>
+  <data name="column_difficulty" xml:space="preserve">
     <value>Difficulty</value>
   </data>
-  <data name="first_name" xml:space="preserve">
+  <data name="column_end_date" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="column_first_name" xml:space="preserve">
     <value>First Name</value>
   </data>
-  <data name="gender" xml:space="preserve">
+  <data name="column_gender" xml:space="preserve">
     <value>Gender</value>
   </data>
-  <data name="invalid_course_id" xml:space="preserve">
-    <value>invalid input of course ID</value>
-  </data>
-  <data name="last_name" xml:space="preserve">
+  <data name="column_last_name" xml:space="preserve">
     <value>Last Name</value>
   </data>
-  <data name="middle_name" xml:space="preserve">
+  <data name="column_middle_name" xml:space="preserve">
     <value>Middle Name</value>
   </data>
-  <data name="password" xml:space="preserve">
+  <data name="column_password" xml:space="preserve">
     <value>Password</value>
   </data>
-  <data name="payment_id" xml:space="preserve">
+  <data name="column_payment_id" xml:space="preserve">
     <value>Payment ID</value>
   </data>
-  <data name="pay_account" xml:space="preserve">
+  <data name="column_pay_account" xml:space="preserve">
     <value>Pay Account</value>
   </data>
-  <data name="pay_date" xml:space="preserve">
+  <data name="column_pay_date" xml:space="preserve">
     <value>Pay Date</value>
   </data>
-  <data name="phone" xml:space="preserve">
+  <data name="column_phone" xml:space="preserve">
     <value>Phone</value>
   </data>
-  <data name="photo" xml:space="preserve">
+  <data name="column_photo" xml:space="preserve">
     <value>Photo</value>
   </data>
-  <data name="postal_code" xml:space="preserve">
+  <data name="column_postal_code" xml:space="preserve">
     <value>Postal Code</value>
   </data>
-  <data name="province" xml:space="preserve">
+  <data name="column_province" xml:space="preserve">
     <value>Province</value>
   </data>
-  <data name="search_button_content" xml:space="preserve">
-    <value>Search</value>
+  <data name="column_start_date" xml:space="preserve">
+    <value>Start Date</value>
   </data>
-  <data name="street_name" xml:space="preserve">
+  <data name="column_street_name" xml:space="preserve">
     <value>Street Name</value>
   </data>
-  <data name="street_no" xml:space="preserve">
+  <data name="column_street_no" xml:space="preserve">
     <value>Street Number</value>
   </data>
-  <data name="update_button_content" xml:space="preserve">
-    <value>Update</value>
+  <data name="column_teacher_name" xml:space="preserve">
+    <value>Teacher Name</value>
   </data>
-  <data name="user_id" xml:space="preserve">
+  <data name="column_user_id" xml:space="preserve">
     <value>User ID</value>
   </data>
-  <data name="user_name" xml:space="preserve">
+  <data name="column_user_name" xml:space="preserve">
     <value>User Name</value>
   </data>
-  <data name="user_role" xml:space="preserve">
+  <data name="column_user_role" xml:space="preserve">
     <value>User Role</value>
   </data>
-  <data name="user_sin" xml:space="preserve">
+  <data name="column_user_sin" xml:space="preserve">
     <value>SIN</value>
+  </data>
+  <data name="content_add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="content_add_button" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="content_course_number" xml:space="preserve">
+    <value>Number of Courses</value>
+  </data>
+  <data name="content_course_tab" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="content_delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="content_delete_button" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="content_edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="content_reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="content_search_button" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="content_update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="content_update_button" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="error_course_id" xml:space="preserve">
+    <value>invalid input of course ID</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome</value>
