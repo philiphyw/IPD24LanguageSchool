@@ -150,6 +150,9 @@
   <data name="gender" xml:space="preserve">
     <value>Gender</value>
   </data>
+  <data name="invalid_course_id" xml:space="preserve">
+    <value>invalid input of course ID</value>
+  </data>
   <data name="last_name" xml:space="preserve">
     <value>Last Name</value>
   </data>

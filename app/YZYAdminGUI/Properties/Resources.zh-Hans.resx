@@ -150,6 +150,9 @@
   <data name="gender" xml:space="preserve">
     <value>性别</value>
   </data>
+  <data name="invalid_course_id" xml:space="preserve">
+    <value>课程编码输入错误</value>
+  </data>
   <data name="last_name" xml:space="preserve">
     <value>姓</value>
   </data>
