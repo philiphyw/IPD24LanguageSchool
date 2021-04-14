@@ -82,6 +82,7 @@
     <Compile Include="UCWelcom.xaml.cs">
       <DependentUpon>UCWelcom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValidationRules.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,6 +126,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh-Hans.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

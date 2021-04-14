@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using YZYLibrary;
 
 namespace YZYAdminGUI
 {
-    class SearchCourseViewModel
+    class SearchCourseViewModel : IDataErrorInfo
     {
         private YZYDbContext ctx;
         public ObservableCollection<Course> Courses { get; set; }
@@ -103,15 +104,67 @@ namespace YZYAdminGUI
                 Log.WriteLine(ex.Message);
             }
         }
+
+        private Course _newCourse;
+        public Course NewCourse
+        {
+            get
+            {
+                return _newCourse;
+            }
+        }
+
+        private string[] _errorMessage = new string[7] { string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty };
+        public string Error
+        {
+            get { return null; }
+        }
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case "CourseID":
+                        if (!String.IsNullOrEmpty(_errorMessage[0]))
+                            return _errorMessage[0];
+                        break;
+                }
+                return string.Empty;
+            }
+        }
+        public int CourseID
+        {
+            get
+            {
+                return _newCourse.CourseID;
+            }
+            set
+            {
+                if (_newCourse == null)
+                {
+                    _newCourse = new Course();
+                }
+                try
+                {
+                    ValidationRules.checkCourseID(value);
+                    _newCourse.CourseID = value;
+                    _errorMessage[0] = string.Empty;
+                }
+                catch (InvalidParameterException ex)
+                {
+                    _errorMessage[0] = ex.Message;
+                }
+            }
+        }
         public void OnAdd()
         {
             try
             {
-                //WORKROUND: wdit a selected item to Add
-                //TOFIX: add item cannot reuse controller bound with list view
-                ctx.Courses.Add(SelectedCourse);
+                ctx.Courses.Add(NewCourse);
                 ctx.SaveChanges();
                 LoadCourse();
+                CourseID = 0;
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))

@@ -117,6 +117,99 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="add_button_content" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="amount" xml:space="preserve">
+    <value>数额</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="category_description" xml:space="preserve">
+    <value>类别说明</value>
+  </data>
+  <data name="category_id" xml:space="preserve">
+    <value>类别代码</value>
+  </data>
+  <data name="cell" xml:space="preserve">
+    <value>手机</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>城市</value>
+  </data>
+  <data name="delete_button_content" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="difficulty" xml:space="preserve">
+    <value>难度</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>名字</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>性别</value>
+  </data>
+  <data name="invalid_course_id" xml:space="preserve">
+    <value>课程编码输入错误</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="middle_name" xml:space="preserve">
+    <value>中间名</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="payment_id" xml:space="preserve">
+    <value>付款代码</value>
+  </data>
+  <data name="pay_account" xml:space="preserve">
+    <value>付款账户</value>
+  </data>
+  <data name="pay_date" xml:space="preserve">
+    <value>付款日期</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="photo" xml:space="preserve">
+    <value>照片</value>
+  </data>
+  <data name="postal_code" xml:space="preserve">
+    <value>邮编</value>
+  </data>
+  <data name="province" xml:space="preserve">
+    <value>省份</value>
+  </data>
+  <data name="search_button_content" xml:space="preserve">
+    <value>查找</value>
+  </data>
+  <data name="street_name" xml:space="preserve">
+    <value>街名</value>
+  </data>
+  <data name="street_no" xml:space="preserve">
+    <value>门牌号</value>
+  </data>
+  <data name="update_button_content" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="user_id" xml:space="preserve">
+    <value>用户代码</value>
+  </data>
+  <data name="user_name" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="user_role" xml:space="preserve">
+    <value>用户类型</value>
+  </data>
+  <data name="user_sin" xml:space="preserve">
+    <value>社保号</value>
+  </data>
+  <data name="welcome" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
   <data name="windows_title" xml:space="preserve">
     <value>易学语言学校</value>
   </data>
