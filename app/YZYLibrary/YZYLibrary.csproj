@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E0AA5510-FC49-41F8-97A9-5B772F305CF4}</ProjectGuid>
+    <ProjectGuid>{7965FDA8-70C9-461F-ACC1-6F77025CB1D9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YZYLibrary</RootNamespace>
@@ -44,6 +44,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,15 +54,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Course.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Evaluation.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenderEnum.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterStatusEnum.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRoleEnum.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="YZYCommand.cs" />
-    <Compile Include="YZYModel.cs" />
-    <Compile Include="YZYViewModel.cs" />
+    <Compile Include="YZYDbContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YZYDbContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YZYDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YZYDbContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YZYDbContext.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="YZYDbContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>YZYDbContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="YZYDbContext.edmx.diagram">
+      <DependentUpon>YZYDbContext.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="YZYDbContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YZYDbContext.edmx</DependentUpon>
+      <LastGenOutput>YZYDbContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="YZYDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YZYDbContext.edmx</DependentUpon>
+      <LastGenOutput>YZYDbContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

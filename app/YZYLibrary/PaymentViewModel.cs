@@ -1,46 +1,49 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace YZYLibrary
 {
-    public class YZYCourseViewModel
+    class PaymentViewModel
     {
-        private YZYDBContext database;
-        public ObservableCollection<Course> Courses { get; set; }
+        private YZYDbContext ctx;
+        public ObservableCollection<Payment> Payments { get; set; }
         public YZYCommand DeleteCommand { get; set; }
         public YZYCommand UpdateCommand { get; set; }
         public YZYCommand AddCommand { get; set; }
 
-        public YZYCourseViewModel()
+        public PaymentViewModel()
         {
             Log.setLogOnFile();
             try
             {
-                database = new YZYDBContext();
+                ctx = new YZYDbContext();
             }
             catch (SystemException ex)
             {
                 Log.WriteLine(ex.Message);
                 Environment.Exit(1);
             }
-            Courses = new ObservableCollection<Course>();
-            LoadCourses();
+            Payments = new ObservableCollection<Payment>();
+            LoadPayments();
             DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
             UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
             AddCommand = new YZYCommand(this.OnAdd, this.CanExecute);
         }
 
-        private void LoadCourses()
+        private void LoadPayments()
         {
             try
             {
 
-                var courseList = database.Course.ToList();
-                Courses.Clear();
-                foreach (var item in courseList)
+                var PaymentList = ctx.Payments.ToList();
+                Payments.Clear();
+                foreach (var item in PaymentList)
                 {
-                    Courses.Add(item);
+                    Payments.Add(item);
                 }
             }
             catch (SystemException ex)
@@ -49,28 +52,28 @@ namespace YZYLibrary
             }
         }
 
-        private Course _selectedCourse;
-        public Course SelectedCourse
+        private Payment _selectedPayment;
+        public Payment SelectedPayment
         {
             get
             {
-                return _selectedCourse;
+                return _selectedPayment;
             }
             set
             {
-                _selectedCourse = value;
+                _selectedPayment = value;
             }
         }
 
         public void OnDelete()
         {
-            database.Course.Remove(SelectedCourse);
-            database.SaveChanges();
-            LoadCourses();
+            ctx.Payments.Remove(SelectedPayment);
+            ctx.SaveChanges();
+            LoadPayments();
         }
         public bool CanExecute()
         {
-            if (SelectedCourse != null)
+            if (SelectedPayment != null)
             {
                 return true;
             }
@@ -80,13 +83,16 @@ namespace YZYLibrary
         {
             try
             {
-                var item = (from td in database.Course where td.ID == SelectedCourse.ID select td).FirstOrDefault<Course>();
+                var item = (from r in ctx.Payments where r.PaymentID == SelectedPayment.PaymentID select r).FirstOrDefault<Payment>();
                 if (item != null)
                 {
-                    //TODO: item update
+                    item.UserID = SelectedPayment.UserID;
+                    item.PayAccount = SelectedPayment.PayAccount;
+                    item.Amount = SelectedPayment.Amount;
+                    item.PayDate = SelectedPayment.PayDate;
                 }
-                database.SaveChanges();
-                LoadCourses();
+                ctx.SaveChanges();
+                LoadPayments();
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))
@@ -100,9 +106,9 @@ namespace YZYLibrary
             {
                 //WORKROUND: wdit a selected item to Add
                 //TOFIX: add item cannot reuse controller bound with list view
-                database.Course.Add(SelectedCourse);
-                database.SaveChanges();
-                LoadCourses();
+                ctx.Payments.Add(SelectedPayment);
+                ctx.SaveChanges();
+                LoadPayments();
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))
@@ -110,5 +116,6 @@ namespace YZYLibrary
                 Log.WriteLine(ex.Message);
             }
         }
+
     }
 }
