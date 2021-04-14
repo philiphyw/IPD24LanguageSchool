@@ -4,40 +4,40 @@
 USE master;
  GO
 
- DROP DATABASE IF EXISTS YZY;
+ DROP DATABASE IF EXISTS yzyschool;
  GO
 
 
 
 
- CREATE DATABASE YZY
+ CREATE DATABASE yzyschool
  ON PRIMARY
  (
 	NAME = 'YZY_PRM',
-	FILENAME = 'D:\IPD24-Language School\database\YZY_PRM.MDF',
+	FILENAME = 'C:\IPD\yzy\database\YZY_PRM.MDF',
 	SIZE = 1MB,
 	MAXSIZE = 64MB,
 	FILEGROWTH = 1MB
  ),
-FILEGROUP Aragon_FG
+FILEGROUP YZY_FG
   ( NAME = 'YZY_FG_DAT1',
     FILENAME =
-       'D:\IPD24-Language School\database\YZY_FG_1.NDF',
+       'C:\IPD\yzy\database\YZY_FG_1.NDF',
     SIZE = 1MB,
     MAXSIZE=64MB,
     FILEGROWTH=1MB
 	),
   ( NAME = 'YZYn_FG_DAT2',
     FILENAME =
-       'D:\IPD24-Language School\database\YZY_FG_2.NDF',
+       'C:\IPD\yzy\database\YZY_FG_2.NDF',
     SIZE = 1MB,
     MAXSIZE=64MB,
     FILEGROWTH=1MB
 	)
  LOG ON
  (
-	NAME = 'Aragon_LOG',
-	FILENAME = 'D:\IPD24-Language School\database\YZY_LOG.LDF',
+	NAME = 'YZY_LOG',
+	FILENAME = 'C:\IPD\yzy\database\YZY_LOG.LDF',
 	SIZE = 1MB,
 	MAXSIZE = 16MB,
 	FILEGROWTH = 1MB
@@ -52,7 +52,7 @@ FILEGROUP Aragon_FG
 /* ***** CREATE TABELS  ***** */
 
 
-USE YZY;
+USE yzyschool;
 GO
 
 /* ***** 1. create the Users table  ***** */
@@ -178,13 +178,10 @@ CONSTRAINT PK_EVALUATIONS PRIMARY KEY (EvaluationID)
 
 );
 
-
+GO
 
 
 /* ***** CREATE DATA INTEGRITY ***** */
-USE YZY;
-GO
-
 
 /* ***** 2. alter the Payments table  ***** */
 
@@ -240,10 +237,8 @@ GO
 
 
 /* ***** IMPORT DUMMY DATA FROM CSV FILES ***** */
- USE YZY;
- GO
 
- BULK INSERT Users FROM 'D:\IPD24-Language School\technologies\Dummy Data\Users.csv'
+ BULK INSERT Users FROM 'C:\IPD\yzy\technologies\Dummy Data\Users.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -253,7 +248,7 @@ GO
 GO
 
 
- BULK INSERT Categories FROM 'D:\IPD24-Language School\technologies\Dummy Data\Categories.csv'
+ BULK INSERT Categories FROM 'C:\IPD\yzy\technologies\Dummy Data\Categories.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -262,7 +257,7 @@ GO
 );
 GO
 
- BULK INSERT Courses FROM 'D:\IPD24-Language School\technologies\Dummy Data\Courses.csv'
+ BULK INSERT Courses FROM 'C:\IPD\yzy\technologies\Dummy Data\Courses.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -271,7 +266,7 @@ GO
 );
 GO
 
- BULK INSERT Payments FROM 'D:\IPD24-Language School\technologies\Dummy Data\Payments.csv'
+ BULK INSERT Payments FROM 'C:\IPD\yzy\technologies\Dummy Data\Payments.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -280,7 +275,7 @@ GO
 );
 GO
 
- BULK INSERT Registers FROM 'D:\IPD24-Language School\technologies\Dummy Data\Registers.csv'
+ BULK INSERT Registers FROM 'C:\IPD\yzy\technologies\Dummy Data\Registers.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
@@ -289,7 +284,7 @@ GO
 );
 GO
 
- BULK INSERT Evaluations FROM 'D:\IPD24-Language School\technologies\Dummy Data\Evaluations.csv'
+ BULK INSERT Evaluations FROM 'C:\IPD\yzy\technologies\Dummy Data\Evaluations.csv'
    WITH (
       FIELDTERMINATOR = ',',
       ROWTERMINATOR = '\n',
