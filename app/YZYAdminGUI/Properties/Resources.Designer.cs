@@ -340,6 +340,24 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of Accounts.
+        /// </summary>
+        public static string content_account_number {
+            get {
+                return ResourceManager.GetString("content_account_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account.
+        /// </summary>
+        public static string content_account_tab {
+            get {
+                return ResourceManager.GetString("content_account_tab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string content_add {
@@ -403,6 +421,15 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My Profile.
+        /// </summary>
+        public static string content_profile_tab {
+            get {
+                return ResourceManager.GetString("content_profile_tab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
         public static string content_reset {
@@ -417,6 +444,24 @@ namespace YZYAdminGUI.Properties {
         public static string content_search_button {
             get {
                 return ResourceManager.GetString("content_search_button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Course Details.
+        /// </summary>
+        public static string content_teacher_course_tab {
+            get {
+                return ResourceManager.GetString("content_teacher_course_tab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Course Summary.
+        /// </summary>
+        public static string content_teacher_courses_tab {
+            get {
+                return ResourceManager.GetString("content_teacher_courses_tab", resourceCulture);
             }
         }
         
@@ -444,6 +489,15 @@ namespace YZYAdminGUI.Properties {
         public static string error_course_id {
             get {
                 return ResourceManager.GetString("error_course_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to invalid input of full name.
+        /// </summary>
+        public static string error_full_name {
+            get {
+                return ResourceManager.GetString("error_full_name", resourceCulture);
             }
         }
         

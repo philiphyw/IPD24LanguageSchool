@@ -210,6 +210,12 @@
   <data name="column_user_sin" xml:space="preserve">
     <value>SIN</value>
   </data>
+  <data name="content_account_number" xml:space="preserve">
+    <value>Number of Accounts</value>
+  </data>
+  <data name="content_account_tab" xml:space="preserve">
+    <value>Account</value>
+  </data>
   <data name="content_add" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -231,11 +237,20 @@
   <data name="content_edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="content_profile_tab" xml:space="preserve">
+    <value>My Profile</value>
+  </data>
   <data name="content_reset" xml:space="preserve">
     <value>Reset</value>
   </data>
   <data name="content_search_button" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="content_teacher_courses_tab" xml:space="preserve">
+    <value>Course Summary</value>
+  </data>
+  <data name="content_teacher_course_tab" xml:space="preserve">
+    <value>Course Details</value>
   </data>
   <data name="content_update" xml:space="preserve">
     <value>Update</value>
@@ -245,6 +260,9 @@
   </data>
   <data name="error_course_id" xml:space="preserve">
     <value>invalid input of course ID</value>
+  </data>
+  <data name="error_full_name" xml:space="preserve">
+    <value>invalid input of full name</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome</value>

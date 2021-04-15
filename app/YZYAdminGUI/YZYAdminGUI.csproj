@@ -75,7 +75,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SearchAccountViewModel.cs" />
     <Compile Include="SearchCourseViewModel.cs" />
+    <Compile Include="UCSearchingAccount.xaml.cs">
+      <DependentUpon>UCSearchingAccount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCSearchingCourse.xaml.cs">
       <DependentUpon>UCSearchingCourse.xaml</DependentUpon>
     </Compile>
@@ -95,6 +99,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UCSearchingAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCSearchingCourse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

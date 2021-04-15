@@ -22,6 +22,7 @@ namespace YZYLibrary
             this.Payments = new HashSet<Payment>();
             this.Registers = new HashSet<Register>();
         }
+
         private string _fullname = string.Empty;
         [NotMapped]
         public string FullName
@@ -36,7 +37,24 @@ namespace YZYLibrary
             }
             set
             {
-                _fullname = value;
+                string[] names = value.Split(' ');
+                if(names!=null && names.Length > 1)
+                {
+                    _fullname = value;
+                    switch (names.Length)
+                    {
+                        case 2:
+                            FName = names[0];
+                            LName = names[1];
+                            break;
+                        case 3:
+                            FName = names[0];
+                            MName = names[1];
+                            LName = names[2];
+                            break;
+                    }
+                }
+                
             }
         }
         public int UserID { get; set; }

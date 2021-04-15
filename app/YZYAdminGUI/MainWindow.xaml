@@ -39,13 +39,13 @@
                     <local:UCSearchingCourse Margin="10" HorizontalAlignment="Center"/>
                     <!--<TextBlock Text="Hello World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                 </TabItem>
-                <TabItem Header="Teachers">
-                    <TextBlock Text="Amazing designs!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TabItem Header="{x:Static p:Resources.content_account_tab}">
+                    <local:UCSearchingAccount Margin="10" HorizontalAlignment="Center"/>
                 </TabItem>
-                <TabItem Header="Assignments">
+                <TabItem Header="{x:Static p:Resources.content_teacher_courses_tab}">
                     <TextBlock Text="Ask for any question!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </TabItem>
-                <TabItem Header="Statistic">
+                <TabItem Header="{x:Static p:Resources.content_teacher_course_tab}">
 
                     <TextBlock Text="Ask for any question!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <!--<TabItem.Header>
@@ -53,8 +53,8 @@
                     </TabItem.Header>
                     <TextBlock Text="github.com/Abel13/TabMenu2" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                 </TabItem>
-                <TabItem Header="My profile" HorizontalAlignment="right">
-                    <TextBlock Text="profile" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TabItem Header="{x:Static p:Resources.content_profile_tab}" HorizontalAlignment="right">
+                    <TextBlock Text="Under Construction" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </TabItem>
 
             </dragablz:TabablzControl>

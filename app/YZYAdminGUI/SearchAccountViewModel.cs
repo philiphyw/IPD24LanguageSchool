@@ -9,7 +9,7 @@ using YZYLibrary;
 
 namespace YZYAdminGUI
 {
-    class SearchCourseViewModel : IDataErrorInfo
+    class SearchAccountViewModel : IDataErrorInfo
     {
         private YZYDbContext ctx;
         public ObservableCollection<Course> Courses { get; set; }
@@ -19,7 +19,7 @@ namespace YZYAdminGUI
         public YZYCommand UpdateCommand { get; set; }
         public YZYCommand AddCommand { get; set; }
 
-        public SearchCourseViewModel()
+        public SearchAccountViewModel()
         {
             Log.setLogOnFile();
             try

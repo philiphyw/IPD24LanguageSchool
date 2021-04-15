@@ -213,6 +213,12 @@
   <data name="column_user_sin" xml:space="preserve">
     <value>社保号</value>
   </data>
+  <data name="content_account_number" xml:space="preserve">
+    <value>用户数量</value>
+  </data>
+  <data name="content_account_tab" xml:space="preserve">
+    <value>用户管理</value>
+  </data>
   <data name="content_add" xml:space="preserve">
     <value>增加</value>
   </data>
@@ -234,8 +240,17 @@
   <data name="content_edit" xml:space="preserve">
     <value>编辑</value>
   </data>
+  <data name="content_profile_tab" xml:space="preserve">
+    <value>账户信息</value>
+  </data>
   <data name="content_reset" xml:space="preserve">
     <value>重置</value>
+  </data>
+  <data name="content_teacher_courses_tab" xml:space="preserve">
+    <value>课程概览</value>
+  </data>
+  <data name="content_teacher_course_tab" xml:space="preserve">
+    <value>课程管理</value>
   </data>
   <data name="content_update" xml:space="preserve">
     <value>更新</value>
@@ -245,6 +260,9 @@
   </data>
   <data name="error_course_id" xml:space="preserve">
     <value>课程编码输入错误</value>
+  </data>
+  <data name="error_full_name" xml:space="preserve">
+    <value>姓名输入错误</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>欢迎</value>
