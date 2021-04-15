@@ -198,6 +198,9 @@
   <data name="column_teacher_name" xml:space="preserve">
     <value>教师名</value>
   </data>
+  <data name="column_tuition" xml:space="preserve">
+    <value>费用</value>
+  </data>
   <data name="column_user_id" xml:space="preserve">
     <value>用户代码</value>
   </data>

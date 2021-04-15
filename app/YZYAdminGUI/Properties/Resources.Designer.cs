@@ -295,6 +295,15 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tuition.
+        /// </summary>
+        public static string column_tuition {
+            get {
+                return ResourceManager.GetString("column_tuition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User ID.
         /// </summary>
         public static string column_user_id {

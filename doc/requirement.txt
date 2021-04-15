@@ -1,13 +1,17 @@
 Admin GUI
 ============
 before login(dialog) 
-- welcome page/tab (bar chart/pie chatrt on statistics, like student number, course number, ...)
+HY- welcome page/tab (bar chart/pie chatrt on statistics, like student number, course number, ...)
 
-after login
-- welcome tab
-- course management (searching, add, delete, update) 
+after login (tab shall be enabled/disabled according to the role of admin or teacher)
+HY- welcome tab
+- course management (searching, delete, update) -> admin only
 - user account management (adus: admin, teacher, student) -> for admin only
-- teacher tab (details of course: student, assignment, grade) -> for teacher only
+	- tab to search, update, delete
+	- dialog to add
+- teacher tabs (details of course: student, assignment, grade) -> for teacher only
+	- tab1 search her/his own courses
+	- tab2 manage details of one course selected from tab1 (assignment, grade, student)
 
 Student GUI
 ============
@@ -18,4 +22,4 @@ HY- welcome page with searching course button and searching teacher button (or m
 after login (usercontrol)
 - student acccount profile (text box, display, update)
 HY- register management (register, cancel)
-PH - payment management (text blocks to show amount of to pay, paid, function to pay remaining)
+PH- payment management (text blocks to show amount of to pay, paid, function to pay remaining)

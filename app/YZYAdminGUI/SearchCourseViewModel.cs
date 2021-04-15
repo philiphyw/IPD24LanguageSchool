@@ -13,6 +13,8 @@ namespace YZYAdminGUI
     {
         private YZYDbContext ctx;
         public ObservableCollection<Course> Courses { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<string> CategoryStrings { get; set; }
         public YZYCommand DeleteCommand { get; set; }
         public YZYCommand UpdateCommand { get; set; }
         public YZYCommand AddCommand { get; set; }
@@ -30,6 +32,8 @@ namespace YZYAdminGUI
                 Environment.Exit(1);
             }
             Courses = new ObservableCollection<Course>();
+            Categories = new List<Category>();
+            CategoryStrings = new List<string>();
             LoadCourse();
             DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
             UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
@@ -45,6 +49,13 @@ namespace YZYAdminGUI
                 foreach (var item in CourseList)
                 {
                     Courses.Add(item);
+                }
+                Categories = ctx.Categories.ToList();
+                CategoryStrings.Clear();
+                CategoryStrings.Add("Please select");
+                foreach (var item in Categories)
+                {
+                    CategoryStrings.Add(item.CateDesc);
                 }
             }
             catch (SystemException ex)
@@ -163,7 +174,7 @@ namespace YZYAdminGUI
         {
             try
             {
-                ctx.Courses.Add(NewCourse);
+                ctx.Courses.Add(SelectedCourse);
                 ctx.SaveChanges();
                 LoadCourse();
                 CourseID = 0;

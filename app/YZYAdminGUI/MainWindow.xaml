@@ -25,7 +25,7 @@
                 Text="Zh" Foreground="white"/>
   
             </StackPanel>
-            <TextBlock Text="WELCOME" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
+            <TextBlock Text="{x:Static p:Resources.welcome}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
             <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_close_Click">
                 <materialDesign:PackIcon Kind="Power"/>
             </Button>
