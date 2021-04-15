@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYUnitTest", "YZYUnitTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYStudentGUI", "YZYStudentGUI\YZYStudentGUI.csproj", "{E6FDCF5B-6C84-448D-AA0D-BEBE1E48434B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYLibrary", "YZYLibrary\YZYLibrary.csproj", "{7965FDA8-70C9-461F-ACC1-6F77025CB1D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYLibrary", "YZYLibrary\YZYLibrary.csproj", "{05D7154E-38FB-4227-B10A-3CA2C3335A59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{E6FDCF5B-6C84-448D-AA0D-BEBE1E48434B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6FDCF5B-6C84-448D-AA0D-BEBE1E48434B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6FDCF5B-6C84-448D-AA0D-BEBE1E48434B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7965FDA8-70C9-461F-ACC1-6F77025CB1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7965FDA8-70C9-461F-ACC1-6F77025CB1D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7965FDA8-70C9-461F-ACC1-6F77025CB1D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7965FDA8-70C9-461F-ACC1-6F77025CB1D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D7154E-38FB-4227-B10A-3CA2C3335A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D7154E-38FB-4227-B10A-3CA2C3335A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D7154E-38FB-4227-B10A-3CA2C3335A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D7154E-38FB-4227-B10A-3CA2C3335A59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

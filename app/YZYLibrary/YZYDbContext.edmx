@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="YZYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="YZYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -197,8 +197,7 @@
             <End Role="Registers" EntitySet="Registers" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YZYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -256,7 +255,7 @@
           <Property Name="RegisterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="CourseID" Type="Int32" Nullable="false" />
-          <Property Name="RegisterStatus" Type="YZYModel.RegisterStatusEnum" Nullable="false" />
+          <Property Name="RegisterStatus" Type="Int32" Nullable="false" />
           <Property Name="PaymentID" Type="Int32" />
           <NavigationProperty Name="Cours" Relationship="Self.FK_REGISTERS_COURSES" FromRole="Registers" ToRole="Courses" />
           <NavigationProperty Name="Evaluations" Relationship="Self.FK_EVALUATIONS_REGISTERS" FromRole="Registers" ToRole="Evaluations" />
@@ -268,12 +267,12 @@
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserRole" Type="YZYModel.UserRoleEnum" Nullable="false" />
+          <Property Name="UserRole" Type="Int32" Nullable="false" />
           <Property Name="FName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="LName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserSIN" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Gender" Type="YZYModel.GenderEnum" Nullable="false" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
           <Property Name="StreetNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
@@ -408,22 +407,6 @@
             <End Role="Registers" EntitySet="Registers" />
           </AssociationSet>
         </EntityContainer>
-        <EnumType Name="UserRoleEnum">
-          <Member Name="Admin" Value="1" />
-          <Member Name="Teacher" Value="2" />
-          <Member Name="Student" Value="3" />
-        </EnumType>
-        <EnumType Name="GenderEnum">
-          <Member Name="Female" Value="1" />
-          <Member Name="Male" Value="2" />
-          <Member Name="Other" Value="3" />
-          <Member Name="Unknown" Value="4" />
-        </EnumType>
-        <EnumType Name="RegisterStatusEnum">
-          <Member Name="Pending" Value="1" />
-          <Member Name="Done" Value="2" />
-          <Member Name="Cancelled" Value="3" />
-        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

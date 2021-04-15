@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="52aec226b20d4d2eaa00173180495682" Name="Diagram1">
+      <Diagram DiagramId="e7ef7eb00114405e8310108a8ab35819" Name="Diagram1">
         <EntityTypeShape EntityType="YZYModel.Category" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="YZYModel.Course" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="YZYModel.Evaluation" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />

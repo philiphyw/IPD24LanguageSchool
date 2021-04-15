@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7965FDA8-70C9-461F-ACC1-6F77025CB1D9}</ProjectGuid>
+    <ProjectGuid>{05D7154E-38FB-4227-B10A-3CA2C3335A59}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>YZYLibrary</RootNamespace>
@@ -63,9 +63,6 @@
     <Compile Include="Evaluation.cs">
       <DependentUpon>YZYDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="GenderEnum.cs">
-      <DependentUpon>YZYDbContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Payment.cs">
       <DependentUpon>YZYDbContext.tt</DependentUpon>
     </Compile>
@@ -73,13 +70,7 @@
     <Compile Include="Register.cs">
       <DependentUpon>YZYDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="RegisterStatusEnum.cs">
-      <DependentUpon>YZYDbContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>YZYDbContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UserRoleEnum.cs">
       <DependentUpon>YZYDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />

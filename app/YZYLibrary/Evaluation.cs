@@ -11,19 +11,9 @@ namespace YZYLibrary
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
-    public partial class Evaluation : INotifyPropertyChanged
+    
+    public partial class Evaluation
     {
-        // below method to implement INotifyPropertyChanged interface
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
         public int EvaluationID { get; set; }
         public int RegisterID { get; set; }
         public System.DateTime EvDate { get; set; }

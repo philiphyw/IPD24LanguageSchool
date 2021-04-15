@@ -142,12 +142,6 @@
   <ItemGroup>
     <Resource Include="Assets\logo.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\YZYLibrary\YZYLibrary.csproj">
-      <Project>{7965fda8-70c9-461f-acc1-6f77025cb1d9}</Project>
-      <Name>YZYLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

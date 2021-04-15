@@ -11,19 +11,9 @@ namespace YZYLibrary
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
-    public partial class Register : INotifyPropertyChanged
+    
+    public partial class Register
     {
-        // below method to implement INotifyPropertyChanged interface
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Register()
         {
@@ -33,7 +23,7 @@ namespace YZYLibrary
         public int RegisterID { get; set; }
         public int UserID { get; set; }
         public int CourseID { get; set; }
-        public RegisterStatusEnum RegisterStatus { get; set; }
+        public int RegisterStatus { get; set; }
         public Nullable<int> PaymentID { get; set; }
     
         public virtual Course Cours { get; set; }

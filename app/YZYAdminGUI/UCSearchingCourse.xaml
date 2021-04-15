@@ -35,8 +35,8 @@
                                     <GridViewColumn Header="{x:Static p:Resources.column_category}" DisplayMemberBinding="{Binding Category.CateDesc}" />
                                     <GridViewColumn Header="{x:Static p:Resources.column_course_name}" DisplayMemberBinding="{Binding CourseDesc}" />
                                     <GridViewColumn Header="{x:Static p:Resources.column_teacher_name}" DisplayMemberBinding="{Binding User.FullName}" />
-                                    <GridViewColumn Header="{x:Static p:Resources.column_start_date}" DisplayMemberBinding="{Binding StartDate}" />
-                                    <GridViewColumn Header="{x:Static p:Resources.column_end_date}" DisplayMemberBinding="{Binding EndDate}" />
+                                    <GridViewColumn Header="{x:Static p:Resources.column_start_date}" DisplayMemberBinding="{Binding StartDate, StringFormat=d}" />
+                                    <GridViewColumn Header="{x:Static p:Resources.column_end_date}" DisplayMemberBinding="{Binding EndDate, StringFormat=d}" />
                                 </GridView>
                             </ListView.View>
                             <ListView.ContextMenu>
@@ -64,17 +64,17 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="{x:Static p:Resources.column_course_id}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=SelectedItem.CourseID, ElementName=lvCourse}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=SelectedCourse.CourseID}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="{x:Static p:Resources.column_category}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
                     <ComboBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_category}" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True" Width="200"  materialDesign:TextFieldAssist.HasClearButton="True"/>
                     <Label Grid.Row="2" Grid.Column="0" Content="{x:Static p:Resources.column_course_name}" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
-                    <TextBox Grid.Row="2" Grid.Column="1"  Width="200" Height="30" Text="{Binding Path=SelectedItem.CourseDesc, ElementName=lvCourse}" />
+                    <TextBox Grid.Row="2" Grid.Column="1"  Width="200" Height="30" Text="{Binding Path=SelectedCourse.CourseDesc}" />
                     <Label Grid.Row="3" Grid.Column="0" Content="{x:Static p:Resources.column_teacher_name}" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
-                    <TextBox Grid.Row="3" Grid.Column="1"  Width="200" Height="30" Text="{Binding Path=SelectedItem.User.FullName, ElementName=lvCourse}" />
+                    <TextBox Grid.Row="3" Grid.Column="1"  Width="200" Height="30" Text="{Binding Path=SelectedCourse.User.FullName}" />
                     <Label Grid.Row="4" Grid.Column="0" Content="{x:Static p:Resources.column_start_date}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <DatePicker Grid.Row="4" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_start_date}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding Path=SelectedItem.StartDate, ElementName=lvCourse}"/>
+                    <DatePicker Grid.Row="4" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_start_date}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding Path=SelectedCourse.StartDate}"/>
                     <Label Grid.Row="5" Grid.Column="0" Content="{x:Static p:Resources.column_end_date}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <DatePicker Grid.Row="5" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_end_date}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding Path=SelectedItem.EndDate, ElementName=lvCourse}"/>
+                    <DatePicker Grid.Row="5" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_end_date}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding Path=SelectedCourse.EndDate}"/>
                     <StackPanel  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
                         <materialDesign:PopupBox
                       Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
@@ -106,7 +106,8 @@
                         </materialDesign:PopupBox>
                         <Button
                           Style="{StaticResource MaterialDesignFloatingActionButton}"
-                          ToolTip="{x:Static p:Resources.content_delete}"  Margin="10,10,20,10" Width="40" Height="40">
+                          ToolTip="{x:Static p:Resources.content_delete}"  Margin="10,10,20,10" Width="40" Height="40" 
+                            Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding SelectedItem, ElementName=lvCourse}">
                             <materialDesign:PackIcon Kind="Delete"/>
                         </Button>
                     </StackPanel>

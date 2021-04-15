@@ -11,21 +11,9 @@ namespace YZYLibrary
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
-    public partial class Category : INotifyPropertyChanged
+    
+    public partial class Category
     {
-        // below method to implement INotifyPropertyChanged interface
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
-
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {
@@ -38,11 +26,5 @@ namespace YZYLibrary
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Courses { get; set; }
-
-
-        public override string ToString()
-        {
-            return $"{CateDesc} - Level{Difficulty}";
-        }
     }
 }

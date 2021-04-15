@@ -143,7 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YZYLibrary\YZYLibrary.csproj">
-      <Project>{7965fda8-70c9-461f-acc1-6f77025cb1d9}</Project>
+      <Project>{05d7154e-38fb-4227-b10a-3ca2c3335a59}</Project>
       <Name>YZYLibrary</Name>
     </ProjectReference>
   </ItemGroup>

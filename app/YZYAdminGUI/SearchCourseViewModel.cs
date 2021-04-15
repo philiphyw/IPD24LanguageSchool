@@ -68,6 +68,8 @@ namespace YZYAdminGUI
 
         public void OnDelete()
         {
+            //FIXME: if not selected
+            //FIXME: failed if continously delete 2nd time
             ctx.Courses.Remove(SelectedCourse);
             ctx.SaveChanges();
             LoadCourse();

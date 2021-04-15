@@ -11,21 +11,10 @@ namespace YZYLibrary
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class User : INotifyPropertyChanged
+    public partial class User
     {
-        // below method to implement INotifyPropertyChanged interface
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
-        }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
@@ -33,24 +22,30 @@ namespace YZYLibrary
             this.Payments = new HashSet<Payment>();
             this.Registers = new HashSet<Register>();
         }
-        /*
+        private string _fullname = string.Empty;
         [NotMapped]
-        // added for where a full name is needed
         public string FullName
         {
             get
             {
-                return FName + " " + LName;
+                if (_fullname == string.Empty)
+                {
+                    _fullname = FName + " " + LName;
+                }
+                return _fullname;
+            }
+            set
+            {
+                _fullname = value;
             }
         }
-        */
         public int UserID { get; set; }
-        public UserRoleEnum UserRole { get; set; }
+        public int UserRole { get; set; }
         public string FName { get; set; }
         public string MName { get; set; }
         public string LName { get; set; }
         public string UserSIN { get; set; }
-        public GenderEnum Gender { get; set; }
+        public int Gender { get; set; }
         public string StreetNo { get; set; }
         public string StreetName { get; set; }
         public string City { get; set; }
