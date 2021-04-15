@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="column_address" xml:space="preserve">
+    <value>地址</value>
+  </data>
   <data name="column_amount" xml:space="preserve">
     <value>数额</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="column_difficulty" xml:space="preserve">
     <value>难度</value>
+  </data>
+  <data name="column_email" xml:space="preserve">
+    <value>电邮</value>
   </data>
   <data name="column_end_date" xml:space="preserve">
     <value>结束日期</value>
@@ -205,10 +211,10 @@
     <value>用户代码</value>
   </data>
   <data name="column_user_name" xml:space="preserve">
-    <value>用户名</value>
+    <value>姓名</value>
   </data>
   <data name="column_user_role" xml:space="preserve">
-    <value>用户类型</value>
+    <value>角色</value>
   </data>
   <data name="column_user_sin" xml:space="preserve">
     <value>社保号</value>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,8 @@ namespace YZYAdminGUI
     class SearchAccountViewModel : IDataErrorInfo
     {
         private YZYDbContext ctx;
-        public ObservableCollection<Course> Courses { get; set; }
-        public List<Category> Categories { get; set; }
-        public List<string> CategoryStrings { get; set; }
+        public ObservableCollection<User> Users { get; set; }
+
         public YZYCommand DeleteCommand { get; set; }
         public YZYCommand UpdateCommand { get; set; }
         public YZYCommand AddCommand { get; set; }
@@ -31,9 +31,7 @@ namespace YZYAdminGUI
                 Log.WriteLine(ex.Message);
                 Environment.Exit(1);
             }
-            Courses = new ObservableCollection<Course>();
-            Categories = new List<Category>();
-            CategoryStrings = new List<string>();
+            Users = new ObservableCollection<User>();
             LoadCourse();
             DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
             UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
@@ -44,18 +42,11 @@ namespace YZYAdminGUI
         {
             try
             {
-                var CourseList = ctx.Courses.ToList();
-                Courses.Clear();
-                foreach (var item in CourseList)
+                var UserList = ctx.Users.ToList();
+                Users.Clear();
+                foreach (var item in UserList)
                 {
-                    Courses.Add(item);
-                }
-                Categories = ctx.Categories.ToList();
-                CategoryStrings.Clear();
-                CategoryStrings.Add("Please select");
-                foreach (var item in Categories)
-                {
-                    CategoryStrings.Add(item.CateDesc);
+                    Users.Add(item);
                 }
             }
             catch (SystemException ex)
@@ -64,16 +55,16 @@ namespace YZYAdminGUI
             }
         }
 
-        private Course _selectedCourse;
-        public Course SelectedCourse
+        private User _selectedUser;
+        public User SelectedUser
         {
             get
             {
-                return _selectedCourse;
+                return _selectedUser;
             }
             set
             {
-                _selectedCourse = value;
+                _selectedUser = value;
             }
         }
 
@@ -81,13 +72,21 @@ namespace YZYAdminGUI
         {
             //FIXME: if not selected
             //FIXME: failed if continously delete 2nd time
-            ctx.Courses.Remove(SelectedCourse);
-            ctx.SaveChanges();
+            try
+            {
+                ctx.Users.Remove(SelectedUser);
+                ctx.SaveChanges();
+            }
+            catch(DbUpdateException ex)
+            {
+                Log.WriteLine(SelectedUser.UserID+"[DELETE]: "+ex.Message);
+            }
+
             LoadCourse();
         }
         public bool CanExecute()
         {
-            if (SelectedCourse != null)
+            if (SelectedUser != null)
             {
                 return true;
             }
@@ -97,16 +96,11 @@ namespace YZYAdminGUI
         {
             try
             {
-                var item = (from r in ctx.Courses where r.CourseID == SelectedCourse.CourseID select r).FirstOrDefault<Course>();
+                var item = (from r in ctx.Users where r.UserID == SelectedUser.UserID select r).FirstOrDefault<User>();
                 if (item != null)
                 {
-                    item.CourseID = SelectedCourse.CourseID;
-                    item.StartDate = SelectedCourse.StartDate;
-                    item.EndDate = SelectedCourse.EndDate;
-                    item.CourseDesc = SelectedCourse.CourseDesc;
-                    item.Tuition = SelectedCourse.Tuition;
-                    item.UserID = SelectedCourse.UserID;//FIXME: if name is changed, we have to check related userid in database
-                    item.CategoryID = SelectedCourse.CategoryID;
+                    //FIXME: dialog needed?
+                    //item = SelectedUser;
                 }
                 ctx.SaveChanges();
                 LoadCourse();
@@ -176,7 +170,8 @@ namespace YZYAdminGUI
             try
             {
                 //FIXME: check related userid in database
-                ctx.Courses.Add(SelectedCourse);
+                // dialog needed?
+                ctx.Users.Add(SelectedUser);
                 ctx.SaveChanges();
                 LoadCourse();
                 //CourseID = 0;

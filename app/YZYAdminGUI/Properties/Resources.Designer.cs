@@ -61,6 +61,15 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string column_address {
+            get {
+                return ResourceManager.GetString("column_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount.
         /// </summary>
         public static string column_amount {
@@ -138,6 +147,15 @@ namespace YZYAdminGUI.Properties {
         public static string column_difficulty {
             get {
                 return ResourceManager.GetString("column_difficulty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eMail.
+        /// </summary>
+        public static string column_email {
+            get {
+                return ResourceManager.GetString("column_email", resourceCulture);
             }
         }
         

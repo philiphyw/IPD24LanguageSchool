@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="column_address" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="column_amount" xml:space="preserve">
     <value>Amount</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="column_difficulty" xml:space="preserve">
     <value>Difficulty</value>
+  </data>
+  <data name="column_email" xml:space="preserve">
+    <value>eMail</value>
   </data>
   <data name="column_end_date" xml:space="preserve">
     <value>End Date</value>

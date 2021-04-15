@@ -267,12 +267,12 @@
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserRole" Type="Int32" Nullable="false" />
+          <Property Name="UserRole" Type="YZYModel.UserRoleEnum" Nullable="false" />
           <Property Name="FName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="LName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserSIN" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="YZYModel.GenderEnum" Nullable="false" />
           <Property Name="StreetNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
@@ -407,6 +407,17 @@
             <End Role="Registers" EntitySet="Registers" />
           </AssociationSet>
         </EntityContainer>
+        <EnumType Name="UserRoleEnum">
+          <Member Name="Admin" Value="1" />
+          <Member Name="Teacher" Value="2" />
+          <Member Name="Student" Value="3" />
+        </EnumType>
+        <EnumType Name="GenderEnum">
+          <Member Name="Female" Value="1" />
+          <Member Name="Male" Value="2" />
+          <Member Name="Other" Value="3" />
+          <Member Name="Unknown" Value="4" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

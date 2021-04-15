@@ -38,7 +38,7 @@ namespace YZYLibrary
             set
             {
                 string[] names = value.Split(' ');
-                if(names!=null && names.Length > 1)
+                if (names != null && names.Length > 1)
                 {
                     _fullname = value;
                     switch (names.Length)
@@ -54,16 +54,25 @@ namespace YZYLibrary
                             break;
                     }
                 }
-                
+
             }
         }
+
+        public string Address
+        {
+            get
+            {
+                return StreetNo + " " + StreetName + ", " + City + ", " + Province + ", " + PostalCode;
+            }
+        }
+
         public int UserID { get; set; }
-        public int UserRole { get; set; }
+        public UserRoleEnum UserRole { get; set; }
         public string FName { get; set; }
         public string MName { get; set; }
         public string LName { get; set; }
         public string UserSIN { get; set; }
-        public int Gender { get; set; }
+        public GenderEnum Gender { get; set; }
         public string StreetNo { get; set; }
         public string StreetName { get; set; }
         public string City { get; set; }

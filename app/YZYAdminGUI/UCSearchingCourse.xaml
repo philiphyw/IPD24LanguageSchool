@@ -35,9 +35,11 @@
                                     <GridViewColumn Header="{x:Static p:Resources.column_category}" DisplayMemberBinding="{Binding Category.CateDesc}" />
                                     <GridViewColumn Header="{x:Static p:Resources.column_course_name}" DisplayMemberBinding="{Binding CourseDesc}" />
                                     <GridViewColumn Header="{x:Static p:Resources.column_teacher_name}" DisplayMemberBinding="{Binding User.FullName}" />
+                                    <!--
                                     <GridViewColumn Header="{x:Static p:Resources.column_tuition}" DisplayMemberBinding="{Binding Tuition, StringFormat=N2}" />
                                     <GridViewColumn Header="{x:Static p:Resources.column_start_date}" DisplayMemberBinding="{Binding StartDate, StringFormat=d}" />
                                     <GridViewColumn Header="{x:Static p:Resources.column_end_date}" DisplayMemberBinding="{Binding EndDate, StringFormat=d}" />
+                                    -->
                                 </GridView>
                             </ListView.View>
                             <ListView.ContextMenu>
