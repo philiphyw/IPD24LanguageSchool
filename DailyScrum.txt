@@ -30,6 +30,16 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - course details for teacher signed in
 3. Need assistance / figure things out
 
+2021/04/15 Ying
+1.Done/not done since update trello
+-Validate data in registeration View
+-banding SignIn page
+2.To do until next Scrum:
+-teacher management tab UI
+-courses search bar in Student GUI
+-teacher search in Student GUI 
+3.Need assistance / figure things out
+
 ----------------------------------------------------------
 
 2021/04/14 PH
