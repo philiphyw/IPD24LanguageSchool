@@ -16,11 +16,19 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 2. To do until next Scrum:
 -- Finish payment UI
 - Bind data for course management UI
-
 3. Need assistance / figure things out
 
-
-
+2021/04/15 Edwin
+1. Done / not done since last scrum:
+- create tables in azure database
+- course searching/mgt feature in Admin GUI
+- support feature implementation based on MVVM
+- support validation implementation based on MVVM
+2. To do until next Scrum:
+- user searching/mgt feature in Admin GUI
+- course summary for teacher signed in
+- course details for teacher signed in
+3. Need assistance / figure things out
 
 ----------------------------------------------------------
 
@@ -43,11 +51,18 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 2.To do until next Scrum:
 -Validate data in registeration View
 -banding SignIn page
-
 3.Need assistance / figure things out
 - Webcam
 
-
+2021/04/14 Edwin
+1. Done / not done since last scrum:
+- verify input validation with data binding
+- support feature implementation based on MVVM
+- support validation implementation based on MVVM
+2. To do until next Scrum:
+- create tables in azure database
+- course searching feature in Admin GUI
+3. Need assistance / figure things out
 
 ----------------------------------------------------------
 2021/04/13 PH
