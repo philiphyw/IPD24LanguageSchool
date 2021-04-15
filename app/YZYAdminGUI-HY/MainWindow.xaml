@@ -1,0 +1,64 @@
+﻿<Window x:Class="YZYAdminGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YZYAdminGUI"
+        xmlns:p="clr-namespace:YZYAdminGUI.Properties"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        Title="{x:Static p:Resources.windows_title}" Height="600" Width="950" ResizeMode="CanResize">
+    <DockPanel Margin="-5">
+        <Grid DockPanel.Dock="Top" Height="66" Background="#ffbf80" Margin="0,-5,0,0">
+            <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Left" Margin="10" >
+                <!--language switch button-->
+                <TextBlock
+                VerticalAlignment="Center"
+                Text="En" Foreground="white"/>
+                <ToggleButton
+                Margin="8 0 16 0"
+                x:Name="LanguageToggle" Click="LanguageToggle_Click"/>
+                <TextBlock
+                VerticalAlignment="Center"
+                Text="Zh" Foreground="white"/>
+  
+            </StackPanel>
+            <TextBlock Text="WELCOME" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_close_Click">
+                <materialDesign:PackIcon Kind="Power"/>
+            </Button>
+        </Grid>
+        <Grid DockPanel.Dock="Top" >
+            <dragablz:TabablzControl>
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+                <TabItem Header="{x:Static p:Resources.content_course_tab}"> <!-- DataContext="{Binding SearchCourseViewModel}" -->
+                    <local:UCSearchingCourse Margin="10" HorizontalAlignment="Center"/>
+                    <!--<TextBlock Text="Hello World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                </TabItem>
+                <TabItem Header="{x:Static p:Resources.content_teacher_tab}">
+
+                    <local:UCTeacher Margin="10" HorizontalAlignment="Center"/>
+                </TabItem>
+                <TabItem Header="Assignments">
+                    <TextBlock Text="Ask for any question!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </TabItem>
+                <TabItem Header="Statistic">
+
+                    <TextBlock Text="Ask for any question!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <!--<TabItem.Header>
+                        <materialDesign:PackIcon Kind="Heart" Foreground="white"/>
+                    </TabItem.Header>
+                    <TextBlock Text="github.com/Abel13/TabMenu2" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                </TabItem>
+                <TabItem Header="My profile" HorizontalAlignment="right">
+                    <TextBlock Text="profile" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </TabItem>
+
+            </dragablz:TabablzControl>
+        </Grid>
+    </DockPanel>
+</Window>

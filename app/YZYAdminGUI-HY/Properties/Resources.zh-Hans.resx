@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="column_address" xml:space="preserve">
-    <value>地址</value>
-  </data>
   <data name="column_amount" xml:space="preserve">
     <value>数额</value>
   </data>
@@ -151,7 +148,7 @@
     <value>难度</value>
   </data>
   <data name="column_email" xml:space="preserve">
-    <value>电邮</value>
+    <value>邮件</value>
   </data>
   <data name="column_end_date" xml:space="preserve">
     <value>结束日期</value>
@@ -213,26 +210,17 @@
   <data name="column_teacher_name" xml:space="preserve">
     <value>教师名</value>
   </data>
-  <data name="column_tuition" xml:space="preserve">
-    <value>费用</value>
-  </data>
   <data name="column_user_id" xml:space="preserve">
     <value>用户代码</value>
   </data>
   <data name="column_user_name" xml:space="preserve">
-    <value>姓名</value>
+    <value>用户名</value>
   </data>
   <data name="column_user_role" xml:space="preserve">
-    <value>角色</value>
+    <value>用户类型</value>
   </data>
   <data name="column_user_sin" xml:space="preserve">
     <value>社保号</value>
-  </data>
-  <data name="content_account_number" xml:space="preserve">
-    <value>用户数量</value>
-  </data>
-  <data name="content_account_tab" xml:space="preserve">
-    <value>用户管理</value>
   </data>
   <data name="content_add" xml:space="preserve">
     <value>增加</value>
@@ -258,20 +246,11 @@
   <data name="content_pick_picture" xml:space="preserve">
     <value>点击选取图片</value>
   </data>
-  <data name="content_profile_tab" xml:space="preserve">
-    <value>账户信息</value>
-  </data>
   <data name="content_reset" xml:space="preserve">
     <value>重置</value>
   </data>
   <data name="content_submit_button" xml:space="preserve">
-    <value>确认</value>
-  </data>
-  <data name="content_teacher_courses_tab" xml:space="preserve">
-    <value>课程概览</value>
-  </data>
-  <data name="content_teacher_course_tab" xml:space="preserve">
-    <value>课程管理</value>
+    <value>递交</value>
   </data>
   <data name="content_teacher_tab" xml:space="preserve">
     <value>教师</value>
@@ -287,9 +266,6 @@
   </data>
   <data name="error_course_id" xml:space="preserve">
     <value>课程编码输入错误</value>
-  </data>
-  <data name="error_full_name" xml:space="preserve">
-    <value>姓名输入错误</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>欢迎</value>

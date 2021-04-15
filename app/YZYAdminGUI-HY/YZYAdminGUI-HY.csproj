@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D7E53D5E-8866-4F51-938B-FF76200A8585}</ProjectGuid>
+    <ProjectGuid>{CC11CEE9-7597-41E8-8E25-C8FF47F54EA1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>YZYAdminGUI</RootNamespace>
     <AssemblyName>YZYAdminGUI</AssemblyName>
@@ -78,13 +78,9 @@
     <Compile Include="AddUserDialog.xaml.cs">
       <DependentUpon>AddUserDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SearchAccountViewModel.cs" />
     <Compile Include="SearchCourseViewModel.cs" />
     <Compile Include="TeacherManagementDialog.xaml.cs">
       <DependentUpon>TeacherManagementDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UCSearchingAccount.xaml.cs">
-      <DependentUpon>UCSearchingAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCSearchingCourse.xaml.cs">
       <DependentUpon>UCSearchingCourse.xaml</DependentUpon>
@@ -97,8 +93,8 @@
     </Compile>
     <Compile Include="ValidationRules.cs" />
     <Page Include="AddUserDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -113,10 +109,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="TeacherManagementDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UCSearchingAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,8 +117,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCTeacher.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCWelcom.xaml">
       <SubType>Designer</SubType>
@@ -172,7 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YZYLibrary\YZYLibrary.csproj">
-      <Project>{05d7154e-38fb-4227-b10a-3ca2c3335a59}</Project>
+      <Project>{7965fda8-70c9-461f-acc1-6f77025cb1d9}</Project>
       <Name>YZYLibrary</Name>
     </ProjectReference>
   </ItemGroup>

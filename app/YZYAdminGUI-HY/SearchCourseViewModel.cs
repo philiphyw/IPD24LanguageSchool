@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +9,15 @@ using YZYLibrary;
 
 namespace YZYAdminGUI
 {
-    class SearchAccountViewModel : IDataErrorInfo
+    class SearchCourseViewModel : IDataErrorInfo
     {
         private YZYDbContext ctx;
-        public ObservableCollection<User> Users { get; set; }
-
+        public ObservableCollection<Course> Courses { get; set; }
         public YZYCommand DeleteCommand { get; set; }
         public YZYCommand UpdateCommand { get; set; }
         public YZYCommand AddCommand { get; set; }
 
-        public SearchAccountViewModel()
+        public SearchCourseViewModel()
         {
             Log.setLogOnFile();
             try
@@ -31,22 +29,22 @@ namespace YZYAdminGUI
                 Log.WriteLine(ex.Message);
                 Environment.Exit(1);
             }
-            Users = new ObservableCollection<User>();
+            Courses = new ObservableCollection<Course>();
             LoadCourse();
             DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
             UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
-            AddCommand = new YZYCommand(this.OnAdd, this.CanAdd);
+            AddCommand = new YZYCommand(this.OnAdd, this.CanExecute);
         }
 
         private void LoadCourse()
         {
             try
             {
-                var UserList = ctx.Users.ToList();
-                Users.Clear();
-                foreach (var item in UserList)
+                var CourseList = ctx.Courses.ToList();
+                Courses.Clear();
+                foreach (var item in CourseList)
                 {
-                    Users.Add(item);
+                    Courses.Add(item);
                 }
             }
             catch (SystemException ex)
@@ -55,38 +53,28 @@ namespace YZYAdminGUI
             }
         }
 
-        private User _selectedUser;
-        public User SelectedUser
+        private Course _selectedCourse;
+        public Course SelectedCourse
         {
             get
             {
-                return _selectedUser;
+                return _selectedCourse;
             }
             set
             {
-                _selectedUser = value;
+                _selectedCourse = value;
             }
         }
 
         public void OnDelete()
         {
-            //FIXME: if not selected
-            //FIXME: failed if continously delete 2nd time
-            try
-            {
-                ctx.Users.Remove(SelectedUser);
-                ctx.SaveChanges();
-            }
-            catch(DbUpdateException ex)
-            {
-                Log.WriteLine(SelectedUser.UserID+"[DELETE]: "+ex.Message);
-            }
-
+            ctx.Courses.Remove(SelectedCourse);
+            ctx.SaveChanges();
             LoadCourse();
         }
         public bool CanExecute()
         {
-            if (SelectedUser != null)
+            if (SelectedCourse != null)
             {
                 return true;
             }
@@ -96,11 +84,16 @@ namespace YZYAdminGUI
         {
             try
             {
-                var item = (from r in ctx.Users where r.UserID == SelectedUser.UserID select r).FirstOrDefault<User>();
+                var item = (from r in ctx.Courses where r.CourseID == SelectedCourse.CourseID select r).FirstOrDefault<Course>();
                 if (item != null)
                 {
-                    //FIXME: dialog needed?
-                    //item = SelectedUser;
+                    item.CourseID = SelectedCourse.CourseID;
+                    item.StartDate = SelectedCourse.StartDate;
+                    item.EndDate = SelectedCourse.EndDate;
+                    item.CourseDesc = SelectedCourse.CourseDesc;
+                    item.Tuition = SelectedCourse.Tuition;
+                    item.UserID = SelectedCourse.UserID;
+                    item.CategoryID = SelectedCourse.CategoryID;
                 }
                 ctx.SaveChanges();
                 LoadCourse();
@@ -109,6 +102,15 @@ namespace YZYAdminGUI
                 when ((ex is InvalidParameterException) || (ex is SystemException))
             {
                 Log.WriteLine(ex.Message);
+            }
+        }
+
+        private Course _newCourse;
+        public Course NewCourse
+        {
+            get
+            {
+                return _newCourse;
             }
         }
 
@@ -123,7 +125,7 @@ namespace YZYAdminGUI
             {
                 switch (columnName)
                 {
-                    case "CUserID":
+                    case "CourseID":
                         if (!String.IsNullOrEmpty(_errorMessage[0]))
                             return _errorMessage[0];
                         break;
@@ -131,17 +133,38 @@ namespace YZYAdminGUI
                 return string.Empty;
             }
         }
-       
+        public int CourseID
+        {
+            get
+            {
+                return _newCourse.CourseID;
+            }
+            set
+            {
+                if (_newCourse == null)
+                {
+                    _newCourse = new Course();
+                }
+                try
+                {
+                    ValidationRules.checkCourseID(value);
+                    _newCourse.CourseID = value;
+                    _errorMessage[0] = string.Empty;
+                }
+                catch (InvalidParameterException ex)
+                {
+                    _errorMessage[0] = ex.Message;
+                }
+            }
+        }
         public void OnAdd()
         {
             try
             {
-                //FIXME: check related userid in database
-                // dialog needed?
-                ctx.Users.Add(SelectedUser);
+                ctx.Courses.Add(NewCourse);
                 ctx.SaveChanges();
                 LoadCourse();
-                //CourseID = 0;
+                CourseID = 0;
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))
@@ -149,9 +172,6 @@ namespace YZYAdminGUI
                 Log.WriteLine(ex.Message);
             }
         }
-        public bool CanAdd()
-        {
-            return true;
-        }
-}
+
+    }
 }

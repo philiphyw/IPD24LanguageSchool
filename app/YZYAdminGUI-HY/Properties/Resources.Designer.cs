@@ -61,15 +61,6 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Address.
-        /// </summary>
-        public static string column_address {
-            get {
-                return ResourceManager.GetString("column_address", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Amount.
         /// </summary>
         public static string column_amount {
@@ -160,7 +151,7 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to eMail.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string column_email {
             get {
@@ -340,15 +331,6 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tuition.
-        /// </summary>
-        public static string column_tuition {
-            get {
-                return ResourceManager.GetString("column_tuition", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to User ID.
         /// </summary>
         public static string column_user_id {
@@ -381,24 +363,6 @@ namespace YZYAdminGUI.Properties {
         public static string column_user_sin {
             get {
                 return ResourceManager.GetString("column_user_sin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number of Accounts.
-        /// </summary>
-        public static string content_account_number {
-            get {
-                return ResourceManager.GetString("content_account_number", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Account.
-        /// </summary>
-        public static string content_account_tab {
-            get {
-                return ResourceManager.GetString("content_account_tab", resourceCulture);
             }
         }
         
@@ -475,15 +439,6 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Profile.
-        /// </summary>
-        public static string content_profile_tab {
-            get {
-                return ResourceManager.GetString("content_profile_tab", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
         public static string content_reset {
@@ -507,24 +462,6 @@ namespace YZYAdminGUI.Properties {
         public static string content_submit_button {
             get {
                 return ResourceManager.GetString("content_submit_button", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Course Details.
-        /// </summary>
-        public static string content_teacher_course_tab {
-            get {
-                return ResourceManager.GetString("content_teacher_course_tab", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Course Summary.
-        /// </summary>
-        public static string content_teacher_courses_tab {
-            get {
-                return ResourceManager.GetString("content_teacher_courses_tab", resourceCulture);
             }
         }
         
@@ -570,15 +507,6 @@ namespace YZYAdminGUI.Properties {
         public static string error_course_id {
             get {
                 return ResourceManager.GetString("error_course_id", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to invalid input of full name.
-        /// </summary>
-        public static string error_full_name {
-            get {
-                return ResourceManager.GetString("error_full_name", resourceCulture);
             }
         }
         
