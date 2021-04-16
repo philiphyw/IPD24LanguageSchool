@@ -7,6 +7,21 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 ==========================================================
 
 
+2021/04/16 Ying
+1.Done/not done since update trello
+-teacher management tab UI
+-courses search bar in Student GUI
+-teacher search in Student GUI 
+2.To do until next Scrum:
+-binding courses search bar with VM
+-binding teacher search bar with VM
+-user Login
+-user sign up
+3.Need assistance / figure things out
+-statistic chart
+
+
+------------------------------------------------------------------
 
 2021/04/15 PH
 1. Done / not done since last scrum:
