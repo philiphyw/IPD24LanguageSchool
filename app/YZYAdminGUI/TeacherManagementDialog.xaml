@@ -34,7 +34,7 @@
                             <GridView>
                                 <GridViewColumn Header="{x:Static p:Resources.column_user_id}" DisplayMemberBinding="{Binding UserID}"/>
                                 <GridViewColumn Header="{x:Static p:Resources.column_user_name}" DisplayMemberBinding="{Binding User.FullName}"/>
-                                <GridViewColumn Header="{x:Static p:Resources.column_evaluation_comment}" DisplayMemberBinding="{Binding FirstGrade}"/>
+                                <GridViewColumn Header="{x:Static p:Resources.column_evaluation_comment}" DisplayMemberBinding="{Binding Grade}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
