@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YZYLibrary;
 
 namespace YZYAdminGUI
 {
@@ -30,6 +31,41 @@ namespace YZYAdminGUI
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
 
+            var loginDlg = new AdminLoginDialog();
+            if (loginDlg.ShowDialog() == true)
+            {
+                string email = loginDlg.tbEmail.Text;
+                string password = loginDlg.tbPassword.Text;
+                try
+                {
+                    YZYDbContext ctx = new YZYDbContext();
+                    User loginUser = ctx.Users.ToList().Where(u => (u.Email == email && u.Password == password)).FirstOrDefault();
+                    if (loginUser != null)
+                    {
+                        if (loginUser.UserRole == UserRoleEnum.Admin)
+                        {
+                            GlobalSettings.userRole = UserRoleEnum.Admin;
+                            GlobalSettings.userID = loginUser.UserID;
+                        }
+                        else if (loginUser.UserRole == UserRoleEnum.Teacher)
+                        {
+                            GlobalSettings.userRole = UserRoleEnum.Teacher;
+                            GlobalSettings.userID = loginUser.UserID;
+                        }
+                        else
+                        {
+                            GlobalSettings.userRole = UserRoleEnum.Student;
+                            GlobalSettings.userID = -1;
+                        }
+                    }
+                }
+                catch (SystemException ex)
+                {
+                    Log.WriteLine(ex.Message);
+                    Environment.Exit(1);
+                }
+            }
+
             InitializeComponent();
 
             switch (ConfigurationManager.AppSettings["DefaultCulture"])
@@ -41,6 +77,22 @@ namespace YZYAdminGUI
                     LanguageToggle.IsChecked = false;
                     break;
             }
+
+            ucCourse.Visibility = Visibility.Hidden;
+            ucAccount.Visibility = Visibility.Hidden;
+            ucTeacher.Visibility = Visibility.Hidden;
+
+            switch (GlobalSettings.userRole)
+            {
+                case UserRoleEnum.Admin:
+                    ucCourse.Visibility = Visibility.Visible;
+                    ucAccount.Visibility = Visibility.Visible;
+                    break;
+                case UserRoleEnum.Teacher:
+                    ucTeacher.Visibility = Visibility.Visible;
+                    break;
+            }
+
         }
 
         private void Button_close_Click(object sender, RoutedEventArgs e)
@@ -70,5 +122,11 @@ namespace YZYAdminGUI
             }
             config.Save(ConfigurationSaveMode.Modified);
         }
+    }
+
+    public class GlobalSettings
+    {
+        public static UserRoleEnum userRole;
+        public static int userID;
     }
 }

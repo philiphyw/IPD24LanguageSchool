@@ -10,8 +10,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" WindowStyle="None"
         MouseDown="Window_MouseDown"
         Title="{x:Static p:Resources.windows_title}" Height="600" Width="950" ResizeMode="CanResize">
-    <DockPanel Margin="-5">
-        <Grid DockPanel.Dock="Top" Height="66" Background="#ffbf80" Margin="0,-5,0,0">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Height="66" Background="#ffbf80">
             <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Left" Margin="10" >
                 <!--language switch button-->
                 <TextBlock
@@ -23,9 +23,8 @@
                 <TextBlock
                 VerticalAlignment="Center"
                 Text="Zh" Foreground="white"/>
-  
             </StackPanel>
-            <TextBlock Text="{x:Static p:Resources.welcome}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
+            <TextBlock Text="{x:Static p:Resources.windows_title}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
             <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_close_Click">
                 <materialDesign:PackIcon Kind="Power"/>
             </Button>
@@ -35,28 +34,19 @@
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController/>
                 </dragablz:TabablzControl.InterTabController>
-                <TabItem Header="{x:Static p:Resources.content_course_tab}"> <!-- DataContext="{Binding SearchCourseViewModel}" -->
-                    <local:UCSearchingCourse Margin="10" HorizontalAlignment="Center"/>
+                <TabItem Header="{x:Static p:Resources.content_course_tab}" x:Name="tabCourse"> <!-- DataContext="{Binding SearchCourseViewModel}" -->
+                    <local:UCSearchingCourse Margin="10" HorizontalAlignment="Center" x:Name="ucCourse"/>
                     <!--<TextBlock Text="Hello World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                 </TabItem>
-                <TabItem Header="{x:Static p:Resources.content_account_tab}">
-                    <local:UCSearchingAccount Margin="10" HorizontalAlignment="Center"/>
+                <TabItem Header="{x:Static p:Resources.content_account_tab}" x:Name="tabAccount">
+                    <local:UCSearchingAccount Margin="10" HorizontalAlignment="Center" x:Name="ucAccount"/>
                 </TabItem>
-                <TabItem Header="{x:Static p:Resources.content_teacher_courses_tab}">
-                    <TextBlock Text="Ask for any question!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TabItem Header="{x:Static p:Resources.content_teacher_tab}" x:Name="tabTeacher">
+                    <local:UCTeacher Margin="10" HorizontalAlignment="Center" x:Name="ucTeacher"/>
                 </TabItem>
-                <TabItem Header="{x:Static p:Resources.content_teacher_course_tab}">
-
-                    <TextBlock Text="Ask for any question!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <!--<TabItem.Header>
-                        <materialDesign:PackIcon Kind="Heart" Foreground="white"/>
-                    </TabItem.Header>
-                    <TextBlock Text="github.com/Abel13/TabMenu2" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                <TabItem Header="{x:Static p:Resources.content_profile_tab}" HorizontalAlignment="right" x:Name="tabProfile">
+                    <local:UCAdminProfile Margin="10" HorizontalAlignment="Center" x:Name="ucProfile"/>
                 </TabItem>
-                <TabItem Header="{x:Static p:Resources.content_profile_tab}" HorizontalAlignment="right">
-                    <TextBlock Text="Under Construction" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </TabItem>
-
             </dragablz:TabablzControl>
         </Grid>
     </DockPanel>

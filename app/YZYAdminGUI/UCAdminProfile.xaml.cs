@@ -10,18 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace YZYAdminGUI
 {
+
     /// <summary>
-    /// Interaction logic for TeacherManagementDialog.xaml
+    /// Interaction logic for UCAdminProfile.xaml
     /// </summary>
-    public partial class TeacherManagementDialog : Window
+    public partial class UCAdminProfile : UserControl
     {
-        public TeacherManagementDialog()
+        private ProfileViewModel _vmProfile;
+        public UCAdminProfile()
         {
             InitializeComponent();
+            _vmProfile = new ProfileViewModel();
+            this.DataContext = _vmProfile;
         }
     }
 }

@@ -14,7 +14,7 @@
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="{x:Static p:Resources.welcome}" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="#ffa64d"/>
+                <TextBlock x:Name="tbDialogTitle" Text="{x:Static p:Resources.welcome}" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="#ffa64d"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -295,7 +295,7 @@
                         <Image Name="imageViewer" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                     </Grid>
                 </Button>
-                <Button Content="{x:Static p:Resources.content_submit_button}" Margin="0 20" Command="{Binding Path=RegisterCommand}"/>
+                <Button Content="{x:Static p:Resources.content_submit_button}" Margin="0 20" Command="{Binding Path=RegisterCommand}" Click="Button_Click"/>
             </StackPanel>
             
         </Border>

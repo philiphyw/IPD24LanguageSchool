@@ -421,6 +421,24 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add User.
+        /// </summary>
+        public static string content_adduser_dialog {
+            get {
+                return ResourceManager.GetString("content_adduser_dialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string content_cancel_button {
+            get {
+                return ResourceManager.GetString("content_cancel_button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of Courses.
         /// </summary>
         public static string content_course_number {
@@ -466,7 +484,16 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click to pick picture.
+        ///   Looks up a localized string similar to Edit User.
+        /// </summary>
+        public static string content_edituser_dialog {
+            get {
+                return ResourceManager.GetString("content_edituser_dialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick Picture.
         /// </summary>
         public static string content_pick_picture {
             get {

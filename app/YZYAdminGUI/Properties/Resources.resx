@@ -234,8 +234,14 @@
   <data name="content_add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="content_adduser_dialog" xml:space="preserve">
+    <value>Add User</value>
+  </data>
   <data name="content_add_button" xml:space="preserve">
     <value>Add</value>
+  </data>
+  <data name="content_cancel_button" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="content_course_number" xml:space="preserve">
     <value>Number of Courses</value>
@@ -252,8 +258,11 @@
   <data name="content_edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="content_edituser_dialog" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
   <data name="content_pick_picture" xml:space="preserve">
-    <value>Click to pick picture</value>
+    <value>Pick Picture</value>
   </data>
   <data name="content_profile_tab" xml:space="preserve">
     <value>My Profile</value>

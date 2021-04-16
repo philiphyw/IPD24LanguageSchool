@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YZYLibrary;
 
 namespace YZYAdminGUI
 {
@@ -20,9 +22,13 @@ namespace YZYAdminGUI
     /// </summary>
     public partial class UCTeacher : UserControl
     {
+
+        private TeacherViewModel _vmTeacher;
         public UCTeacher()
         {
             InitializeComponent();
+            _vmTeacher = new TeacherViewModel();
+            this.DataContext = _vmTeacher;
         }
     }
 }

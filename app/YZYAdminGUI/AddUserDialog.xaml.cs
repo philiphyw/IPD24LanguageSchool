@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YZYLibrary;
 
 namespace YZYAdminGUI
 {
@@ -19,9 +20,22 @@ namespace YZYAdminGUI
     /// </summary>
     public partial class AddUserDialog : Window
     {
-        public AddUserDialog()
+        public AddUserDialog(bool isAddNew = true)
         {
             InitializeComponent();
+            if(isAddNew == true)
+            {
+                tbDialogTitle.Text = Properties.Resources.content_adduser_dialog;
+            }
+            else
+            {
+                tbDialogTitle.Text = Properties.Resources.content_edituser_dialog;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

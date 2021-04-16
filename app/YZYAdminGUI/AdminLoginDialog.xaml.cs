@@ -10,21 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace YZYAdminGUI
 {
     /// <summary>
-    /// Interaction logic for UCWelcom.xaml
+    /// Interaction logic for AdminLoginDialog.xaml
     /// </summary>
-    public partial class UCWelcom : UserControl
+    public partial class AdminLoginDialog : Window
     {
-        public UCWelcom()
+        public AdminLoginDialog() 
         {
             InitializeComponent();
         }
 
-
+        private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

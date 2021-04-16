@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYStudentGUI", "YZYStudent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYLibrary", "YZYLibrary\YZYLibrary.csproj", "{05D7154E-38FB-4227-B10A-3CA2C3335A59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYLibraryAzure", "YZYLibraryAzure\YZYLibraryAzure.csproj", "{31CDEDFE-44FB-4725-A6FC-90DA2835547B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{05D7154E-38FB-4227-B10A-3CA2C3335A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05D7154E-38FB-4227-B10A-3CA2C3335A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05D7154E-38FB-4227-B10A-3CA2C3335A59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CDEDFE-44FB-4725-A6FC-90DA2835547B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CDEDFE-44FB-4725-A6FC-90DA2835547B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CDEDFE-44FB-4725-A6FC-90DA2835547B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CDEDFE-44FB-4725-A6FC-90DA2835547B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

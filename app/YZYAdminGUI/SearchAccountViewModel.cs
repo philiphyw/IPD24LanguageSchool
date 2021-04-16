@@ -96,14 +96,13 @@ namespace YZYAdminGUI
         {
             try
             {
-                var item = (from r in ctx.Users where r.UserID == SelectedUser.UserID select r).FirstOrDefault<User>();
-                if (item != null)
+                var dlg = new AddUserDialog();
+                dlg.DataContext = SelectedUser;
+                if (dlg.ShowDialog() == true)
                 {
-                    //FIXME: dialog needed?
-                    //item = SelectedUser;
+                    ctx.SaveChanges();
+                    LoadCourse();
                 }
-                ctx.SaveChanges();
-                LoadCourse();
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))
@@ -136,12 +135,15 @@ namespace YZYAdminGUI
         {
             try
             {
-                //FIXME: check related userid in database
-                // dialog needed?
-                ctx.Users.Add(SelectedUser);
-                ctx.SaveChanges();
-                LoadCourse();
-                //CourseID = 0;
+                var dlg = new AddUserDialog();
+                var user = new User();
+                dlg.DataContext = user;
+                if (dlg.ShowDialog() == true)
+                {
+                    ctx.Users.Add(user);
+                    ctx.SaveChanges();
+                    LoadCourse();
+                }
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))

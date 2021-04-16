@@ -237,8 +237,14 @@
   <data name="content_add" xml:space="preserve">
     <value>增加</value>
   </data>
+  <data name="content_adduser_dialog" xml:space="preserve">
+    <value>添加账户</value>
+  </data>
   <data name="content_add_button" xml:space="preserve">
     <value>新增</value>
+  </data>
+  <data name="content_cancel_button" xml:space="preserve">
+    <value>取消</value>
   </data>
   <data name="content_course_number" xml:space="preserve">
     <value>课程数量</value>
@@ -255,8 +261,11 @@
   <data name="content_edit" xml:space="preserve">
     <value>编辑</value>
   </data>
+  <data name="content_edituser_dialog" xml:space="preserve">
+    <value>编辑账户</value>
+  </data>
   <data name="content_pick_picture" xml:space="preserve">
-    <value>点击选取图片</value>
+    <value>选取图片</value>
   </data>
   <data name="content_profile_tab" xml:space="preserve">
     <value>账户信息</value>

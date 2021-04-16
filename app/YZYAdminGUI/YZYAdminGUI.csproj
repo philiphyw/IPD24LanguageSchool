@@ -78,10 +78,15 @@
     <Compile Include="AddUserDialog.xaml.cs">
       <DependentUpon>AddUserDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminLoginDialog.xaml.cs">
+      <DependentUpon>AdminLoginDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileViewModel.cs" />
     <Compile Include="SearchAccountViewModel.cs" />
+    <Compile Include="TeacherViewModel.cs" />
     <Compile Include="SearchCourseViewModel.cs" />
-    <Compile Include="TeacherManagementDialog.xaml.cs">
-      <DependentUpon>TeacherManagementDialog.xaml</DependentUpon>
+    <Compile Include="UCAdminProfile.xaml.cs">
+      <DependentUpon>UCAdminProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCSearchingAccount.xaml.cs">
       <DependentUpon>UCSearchingAccount.xaml</DependentUpon>
@@ -92,11 +97,12 @@
     <Compile Include="UCTeacher.xaml.cs">
       <DependentUpon>UCTeacher.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UCWelcom.xaml.cs">
-      <DependentUpon>UCWelcom.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ValidationRules.cs" />
     <Page Include="AddUserDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminLoginDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -112,7 +118,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TeacherManagementDialog.xaml">
+    <Page Include="UCAdminProfile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -127,10 +133,6 @@
     <Page Include="UCTeacher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UCWelcom.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
