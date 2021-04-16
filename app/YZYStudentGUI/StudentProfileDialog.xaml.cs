@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace YZYStudentGUI
 {
     /// <summary>
-    /// Interaction logic for SignInDialog.xaml
+    /// Interaction logic for StudentProfileDialog.xaml
     /// </summary>
-    public partial class SignInDialog : Window
+    public partial class StudentProfileDialog : Window
     {
-        public SignInDialog()
+        public StudentProfileDialog()
         {
             InitializeComponent();
-        }
-
-        private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = true;
         }
     }
 }

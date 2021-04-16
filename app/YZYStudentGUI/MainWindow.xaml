@@ -51,7 +51,16 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="listViewItem5">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="listViewItem6">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="logoName">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.99"/>
@@ -114,19 +123,175 @@
               Orientation="Horizontal">
                 <Button
                  Style="{DynamicResource MaterialDesignFlatButton}"
-                 Margin="4" VerticalAlignment="Center" Content="SignIn" />
+                 Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_signon_button}" Click="Button_Sign_Click"/>
                 <Button
                 Style="{DynamicResource MaterialDesignFlatButton}"
-                Margin="4" VerticalAlignment="Center" Content="SingUp" Click="Button_Click_1"/>
+                Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_register_button}" Click="ButtonRegister_Click"/>
                 <Button
                     Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                     CommandParameter="{x:Static Dock.Top}"
                     Style="{DynamicResource MaterialDesignFlatButton}"
                     Margin="4"
-                    VerticalAlignment="Center"
-                    Content="CLOSE THIS" />
+                    VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="KeyboardBackspace"/>
+                </Button>
             </StackPanel>
         </materialDesign:DrawerHost.TopDrawerContent>
+
+        <materialDesign:DrawerHost.RightDrawerContent>
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <StackPanel Margin="20 0" Width="500">
+
+                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <ComboBox
+                            x:Name="comboSearchCourse"
+                            SelectedIndex="0"
+                            Margin="8 0 0 0"
+                            BorderThickness="0"
+                            materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
+                            BorderBrush="{DynamicResource MaterialDesignPaper}" MinWidth="150" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="#FF3580BF" Background="white"
+                            materialDesign:HintAssist.Hint="Search Courses" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                              materialDesign:TextFieldAssist.HasClearButton="True">
+                            <!--materialDesign:HintAssist.HelperText="Select one OS"-->
+                            <ComboBoxItem Content="" />
+                            <ComboBoxItem Content="English" />
+                            <ComboBoxItem Content="Franch" />
+                            <ComboBoxItem Content="Mandarin" />
+                            <ComboBoxItem Content="Cantonese" />
+                        </ComboBox>
+                        <Button
+                        Command="{Binding Path=SearchCommand}" CommandParameter="{Binding SelectedIndex, ElementName=comboSearchCourse}"
+                            Name="Search"
+                          Click="Search_CourseByCategory_Click"
+                          Style="{StaticResource MaterialDesignFlatButton}"
+                          HorizontalAlignment="Right"
+                          Width="50"
+                          Height="50" Content="{materialDesign:PackIcon Kind=Send}">
+                        </Button>
+
+
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="id" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="category" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="Description" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="startDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="endDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="tuition" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                        <Button
+                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    Margin="4"
+                    VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <materialDesign:PackIcon Kind="ArrowRightBold" Foreground="#FFEE6917"/>
+                        </Button>
+                    </StackPanel>
+
+                    <ItemsControl x:Name="ListViewCourse" ItemsSource="{Binding Courses}" Foreground="Black">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="10,5,10,5" Width="400" Height="50" BorderBrush="#99d6ff" BorderThickness="1" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                    <StackPanel Orientation="Horizontal" Background="#e6faff">
+                                        <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding CourseID}" FontSize="15"/>
+                                        <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding Category.CateDesc}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding CourseDesc}" FontSize="15"/>
+                                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding StartDate, StringFormat=d}" FontSize="15"/>
+                                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding EndDate, StringFormat=d}" FontSize="15"/>
+                                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding Tuition, StringFormat=N2}" FontSize="15"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+
+                </StackPanel>
+            </ScrollViewer>
+        </materialDesign:DrawerHost.RightDrawerContent>
+
+
+
+        <materialDesign:DrawerHost.BottomDrawerContent>
+            <StackPanel Margin="20 0" Width="500" Height="500">
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="id" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                    <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="category" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="Description" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="startDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="endDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="tuition" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                    <Button
+                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Bottom}"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    Margin="4"
+                    VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <materialDesign:PackIcon Kind="ArrowRightBold" Foreground="#FFEE6917"/>
+                    </Button>
+                </StackPanel>
+                <ItemsControl x:Name="ListViewTeachers" ItemsSource="{Binding Users}" Foreground="Black">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="10,5,10,5" Width="400" Height="50" BorderBrush="#99d6ff" BorderThickness="1" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <StackPanel Orientation="Horizontal" Background="#e6faff">
+                                    <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding FName}" FontSize="15"/>
+                                    <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding MName}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding LName}" FontSize="15"/>
+                                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding StartDate, StringFormat=d}" FontSize="15"/>
+                                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding EndDate, StringFormat=d}" FontSize="15"/>
+                                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding Courses.Category}" FontSize="15"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+
+        </materialDesign:DrawerHost.BottomDrawerContent>
+
+        <materialDesign:DrawerHost.LeftDrawerContent>
+            <StackPanel Margin="20 0" Width="250" Height="250">
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <TextBlock
+                      Style="{StaticResource MaterialDesignHeadline6TextBlock}" Text="{x:Static p:Resources.windows_title}" Margin="10"/>
+                    <TextBlock
+                      Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{x:Static p:Resources.column_address}"/>
+                    <TextBlock
+                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="123 Rue Blue and Red, H9H9H9,QC"/>
+                    <TextBlock
+                      Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{x:Static p:Resources.column_phone}"/>
+                    <TextBlock
+                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="514-999-9999"/>
+                    <TextBlock
+                      Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{x:Static p:Resources.column_email}"/>
+                    <TextBlock
+                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="yzy@gmail.com"/>
+
+                    <Button
+                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Left}"
+                    Style="{DynamicResource MaterialDesignFlatButton}"
+                    Margin="4"
+                    VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <materialDesign:PackIcon Kind="ArrowRightBold" Foreground="#FFEE6917"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+        </materialDesign:DrawerHost.LeftDrawerContent>
+
         <!--left sidebar-->
         <Grid Background="#FF2196F3">
             <materialDesign:ColorZone Mode="PrimaryMid">
@@ -162,10 +327,21 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="Home" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
-                                <TextBlock Text="About us" Margin="10" VerticalAlignment="Center" Foreground="White"/>
-                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal" Margin="10 0">
+                                <materialDesign:PackIcon Kind="AccountMultiple" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
+                                <TextBlock Text="Our Teachers" Margin="10" VerticalAlignment="Center" Foreground="White"/>
+                            </StackPanel>-->
+                            <Button
+                                Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                CommandParameter="{x:Static Dock.Bottom}"
+                                  Width="189" HorizontalAlignment="Left"
+                                Background="{x:Null}" BorderBrush="{x:Null}"
+                                Click="Button_Search_Tearch_click">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
+                                    <materialDesign:PackIcon Kind="BookOpenPageVariantOutline" Width="30" Height="30"/>
+                                    <TextBlock Margin="15 0">Our Teachers</TextBlock>
+                                </StackPanel>
+                            </Button>
                         </ListViewItem>
 
                         <ListViewItem x:Name="listViewItem1" Height="60" RenderTransformOrigin="0.5,0.5">
@@ -177,26 +353,23 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="AccountMultiple" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
-                                <TextBlock Text="Our Teachers" Margin="10" VerticalAlignment="Center" Foreground="white"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem x:Name="listViewItem2" Height="60" RenderTransformOrigin="0.5,0.5">
-                            <ListViewItem.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </ListViewItem.RenderTransform>
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <!--<StackPanel Orientation="Horizontal" Margin="10 0">
                                 <materialDesign:PackIcon Kind="BookOpenPageVariantOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
                                 <TextBlock Text="Our Courses" Margin="10" VerticalAlignment="Center" Foreground="white"/>
-                            </StackPanel>
+                            </StackPanel>-->
+                            <Button
+                                Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                CommandParameter="{x:Static Dock.Right}"
+                                  Width="189" HorizontalAlignment="Left"
+                                Background="{x:Null}" BorderBrush="{x:Null}"
+                                Click="Button_Search_Course_Click">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
+                                    <materialDesign:PackIcon Kind="BookOpenPageVariantOutline" Width="30" Height="30"/>
+                                    <TextBlock Margin="15 0">Our Courses</TextBlock>
+                                </StackPanel>
+                            </Button>
                         </ListViewItem>
-                        <ListViewItem x:Name="listViewItem3" Height="60" RenderTransformOrigin="0.5,0.5">
+                        <!--<ListViewItem x:Name="listViewItem2" Height="60" RenderTransformOrigin="0.5,0.5">
                             <ListViewItem.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -209,8 +382,82 @@
                                 <materialDesign:PackIcon Kind="EmailEditOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
                                 <TextBlock Text="Contact us" Margin="10" VerticalAlignment="Center" Foreground="white"/>
                             </StackPanel>
+                        </ListViewItem>-->
+                        <ListViewItem x:Name="listViewItem2" Height="60" RenderTransformOrigin="0.5,0.5">
+                            <ListViewItem.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ListViewItem.RenderTransform>
+                            <Button
+                                Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                CommandParameter="{x:Static Dock.Left}"
+                                  Width="189" HorizontalAlignment="Left"
+                                Background="{x:Null}" BorderBrush="{x:Null}"
+                                Click="Button_Search_Course_Click">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
+                                    <materialDesign:PackIcon Kind="EmailEditOutline" Width="30" Height="30"/>
+                                    <TextBlock Margin="15 0">Contact Us</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>                       
+                        
+                        
+                        
+                        <ListViewItem x:Name="listViewItem3" Height="60" RenderTransformOrigin="0.5,0.5">
+                            <ListViewItem.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ListViewItem.RenderTransform>
+                            <StackPanel Orientation="Horizontal" Margin="10 0">
+                                <materialDesign:PackIcon Kind="PencilAddOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
+                                <TextBlock Text="Manage Course" Margin="10" VerticalAlignment="Center" Foreground="white"/>
+                            </StackPanel>
                         </ListViewItem>
                         <ListViewItem x:Name="listViewItem4" Height="60" RenderTransformOrigin="0.5,0.5">
+                            <ListViewItem.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ListViewItem.RenderTransform>
+                            <Button          
+                                  Width="189" HorizontalAlignment="Left"
+                                Background="{x:Null}" BorderBrush="{x:Null}">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
+                                    <materialDesign:PackIcon Kind="CurrencyUsd" Width="30" Height="30"/>
+                                    <TextBlock Margin="15 0">Payment</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem x:Name="listViewItem5" Height="60" RenderTransformOrigin="0.5,0.5">
+                            <ListViewItem.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ListViewItem.RenderTransform>
+                            <Button
+                                  Width="189" HorizontalAlignment="Left"
+                                Background="{x:Null}" BorderBrush="{x:Null}">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
+                                    <materialDesign:PackIcon Kind="AccountKey" Width="30" Height="30"/>
+                                    <TextBlock Margin="15 0">Profile</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem x:Name="listViewItem6" Height="60" RenderTransformOrigin="0.5,0.5">
                             <ListViewItem.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -230,6 +477,27 @@
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
+
+                        <!--<ListViewItem x:Name="listViewItem7" Height="60" RenderTransformOrigin="0.5,0.5">
+                            <ListViewItem.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ListViewItem.RenderTransform>
+                            <Button
+                                Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                CommandParameter="{x:Static Dock.Top}"
+                                  Width="189" HorizontalAlignment="Left"
+                                Background="{x:Null}" BorderBrush="{x:Null}">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
+                                    <materialDesign:PackIcon Kind="LoginVariant" Width="30" Height="30"/>
+                                    <TextBlock Margin="15 0">Login</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>-->
                     </ListView>
                 </StackPanel>
 
@@ -292,8 +560,9 @@
                     <Button x:Name="ButtonOpenMenu" Width="40" Height="40" Padding="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="ButtonOpenMenu_Click" Grid.ColumnSpan="2">
                         <materialDesign:PackIcon Kind="Menu" Width="30" Height="30" Foreground="#FF3580BF"/>
                     </Button>
-                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                    <!--<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
                         <ComboBox
+                            x:Name="comboSearchCourse"
                             SelectedIndex="0"
                             Margin="8 0 0 0"
                             BorderThickness="0"
@@ -301,7 +570,6 @@
                             BorderBrush="{DynamicResource MaterialDesignPaper}" MinWidth="150" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="#FF3580BF" Background="white"
                             materialDesign:HintAssist.Hint="Search Courses" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                               materialDesign:TextFieldAssist.HasClearButton="True">
-                            <!--materialDesign:HintAssist.HelperText="Select one OS"-->
                             <ComboBoxItem Content="" />
                             <ComboBoxItem Content="English" />
                             <ComboBoxItem Content="Franch" />
@@ -309,14 +577,22 @@
                             <ComboBoxItem Content="Mandarin" />
                         </ComboBox>
                         <Button
-                          Name="Search"
+                        Command="{Binding Path=onSearch}" CommandParameter="{Binding SelectedValue, ElementName=comboSearchCourse}"
+                            Name="Search"
                           Click="Search_Click"
                           Style="{StaticResource MaterialDesignFlatButton}"
                           HorizontalAlignment="Right"
                           Width="50"
                           Height="50" Content="{materialDesign:PackIcon Kind=Send}">
                         </Button>
-                    </StackPanel>
+                        --><!--<Button                                 Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                CommandParameter="{x:Static Dock.Right}" Margin="-30,0,0,0">
+                            
+                        </Button>--><!--
+                        
+                        
+                        
+                    </StackPanel>-->
                     <TextBlock Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Margin="8">
                               <Button
                                 Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
@@ -831,13 +1107,15 @@
                 <!--language switch button-->
                 <TextBlock
                 VerticalAlignment="Center"
-                Text="En"/>
+                Text="En" Foreground="White"/>
                 <ToggleButton
+                Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
+                ToolTip="MaterialDesignSwitchAccentToggleButton"
                 Margin="8 0 16 0"
                 x:Name="LanguageToggle" Click="Button_Click"/>
                 <TextBlock
                 VerticalAlignment="Center"
-                Text="Zh"/>
+                Text="Zh" Foreground="White"/>
                 <Button x:Name="ButtonClose" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click">
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>

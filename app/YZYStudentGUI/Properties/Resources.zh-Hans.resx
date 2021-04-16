@@ -117,6 +117,201 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="column_address" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="column_amount" xml:space="preserve">
+    <value>数额</value>
+  </data>
+  <data name="column_category" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="column_category_description" xml:space="preserve">
+    <value>类别说明</value>
+  </data>
+  <data name="column_category_id" xml:space="preserve">
+    <value>类别代码</value>
+  </data>
+  <data name="column_cell" xml:space="preserve">
+    <value>手机</value>
+  </data>
+  <data name="column_city" xml:space="preserve">
+    <value>城市</value>
+  </data>
+  <data name="column_confirm_password" xml:space="preserve">
+    <value>再次确认密码</value>
+  </data>
+  <data name="column_course_id" xml:space="preserve">
+    <value>课程编号</value>
+  </data>
+  <data name="column_course_name" xml:space="preserve">
+    <value>课程名称</value>
+  </data>
+  <data name="column_difficulty" xml:space="preserve">
+    <value>难度</value>
+  </data>
+  <data name="column_email" xml:space="preserve">
+    <value>邮件</value>
+  </data>
+  <data name="column_end_date" xml:space="preserve">
+    <value>结束日期</value>
+  </data>
+  <data name="column_evaluation_comment" xml:space="preserve">
+    <value>成绩</value>
+  </data>
+  <data name="column_evaluation_evdate" xml:space="preserve">
+    <value>评分日期</value>
+  </data>
+  <data name="column_first_name" xml:space="preserve">
+    <value>名字</value>
+  </data>
+  <data name="column_gender" xml:space="preserve">
+    <value>性别</value>
+  </data>
+  <data name="column_last_name" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="column_middle_name" xml:space="preserve">
+    <value>中间名</value>
+  </data>
+  <data name="column_password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="column_payment_id" xml:space="preserve">
+    <value>付款代码</value>
+  </data>
+  <data name="column_pay_account" xml:space="preserve">
+    <value>付款账户</value>
+  </data>
+  <data name="column_pay_date" xml:space="preserve">
+    <value>付款日期</value>
+  </data>
+  <data name="column_phone" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="column_photo" xml:space="preserve">
+    <value>照片</value>
+  </data>
+  <data name="column_postal_code" xml:space="preserve">
+    <value>邮编</value>
+  </data>
+  <data name="column_province" xml:space="preserve">
+    <value>省份</value>
+  </data>
+  <data name="column_search_button_content" xml:space="preserve">
+    <value>查找</value>
+  </data>
+  <data name="column_start_date" xml:space="preserve">
+    <value>开始日期</value>
+  </data>
+  <data name="column_street_name" xml:space="preserve">
+    <value>街名</value>
+  </data>
+  <data name="column_street_no" xml:space="preserve">
+    <value>门牌号</value>
+  </data>
+  <data name="column_teacher_name" xml:space="preserve">
+    <value>教师名</value>
+  </data>
+  <data name="column_tuition" xml:space="preserve">
+    <value>学费</value>
+  </data>
+  <data name="column_user_id" xml:space="preserve">
+    <value>用户代码</value>
+  </data>
+  <data name="column_user_name" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="column_user_role" xml:space="preserve">
+    <value>用户类型</value>
+  </data>
+  <data name="column_user_sin" xml:space="preserve">
+    <value>社保号</value>
+  </data>
+  <data name="content_account_number" xml:space="preserve">
+    <value>用户数量</value>
+  </data>
+  <data name="content_account_tab" xml:space="preserve">
+    <value>用户管理</value>
+  </data>
+  <data name="content_add" xml:space="preserve">
+    <value>增加</value>
+  </data>
+  <data name="content_adduser_dialog" xml:space="preserve">
+    <value>添加账户</value>
+  </data>
+  <data name="content_add_button" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="content_cancel_button" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="content_course_number" xml:space="preserve">
+    <value>课程数量</value>
+  </data>
+  <data name="content_course_tab" xml:space="preserve">
+    <value>课程管理</value>
+  </data>
+  <data name="content_delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="content_delete_button" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="content_edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="content_edituser_dialog" xml:space="preserve">
+    <value>编辑账户</value>
+  </data>
+  <data name="content_pick_picture" xml:space="preserve">
+    <value>选取图片</value>
+  </data>
+  <data name="content_profile_tab" xml:space="preserve">
+    <value>账户信息</value>
+  </data>
+  <data name="content_register" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="content_register_button" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="content_reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="content_signon_button" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="content_submit_button" xml:space="preserve">
+    <value>递交</value>
+  </data>
+  <data name="content_teacher_courses_tab" xml:space="preserve">
+    <value>课程概览</value>
+  </data>
+  <data name="content_teacher_course_tab" xml:space="preserve">
+    <value>课程管理</value>
+  </data>
+  <data name="content_teacher_tab" xml:space="preserve">
+    <value>教师</value>
+  </data>
+  <data name="content_teacher_tab_title" xml:space="preserve">
+    <value>课程列表</value>
+  </data>
+  <data name="content_update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="content_update_button" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="error_course_id" xml:space="preserve">
+    <value>课程编码输入错误</value>
+  </data>
+  <data name="error_full_name" xml:space="preserve">
+    <value>姓名输入错误</value>
+  </data>
+  <data name="welcome" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
   <data name="windows_title" xml:space="preserve">
     <value>易学语言学校</value>
   </data>
