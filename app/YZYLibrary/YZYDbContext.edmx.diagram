@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e7ef7eb00114405e8310108a8ab35819" Name="Diagram1">
+      <Diagram DiagramId="bb1ad1fc90e2468e9e4b6564d8691e9d" Name="Diagram1">
         <EntityTypeShape EntityType="YZYModel.Category" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="YZYModel.Course" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="YZYModel.Evaluation" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="YZYModel.Payment" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="YZYModel.Register" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="YZYModel.Register" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="YZYModel.User" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <AssociationConnector Association="YZYModel.FK_COURSES_CATEGORIES" ManuallyRouted="false" />
         <AssociationConnector Association="YZYModel.FK_COURSES_USERS" ManuallyRouted="false" />

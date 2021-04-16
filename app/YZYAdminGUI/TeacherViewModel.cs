@@ -13,12 +13,10 @@ namespace YZYAdminGUI
     {
         private YZYDbContext ctx;
         public ObservableCollection<Course> Courses { get; set; }
-        public List<Category> Categories { get; set; }
-        public List<string> CategoryStrings { get; set; }
-        public YZYCommand DeleteCommand { get; set; }
+        //public ObservableCollection<Register> Registers { get; set; }
         public YZYCommand UpdateCommand { get; set; }
-        public YZYCommand AddCommand { get; set; }
-
+        //public YZYCommand UpdateGradeCommand { get; set; }
+        public Course SelectedCourse { get; set; }
         public TeacherViewModel()
         {
             Log.setLogOnFile();
@@ -32,14 +30,10 @@ namespace YZYAdminGUI
                 Environment.Exit(1);
             }
             Courses = new ObservableCollection<Course>();
-            Categories = new List<Category>();
-            CategoryStrings = new List<string>();
             LoadCourse();
-            DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
-            UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
-            AddCommand = new YZYCommand(this.OnAdd, this.CanExecute);
+            UpdateCommand = new YZYCommand(this.OnUpdate, this.CanUpdate);
+            //UpdateGradeCommand = new YZYCommand(this.OnUpdateGrade, this.CanUpdateGrade);
         }
-
         private void LoadCourse()
         {
             try
@@ -50,42 +44,13 @@ namespace YZYAdminGUI
                 {
                     Courses.Add(item);
                 }
-                Categories = ctx.Categories.ToList();
-                CategoryStrings.Clear();
-                CategoryStrings.Add("Please select");
-                foreach (var item in Categories)
-                {
-                    CategoryStrings.Add(item.CateDesc);
-                }
             }
             catch (SystemException ex)
             {
                 Log.WriteLine(ex.Message);
             }
         }
-
-        private Course _selectedCourse;
-        public Course SelectedCourse
-        {
-            get
-            {
-                return _selectedCourse;
-            }
-            set
-            {
-                _selectedCourse = value;
-            }
-        }
-
-        public void OnDelete()
-        {
-            //FIXME: if not selected
-            //FIXME: failed if continously delete 2nd time
-            ctx.Courses.Remove(SelectedCourse);
-            ctx.SaveChanges();
-            LoadCourse();
-        }
-        public bool CanExecute()
+        public bool CanUpdate()
         {
             if (SelectedCourse != null)
             {
@@ -95,21 +60,99 @@ namespace YZYAdminGUI
         }
         public void OnUpdate()
         {
+            //Registers = SelectedCourse.Registers.ToList();
+            TeacherManagementDialog gradeDlg = new TeacherManagementDialog(SelectedCourse.CourseID);
+            gradeDlg.ShowDialog();
+        }
+
+        /*
+        private Register _regSelected;
+        public Register SelectedRegister 
+        {
+            get
+            {
+                return _regSelected;
+            }
+            set
+            {
+                _regSelected = value;
+                if(_regSelected.Evaluations.Count<1)
+                {
+                    _evToUpdate = new Evaluation();
+                    _evToUpdate.RegisterID = _regSelected.RegisterID;
+                    _evToUpdate.EvDate = DateTime.Now;
+                    _evToUpdate.Comment = string.Empty;
+                }
+                else
+                {
+                    _evToUpdate = _regSelected.Evaluations.ElementAt(0);
+                    _evToUpdate.EvDate = DateTime.Now;
+                }
+            }
+        }
+        
+        private Evaluation _evToUpdate = new Evaluation();
+        public Evaluation EvaluationToUpdate
+        {
+            get
+            {
+                return _evToUpdate;
+            }
+            set
+            {
+                _evToUpdate = value;
+            }
+        }
+        public string Grade
+        {
+            get
+            {
+                return _evToUpdate.Comment;
+            }
+            set
+            {
+                _evToUpdate.Comment = value;
+            }
+        }
+
+        public DateTime GradeDate
+        {
+            get
+            {
+                return _evToUpdate.EvDate;
+            }
+            set
+            {
+                _evToUpdate.EvDate = value;
+            }
+        }
+ 
+        public bool CanUpdateGrade()
+        {
+            if (SelectedRegister != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void OnUpdateGrade()
+        {
             try
             {
-                var item = (from r in ctx.Courses where r.CourseID == SelectedCourse.CourseID select r).FirstOrDefault<Course>();
+                var regid = _evToUpdate.RegisterID;
+                var item = (from r in ctx.Evaluations where r.RegisterID == regid select r).FirstOrDefault<Evaluation>();
                 if (item != null)
                 {
-                    item.CourseID = SelectedCourse.CourseID;
-                    item.StartDate = SelectedCourse.StartDate;
-                    item.EndDate = SelectedCourse.EndDate;
-                    item.CourseDesc = SelectedCourse.CourseDesc;
-                    item.Tuition = SelectedCourse.Tuition;
-                    item.UserID = SelectedCourse.UserID;//FIXME: if name is changed, we have to check related userid in database
-                    item.CategoryID = SelectedCourse.CategoryID;
+                    item.Comment = _evToUpdate.Comment;
+                    item.EvDate = _evToUpdate.EvDate;
+                    ctx.SaveChanges();
                 }
-                ctx.SaveChanges();
-                LoadCourse();
+                else
+                {
+                    ctx.Evaluations.Add(_evToUpdate);
+                    ctx.SaveChanges();
+                }
+                LoadRegistrations();
             }
             catch (Exception ex)
                 when ((ex is InvalidParameterException) || (ex is SystemException))
@@ -117,7 +160,23 @@ namespace YZYAdminGUI
                 Log.WriteLine(ex.Message);
             }
         }
-
+        private void LoadRegistrations()
+        {
+            try
+            {
+                var items = SelectedCourse.Registers.ToList();
+                Registers.Clear();
+                foreach (var item in items)
+                {
+                    Registers.Add(item);
+                }
+            }
+            catch (SystemException ex)
+            {
+                Log.WriteLine(ex.Message);
+            }
+        }
+        */
         private string[] _errorMessage = new string[7] { string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty };
         public string Error
         {
@@ -135,56 +194,6 @@ namespace YZYAdminGUI
                         break;
                 }
                 return string.Empty;
-            }
-        }
-        /*
-        private Course _newCourse;
-        public Course NewCourse
-        {
-            get
-            {
-                return _newCourse;
-            }
-        }
-        public int CourseID
-        {
-            get
-            {
-                return _newCourse.CourseID;
-            }
-            set
-            {
-                if (_newCourse == null)
-                {
-                    _newCourse = new Course();
-                }
-                try
-                {
-                    ValidationRules.checkCourseID(value);
-                    _newCourse.CourseID = value;
-                    _errorMessage[0] = string.Empty;
-                }
-                catch (InvalidParameterException ex)
-                {
-                    _errorMessage[0] = ex.Message;
-                }
-            }
-        }
-        */
-        public void OnAdd()
-        {
-            try
-            {
-                //FIXME: check related userid in database
-                ctx.Courses.Add(SelectedCourse);
-                ctx.SaveChanges();
-                LoadCourse();
-                //CourseID = 0;
-            }
-            catch (Exception ex)
-                when ((ex is InvalidParameterException) || (ex is SystemException))
-            {
-                Log.WriteLine(ex.Message);
             }
         }
 

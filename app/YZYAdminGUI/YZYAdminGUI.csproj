@@ -83,6 +83,10 @@
     </Compile>
     <Compile Include="ProfileViewModel.cs" />
     <Compile Include="SearchAccountViewModel.cs" />
+    <Compile Include="TeacherManagementDialog.xaml.cs">
+      <DependentUpon>TeacherManagementDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherDialogViewModel.cs" />
     <Compile Include="TeacherViewModel.cs" />
     <Compile Include="SearchCourseViewModel.cs" />
     <Compile Include="UCAdminProfile.xaml.cs">
@@ -118,6 +122,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TeacherManagementDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UCAdminProfile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

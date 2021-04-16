@@ -25,6 +25,7 @@ namespace YZYLibrary
         public int CourseID { get; set; }
         public int RegisterStatus { get; set; }
         public Nullable<int> PaymentID { get; set; }
+        public string Grade { get; set; }
     
         public virtual Course Cours { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

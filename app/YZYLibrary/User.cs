@@ -57,7 +57,7 @@ namespace YZYLibrary
 
             }
         }
-
+        [NotMapped]
         public string Address
         {
             get
@@ -72,7 +72,7 @@ namespace YZYLibrary
         public string MName { get; set; }
         public string LName { get; set; }
         public string UserSIN { get; set; }
-        public GenderEnum Gender { get; set; }
+        public int Gender { get; set; }
         public string StreetNo { get; set; }
         public string StreetName { get; set; }
         public string City { get; set; }
