@@ -42,6 +42,7 @@ namespace YZYStudentGUI
                     LanguageToggle.IsChecked = false;
                     break;
             }
+
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
@@ -65,11 +66,11 @@ namespace YZYStudentGUI
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-        private void Search_Click(object sender, RoutedEventArgs e)
+        private void Search_CourseByCategory_Click(object sender, RoutedEventArgs e)
         {
-            //CoursEditDialog ced = new CoursEditDialog();
-            //ced.Owner = this;
-            //ced.ShowDialog();
+            StudentSearchCoursViewModel regvmInstance = new StudentSearchCoursViewModel();
+            this.DataContext = regvmInstance;
+            regvmInstance.SelectedCategoryID = comboSearchCourse.SelectedIndex;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -89,9 +90,67 @@ namespace YZYStudentGUI
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
+            RegisterDialog rd = new RegisterDialog();
+            rd.Owner = this;
+            if(rd.ShowDialog() == true)
+            {
+                MessageBox.Show("Hello, Succuess!", "My App");
+            }
+
+
 
         }
+
+        private void Button_Search_Tearch_click(object sender, RoutedEventArgs e)
+        {
+            StudentSearchTeacherViewModel sstvmInstance = new StudentSearchTeacherViewModel();
+            this.DataContext = sstvmInstance;
+        }
+
+        private void Button_Search_Course_Click(object sender, RoutedEventArgs e)
+        {
+            StudentSearchCoursViewModel regvmInstance = new StudentSearchCoursViewModel();
+            this.DataContext = regvmInstance;
+        }
+
+        private void Button_Sign_Click(object sender, RoutedEventArgs e)
+        {
+            var loginDlg = new SignInDialog();
+            if (loginDlg.ShowDialog() == true)
+            {
+                string email = loginDlg.tbEmail.Text;
+                string password = loginDlg.tbPassword.Text;
+                try
+                {
+                    YZYDbContext ctx = new YZYDbContext();
+                    User loginUser = ctx.Users.ToList().Where(u => (u.Email == email && u.Password == password)).FirstOrDefault();
+                    if (loginUser != null)
+                    {
+                        if (loginUser.UserRole == UserRoleEnum.Student)
+                        {
+                            GlobalSettings.userRole = UserRoleEnum.Student;
+                            GlobalSettings.userID = loginUser.UserID;
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                }
+                catch (SystemException ex)
+                {
+                    Log.WriteLine(ex.Message);
+                    Environment.Exit(1);
+                }
+            }
+        }
+    }
+
+    public class GlobalSettings
+    {
+        public static UserRoleEnum userRole;
+        public static int userID;
     }
 }

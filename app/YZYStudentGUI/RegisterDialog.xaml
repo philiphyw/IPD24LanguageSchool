@@ -4,21 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YZYStudentGUI"
+        xmlns:p="clr-namespace:YZYStudentGUI.Properties"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" WindowStyle="None" 
         Title="RegisterDialog" Height="800" Width="800">
     <Grid>
-
         <Border Margin="15" MinWidth="400" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="10" MaxWidth="800">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="Welcome" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
+                <TextBlock Text="{x:Static p:Resources.welcome}" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
 
                 <Grid Margin="0 0 0 20">
-                    <Button Content="Registration" HorizontalAlignment="Left"/>
-                    <Button Content="Sign In" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button Content="{x:Static p:Resources.content_register}" HorizontalAlignment="Left"/>
+                    <Button Content="{x:Static p:Resources.content_signon_button}" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -35,7 +35,7 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="First Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=FName, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewFirstName" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_first_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=FName, Mode=TwoWay}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -51,22 +51,250 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Middle Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=MName, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Last Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LName, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Password, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="Confirm Password" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
-                    <TextBox Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="SIN" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserSIN, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="Gender" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=Gender, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Street No." Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetNo, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="Street Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetName, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="City" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=City, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" materialDesign:HintAssist.Hint="Province" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Province, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" materialDesign:HintAssist.Hint="PostalCode" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=PostalCode, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" materialDesign:HintAssist.Hint="Phone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Phone, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="6" Grid.Column="1" materialDesign:HintAssist.Hint="Cell" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Cell, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="7" Grid.Column="1" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Email, Mode=TwoWay}"/>
+                    <TextBox x:Name="tbNewMiddleName" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_middle_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=MName, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewMiddleName"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewLastName" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_last_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LName, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewLastName"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                 
+                    </TextBox>
+                    <TextBox x:Name="tbNewPassword" Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Password, Mode=TwoWay}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="tbNewPassword"/>
+                                <ItemsControl ItemsSource="{Binding}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewConfirmPassword" Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_confirm_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewConfirmPassword"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewSIN" Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_sin}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserSIN, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder  x:Name="tbNewSIN"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox  x:Name="tbNewGender" Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_gender}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=Gender, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewGender"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+
+                    <TextBox  x:Name="tbNewRole" Grid.Row="7" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_role}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserRole, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewRole"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewStreetNo" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_no}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetNo, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewStreetNo"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewStreetName" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetName, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewStreetName"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewCity" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_city}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=City, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewCity"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewProvince" Grid.Row="3" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_province}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Province, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewProvince"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewPostalCode" Grid.Row="4" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_postal_code}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=PostalCode, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewPostalCode"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewPhone" Grid.Row="5" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_phone}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Phone, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewPhone"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewCell" Grid.Row="6" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_cell}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Cell, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewCell" />
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
+                    <TextBox x:Name="tbNewEmail"  Grid.Row="7" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_email}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Email, Mode=TwoWay}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <AdornedElementPlaceholder x:Name="tbNewEmail"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </Grid>
-                <Button Content="Register" Margin="0 20" Command="{Binding Path=RegisterCommand}"/>
+                <Button Content="{x:Static p:Resources.content_submit_button}" Margin="0 20" Command="{Binding Path=RegisterCommand}" Click="Button_Register_Click"/>
             </StackPanel>
         </Border>
     </Grid>

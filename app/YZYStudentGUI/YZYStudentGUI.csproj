@@ -72,6 +72,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PaymentManagementDialog.xaml.cs">
+      <DependentUpon>PaymentManagementDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaymentViewModel.cs" />
     <Compile Include="RegisterDialog.xaml.cs">
       <DependentUpon>RegisterDialog.xaml</DependentUpon>
@@ -79,6 +82,16 @@
     <Compile Include="SignInDialog.xaml.cs">
       <DependentUpon>SignInDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StudentCoursManageDialog.xaml.cs">
+      <DependentUpon>StudentCoursManageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentProfileDialog.xaml.cs">
+      <DependentUpon>StudentProfileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSearchCoursViewModel.cs" />
+    <Compile Include="StudentSearchTeacherViewModel.cs" />
+    <Compile Include="StudentValidationRules.cs" />
+    <Compile Include="StudentRegisterViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,11 +104,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PaymentManagementDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegisterDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SignInDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentCoursManageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentProfileDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YZYLibrary\YZYLibrary.csproj">
+      <Project>{7965fda8-70c9-461f-acc1-6f77025cb1d9}</Project>
+      <Name>YZYLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

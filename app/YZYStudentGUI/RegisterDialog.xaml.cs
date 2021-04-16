@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YZYLibrary;
 
 namespace YZYStudentGUI
 {
@@ -19,9 +20,17 @@ namespace YZYStudentGUI
     /// </summary>
     public partial class RegisterDialog : Window
     {
+        private StudentRegisterViewModel regvmInstance;
         public RegisterDialog()
         {
             InitializeComponent();
+            regvmInstance = new StudentRegisterViewModel();
+            this.DataContext = regvmInstance;
+        }
+
+        private void Button_Register_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }
