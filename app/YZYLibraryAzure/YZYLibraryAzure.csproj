@@ -81,6 +81,9 @@
     <Compile Include="UserRoleEnum.cs">
       <DependentUpon>YZYDbContextAzure.tt</DependentUpon>
     </Compile>
+    <Compile Include="vOpenCours.cs">
+      <DependentUpon>YZYDbContextAzure.tt</DependentUpon>
+    </Compile>
     <Compile Include="vStudentRegister.cs">
       <DependentUpon>YZYDbContextAzure.tt</DependentUpon>
     </Compile>

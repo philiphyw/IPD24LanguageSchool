@@ -78,25 +78,51 @@
           <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'yzyschool.dbo.vStudentRegister' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="vStudentRegister">
+warning 6002: The table/view 'yzyschool.dbo.vOpenCourses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vOpenCourses">
           <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="CateDesc" />
-            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="CourseID" />
             <PropertyRef Name="CourseDesc" />
+            <PropertyRef Name="CateDesc" />
             <PropertyRef Name="StartDate" />
             <PropertyRef Name="EndDate" />
             <PropertyRef Name="Tuition" />
             <PropertyRef Name="Teacher" />
           </Key>
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="CourseDesc" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CateDesc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="Tuition" Type="money" Nullable="false" />
+          <Property Name="Teacher" Type="nvarchar" MaxLength="92" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'yzyschool.dbo.vStudentRegister' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vStudentRegister">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="CateDesc" />
+            <PropertyRef Name="RegisterID" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="CourseDesc" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+            <PropertyRef Name="Tuition" />
+            <PropertyRef Name="RegisterStatus" />
+            <PropertyRef Name="Teacher" />
+          </Key>
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="CateDesc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegisterID" Type="int" Nullable="false" />
           <Property Name="Difficulty" Type="smallint" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
           <Property Name="CourseDesc" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="EndDate" Type="date" Nullable="false" />
           <Property Name="Tuition" Type="money" Nullable="false" />
+          <Property Name="RegisterStatus" Type="int" Nullable="false" />
           <Property Name="Teacher" Type="nvarchar" MaxLength="92" Nullable="false" />
         </EntityType>
         <Association Name="FK_COURSES_CATEGORIES">
@@ -178,15 +204,29 @@ warning 6002: The table/view 'yzyschool.dbo.vStudentRegister' does not have a pr
           <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registers" EntityType="Self.Registers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vOpenCourses" EntityType="Self.vOpenCourses" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vOpenCourses].[CourseID] AS [CourseID], 
+    [vOpenCourses].[CourseDesc] AS [CourseDesc], 
+    [vOpenCourses].[CateDesc] AS [CateDesc], 
+    [vOpenCourses].[StartDate] AS [StartDate], 
+    [vOpenCourses].[EndDate] AS [EndDate], 
+    [vOpenCourses].[Tuition] AS [Tuition], 
+    [vOpenCourses].[Teacher] AS [Teacher]
+    FROM [dbo].[vOpenCourses] AS [vOpenCourses]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vStudentRegister" EntityType="Self.vStudentRegister" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vStudentRegister].[UserID] AS [UserID], 
     [vStudentRegister].[CateDesc] AS [CateDesc], 
+    [vStudentRegister].[RegisterID] AS [RegisterID], 
     [vStudentRegister].[Difficulty] AS [Difficulty], 
+    [vStudentRegister].[CourseID] AS [CourseID], 
     [vStudentRegister].[CourseDesc] AS [CourseDesc], 
     [vStudentRegister].[StartDate] AS [StartDate], 
     [vStudentRegister].[EndDate] AS [EndDate], 
     [vStudentRegister].[Tuition] AS [Tuition], 
+    [vStudentRegister].[RegisterStatus] AS [RegisterStatus], 
     [vStudentRegister].[Teacher] AS [Teacher]
     FROM [dbo].[vStudentRegister] AS [vStudentRegister]</DefiningQuery>
           </EntitySet>
@@ -407,6 +447,7 @@ warning 6002: The table/view 'yzyschool.dbo.vStudentRegister' does not have a pr
             <End Role="Registers" EntitySet="Registers" />
           </AssociationSet>
           <EntitySet Name="vStudentRegisters" EntityType="yzyschoolModel.vStudentRegister" />
+          <EntitySet Name="vOpenCourses" EntityType="yzyschoolModel.vOpenCours" />
         </EntityContainer>
         <EnumType Name="UserRoleEnum">
           <Member Name="Admin" Value="1" />
@@ -434,11 +475,35 @@ warning 6002: The table/view 'yzyschool.dbo.vStudentRegister' does not have a pr
             <PropertyRef Name="EndDate" />
             <PropertyRef Name="Tuition" />
             <PropertyRef Name="Teacher" />
+            <PropertyRef Name="RegisterStatus" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="RegisterID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="CateDesc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Difficulty" Type="Int16" Nullable="false" />
           <Property Name="CourseDesc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tuition" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Teacher" Type="String" Nullable="false" MaxLength="92" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterStatus" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="RegisterID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vOpenCours">
+          <Key>
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="CourseDesc" />
+            <PropertyRef Name="CateDesc" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+            <PropertyRef Name="Tuition" />
+            <PropertyRef Name="Teacher" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="CourseDesc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CateDesc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Tuition" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
@@ -531,6 +596,9 @@ warning 6002: The table/view 'yzyschool.dbo.vStudentRegister' does not have a pr
           <EntitySetMapping Name="vStudentRegisters">
             <EntityTypeMapping TypeName="yzyschoolModel.vStudentRegister">
               <MappingFragment StoreEntitySet="vStudentRegister">
+                <ScalarProperty Name="RegisterID" ColumnName="RegisterID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="RegisterStatus" ColumnName="RegisterStatus" />
                 <ScalarProperty Name="Teacher" ColumnName="Teacher" />
                 <ScalarProperty Name="Tuition" ColumnName="Tuition" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -539,6 +607,19 @@ warning 6002: The table/view 'yzyschool.dbo.vStudentRegister' does not have a pr
                 <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
                 <ScalarProperty Name="CateDesc" ColumnName="CateDesc" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vOpenCourses">
+            <EntityTypeMapping TypeName="yzyschoolModel.vOpenCours">
+              <MappingFragment StoreEntitySet="vOpenCourses">
+                <ScalarProperty Name="Teacher" ColumnName="Teacher" />
+                <ScalarProperty Name="Tuition" ColumnName="Tuition" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="CateDesc" ColumnName="CateDesc" />
+                <ScalarProperty Name="CourseDesc" ColumnName="CourseDesc" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

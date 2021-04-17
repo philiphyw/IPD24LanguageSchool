@@ -32,5 +32,6 @@ namespace YZYLibraryAzure
         public virtual DbSet<Register> Registers { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<vStudentRegister> vStudentRegisters { get; set; }
+        public virtual DbSet<vOpenCours> vOpenCourses { get; set; }
     }
 }

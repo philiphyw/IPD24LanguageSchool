@@ -59,6 +59,7 @@ namespace YZYStudentGUI
                     lbBalance.Content = String.Format("{0:.##}", (totalTuition - paidTuition));
 
                     lvRegisters.ItemsSource = ctx.vStudentRegisters.Where(r => r.UserID == curUser.UserID).ToList();
+                    
                 }
             }
             catch (SystemException ex)

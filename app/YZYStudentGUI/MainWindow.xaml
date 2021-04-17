@@ -416,10 +416,15 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
-                            <StackPanel Orientation="Horizontal" Margin="10 0">
-                                <materialDesign:PackIcon Kind="PencilAddOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
+                            <!--TODO: add a button to trigger on click event-->
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5" Width="159">
+                            
+                                    <materialDesign:PackIcon Kind="PencilAddOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
                                 <TextBlock Text="Manage Course" Margin="10" VerticalAlignment="Center" Foreground="white"/>
+                               
                             </StackPanel>
+
                         </ListViewItem>
                         <ListViewItem x:Name="listViewItem4" Height="60" RenderTransformOrigin="0.5,0.5">
                             <ListViewItem.RenderTransform>

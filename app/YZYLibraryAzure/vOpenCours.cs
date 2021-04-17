@@ -12,19 +12,15 @@ namespace YZYLibraryAzure
     using System;
     using System.Collections.Generic;
     
-    public partial class vStudentRegister
+    public partial class vOpenCours
     {
-        public int UserID { get; set; }
-        public string CateDesc { get; set; }
-        public short Difficulty { get; set; }
+        public int CourseID { get; set; }
         public string CourseDesc { get; set; }
+        public string CateDesc { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
         public decimal Tuition { get; set; }
         public string Teacher { get; set; }
-        public int RegisterStatus { get; set; }
-        public int CourseID { get; set; }
-        public int RegisterID { get; set; }
 
         public string StartDateStr { get { return $"{StartDate:d}"; } }
         public string EndDateStr { get { return $"{EndDate:d}"; } }

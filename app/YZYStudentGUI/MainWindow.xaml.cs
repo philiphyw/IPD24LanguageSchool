@@ -150,7 +150,18 @@ namespace YZYStudentGUI
 
         private void ButtonPayment_Click(object sender, RoutedEventArgs e)
         {
-            PaymentManagementDialog dlg = new PaymentManagementDialog();
+            //PaymentManagementDialog dlg = new PaymentManagementDialog();
+            //dlg.Owner = this;
+            //dlg.ShowDialog();
+
+            StudentCoursManageDialog dlg = new StudentCoursManageDialog();
+            dlg.Owner = this;
+            dlg.ShowDialog();
+        }
+
+        private void ButtonManageCourse_Click(object sender, RoutedEventArgs e)
+        {
+            StudentCoursManageDialog dlg = new StudentCoursManageDialog();
             dlg.Owner = this;
             dlg.ShowDialog();
         }
