@@ -12,19 +12,25 @@ namespace YZYLibraryAzure
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Course
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
+        public Course()
         {
-            this.Courses = new HashSet<Course>();
+            this.Registers = new HashSet<Register>();
         }
     
+        public int CourseID { get; set; }
         public int CategoryID { get; set; }
-        public string CateDesc { get; set; }
-        public short Difficulty { get; set; }
+        public int UserID { get; set; }
+        public string CourseDesc { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        public decimal Tuition { get; set; }
     
+        public virtual Category Category { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<Register> Registers { get; set; }
     }
 }

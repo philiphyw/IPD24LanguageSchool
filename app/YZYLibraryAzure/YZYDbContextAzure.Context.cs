@@ -13,10 +13,10 @@ namespace YZYLibraryAzure
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class YZYAzureDbContext : DbContext
+    public partial class YZYDbContextAzure : DbContext
     {
-        public YZYAzureDbContext()
-            : base("name=YZYAzureDbContext")
+        public YZYDbContextAzure()
+            : base("name=YZYDbContextAzure")
         {
         }
     
@@ -26,10 +26,11 @@ namespace YZYLibraryAzure
         }
     
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Cours> Courses { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Evaluation> Evaluations { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Register> Registers { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<vStudentRegister> vStudentRegisters { get; set; }
     }
 }

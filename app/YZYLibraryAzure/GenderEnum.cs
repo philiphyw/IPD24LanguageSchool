@@ -10,16 +10,12 @@
 namespace YZYLibraryAzure
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Payment
+    public enum GenderEnum : int
     {
-        public int PaymentID { get; set; }
-        public int UserID { get; set; }
-        public string PayAccount { get; set; }
-        public decimal Amount { get; set; }
-        public System.DateTime PayDate { get; set; }
-    
-        public virtual User User { get; set; }
+        Female = 1,
+        Male = 2,
+        Other = 3,
+        Unknown = 4
     }
 }

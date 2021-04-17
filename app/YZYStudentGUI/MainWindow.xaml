@@ -430,7 +430,7 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
-                            <Button          
+                            <Button Click="ButtonPayment_Click"         
                                   Width="189" HorizontalAlignment="Left"
                                 Background="{x:Null}" BorderBrush="{x:Null}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">

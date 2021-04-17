@@ -14,8 +14,12 @@
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
+                <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{x:Static p:Resources.welcome}" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
-
+                <Button HorizontalAlignment="Right" x:Name="ButtonClose" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click" Foreground="Red">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+                </StackPanel>
                 <Grid Margin="0 0 0 20">
                     <Button Content="{x:Static p:Resources.content_register}" HorizontalAlignment="Left"/>
                     <Button Content="{x:Static p:Resources.content_signon_button}" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"/>

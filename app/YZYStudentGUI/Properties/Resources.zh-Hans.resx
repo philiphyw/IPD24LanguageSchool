@@ -243,6 +243,9 @@
   <data name="content_add_button" xml:space="preserve">
     <value>新增</value>
   </data>
+  <data name="content_balance" xml:space="preserve">
+    <value>余额</value>
+  </data>
   <data name="content_cancel_button" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -263,6 +266,12 @@
   </data>
   <data name="content_edituser_dialog" xml:space="preserve">
     <value>编辑账户</value>
+  </data>
+  <data name="content_paid_tuition" xml:space="preserve">
+    <value>已付学费</value>
+  </data>
+  <data name="content_pay" xml:space="preserve">
+    <value>支付</value>
   </data>
   <data name="content_pick_picture" xml:space="preserve">
     <value>选取图片</value>
@@ -296,6 +305,9 @@
   </data>
   <data name="content_teacher_tab_title" xml:space="preserve">
     <value>课程列表</value>
+  </data>
+  <data name="content_tuition_total" xml:space="preserve">
+    <value>学费总数</value>
   </data>
   <data name="content_update" xml:space="preserve">
     <value>更新</value>

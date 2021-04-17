@@ -118,6 +118,7 @@ namespace YZYStudentGUI
         private void Button_Sign_Click(object sender, RoutedEventArgs e)
         {
             var loginDlg = new SignInDialog();
+            loginDlg.Owner = this;
             if (loginDlg.ShowDialog() == true)
             {
                 string email = loginDlg.tbEmail.Text;
@@ -145,6 +146,13 @@ namespace YZYStudentGUI
                     Environment.Exit(1);
                 }
             }
+        }
+
+        private void ButtonPayment_Click(object sender, RoutedEventArgs e)
+        {
+            PaymentManagementDialog dlg = new PaymentManagementDialog();
+            dlg.Owner = this;
+            dlg.ShowDialog();
         }
     }
 

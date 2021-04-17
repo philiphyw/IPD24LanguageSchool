@@ -12,25 +12,22 @@ namespace YZYLibraryAzure
     using System;
     using System.Collections.Generic;
     
-    public partial class Cours
+    public partial class vStudentRegister
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cours()
-        {
-            this.Registers = new HashSet<Register>();
-        }
-    
-        public int CourseID { get; set; }
-        public int CategoryID { get; set; }
         public int UserID { get; set; }
+        public string CateDesc { get; set; }
+        public short Difficulty { get; set; }
         public string CourseDesc { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
         public decimal Tuition { get; set; }
-    
-        public virtual Category Category { get; set; }
-        public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Register> Registers { get; set; }
+        public string Teacher { get; set; }
+
+
+        //below mannually-added codes will be deleted if refresh the data model
+        public string StartDateStr { get { return $"{StartDate:d}"; } }
+        public string EndDateStr { get { return $"{EndDate:d}"; } }
+        public string TuitionStr { get { return string.Format("{0:.##}", Tuition); } }
+
     }
 }

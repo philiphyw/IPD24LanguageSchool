@@ -10,16 +10,11 @@
 namespace YZYLibraryAzure
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Payment
+    public enum RegisterStatusEnum : int
     {
-        public int PaymentID { get; set; }
-        public int UserID { get; set; }
-        public string PayAccount { get; set; }
-        public decimal Amount { get; set; }
-        public System.DateTime PayDate { get; set; }
-    
-        public virtual User User { get; set; }
+        Pending = 1,
+        Done = 2,
+        Cancelled = 3
     }
 }
