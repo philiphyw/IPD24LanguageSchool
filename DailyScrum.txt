@@ -20,6 +20,17 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 3.Need assistance / figure things out
 -statistic chart
 
+2021/04/16 Edwin
+1. Done / not done since last scrum:
+- user searching/mgt feature in Admin GUI
+- course summary for teacher signed in
+- course grade for teacher signed in
+- support validation implementation based on MVVM
+2. To do until next Scrum:
+- unit test cases
+- validation functionality of Admin GUI
+- payment gateway
+3. Need assistance / figure things out
 
 ------------------------------------------------------------------
 
