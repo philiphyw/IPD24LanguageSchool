@@ -76,7 +76,7 @@ CREATE TABLE [dbo].[Registers](
 	[UserID] [int] NOT NULL,
 	[CourseID] [int] NOT NULL,
 	[RegisterStatus] [int] NOT NULL,
-	[PaymentID] [int] NULL,
+	[Grade][VARCHAR](2) NULL,
  CONSTRAINT [PK_REGISTERS] PRIMARY KEY CLUSTERED 
 (
 	[RegisterID] ASC
@@ -104,7 +104,7 @@ CREATE TABLE [dbo].[Users](
 	[Phone] [nchar](10) NULL,
 	[Cell] [nchar](10) NOT NULL,
 	[Email] [nvarchar](20) NOT NULL,
-	[Photo] [varbinary](1) NULL,
+	[Photo] [varbinary](MAX) NULL,
 	[Password] [nvarchar](20) MASKED WITH (FUNCTION = 'default()') NOT NULL,
  CONSTRAINT [PK_USERS] PRIMARY KEY CLUSTERED 
 (
@@ -140,9 +140,6 @@ ALTER TABLE [dbo].[Registers]  WITH NOCHECK ADD  CONSTRAINT [FK_REGISTERS_COURSE
 REFERENCES [dbo].[Courses] ([CourseID])
 GO
 ALTER TABLE [dbo].[Registers] CHECK CONSTRAINT [FK_REGISTERS_COURSES]
-GO
-ALTER TABLE [dbo].[Registers]  WITH NOCHECK ADD  CONSTRAINT [FK_REGISTERS_PAYMENTS] FOREIGN KEY([PaymentID])
-REFERENCES [dbo].[Payments] ([PaymentID])
 GO
 ALTER TABLE [dbo].[Registers] CHECK CONSTRAINT [FK_REGISTERS_PAYMENTS]
 GO

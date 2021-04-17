@@ -225,6 +225,15 @@
   <data name="column_user_sin" xml:space="preserve">
     <value>SIN</value>
   </data>
+  <data name="content_100_meters_from_metro_station" xml:space="preserve">
+    <value>100 meters from the metro station</value>
+  </data>
+  <data name="content_1_on_1_session" xml:space="preserve">
+    <value>one on one section</value>
+  </data>
+  <data name="content_4_8_students_per_class" xml:space="preserve">
+    <value>4-8 students per class</value>
+  </data>
   <data name="content_account_number" xml:space="preserve">
     <value>Number of Accounts</value>
   </data>
@@ -246,6 +255,12 @@
   <data name="content_cancel_button" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="content_contact_us" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="content_convenient_transportation" xml:space="preserve">
+    <value>Transportation</value>
+  </data>
   <data name="content_course_number" xml:space="preserve">
     <value>Number of Courses</value>
   </data>
@@ -264,17 +279,56 @@
   <data name="content_edituser_dialog" xml:space="preserve">
     <value>Edit User</value>
   </data>
+  <data name="content_extra_tutoring" xml:space="preserve">
+    <value>EXTRA TUTORING</value>
+  </data>
+  <data name="content_e_learning" xml:space="preserve">
+    <value>E-LEARNING</value>
+  </data>
+  <data name="content_e_learning_toolkit" xml:space="preserve">
+    <value>Toolkit to support online learning</value>
+  </data>
+  <data name="content_followed" xml:space="preserve">
+    <value>Followed</value>
+  </data>
   <data name="content_gender_options" xml:space="preserve">
     <value>Female ,Male, Other, Unknown</value>
   </data>
+  <data name="content_login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="content_lorem" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat ligula et ornare rutrum. Suspendisse vel nibh massa. Sed maximus porta augue eget viverra. Sed ullamcorper interdum ligula. Aenean vitae.</value>
+  </data>
+  <data name="content_manage_course" xml:space="preserve">
+    <value>Manage Course</value>
+  </data>
+  <data name="content_manage_payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="content_manage_profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
   <data name="content_open_courses" xml:space="preserve">
     <value>Open Courses</value>
+  </data>
+  <data name="content_optimized_group_size" xml:space="preserve">
+    <value>OPTIMIZED GROUP SIZE</value>
+  </data>
+  <data name="content_our_courses" xml:space="preserve">
+    <value>Our Courses</value>
+  </data>
+  <data name="content_our_teachers" xml:space="preserve">
+    <value>Our Teachers</value>
   </data>
   <data name="content_paid_tuition" xml:space="preserve">
     <value>Paid Tuition</value>
   </data>
   <data name="content_pay" xml:space="preserve">
     <value>Pay</value>
+  </data>
+  <data name="content_personalized" xml:space="preserve">
+    <value>PERSONALIZED</value>
   </data>
   <data name="content_pick_picture" xml:space="preserve">
     <value>Pick Picture</value>
@@ -300,6 +354,15 @@
   <data name="content_signon_button" xml:space="preserve">
     <value>Sign On</value>
   </data>
+  <data name="content_since_1999" xml:space="preserve">
+    <value>SINCE 1999</value>
+  </data>
+  <data name="content_skillful_teachers_with_rich_experience" xml:space="preserve">
+    <value>Skillful teachers with rich experience</value>
+  </data>
+  <data name="content_study_plan" xml:space="preserve">
+    <value>study plan</value>
+  </data>
   <data name="content_submit_button" xml:space="preserve">
     <value>Submit</value>
   </data>
@@ -315,6 +378,9 @@
   <data name="content_teacher_tab_title" xml:space="preserve">
     <value>Your Courses List</value>
   </data>
+  <data name="content_total_students" xml:space="preserve">
+    <value>Total Students</value>
+  </data>
   <data name="content_tuition_total" xml:space="preserve">
     <value>Tuition Total</value>
   </data>
@@ -323,6 +389,9 @@
   </data>
   <data name="content_update_button" xml:space="preserve">
     <value>Update</value>
+  </data>
+  <data name="content_why_choose_yzy" xml:space="preserve">
+    <value>WHY CHOOSE YZY</value>
   </data>
   <data name="error_course_id" xml:space="preserve">
     <value>invalid input of course ID</value>

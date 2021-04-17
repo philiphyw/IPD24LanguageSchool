@@ -14,7 +14,7 @@
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="Profile" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="#FF2196F3"/>
+                <TextBlock Text="{x:Static p:Resources.content_profile_tab}" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="#FF2196F3"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />

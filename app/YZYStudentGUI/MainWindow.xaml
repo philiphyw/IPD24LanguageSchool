@@ -306,7 +306,7 @@
                     </StackPanel.RenderTransform>
                     <StackPanel x:Name="stackPanel" Orientation="Horizontal" VerticalAlignment="Top" Height="100" HorizontalAlignment="Center" Margin="0,0,10,0" Width="210">
 
-                        <TextBlock Name="logoName" RenderTransformOrigin="0.5,0.5" Text="YZY Language" FontSize="28" FontWeight="Bold" VerticalAlignment="Center">
+                        <TextBlock Name="logoName" RenderTransformOrigin="0.5,0.5" Text="{x:Static p:Resources.windows_title}" FontSize="28" FontWeight="Bold" VerticalAlignment="Center">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -339,7 +339,7 @@
                                 Click="Button_Search_Tearch_click">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="BookOpenPageVariantOutline" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Our Teachers</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_our_teachers}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -365,7 +365,7 @@
                                 Click="Button_Search_Course_Click">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="BookOpenPageVariantOutline" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Our Courses</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_our_courses}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -400,7 +400,7 @@
                                 Click="Button_Search_Course_Click">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="EmailEditOutline" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Contact Us</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_contact_us}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>                       
@@ -430,7 +430,7 @@
                                 Background="{x:Null}" BorderBrush="{x:Null}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="PencilAddOutline" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Manage Couse</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_manage_course}"></TextBlock>
                                 </StackPanel>
                             </Button>
 
@@ -450,7 +450,7 @@
                                 Background="{x:Null}" BorderBrush="{x:Null}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="CurrencyUsd" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Payment</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_manage_payment}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -468,7 +468,7 @@
                                 Background="{x:Null}" BorderBrush="{x:Null}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="AccountKey" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Profile</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_manage_profile}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -488,7 +488,7 @@
                                 Background="{x:Null}" BorderBrush="{x:Null}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="LoginVariant" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Login</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_login}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -546,13 +546,13 @@
                                 <RowDefinition Height="30"/>
                                 <RowDefinition Height="30"/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Total Students" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5"/>
+                            <TextBlock Text="{x:Static p:Resources.content_total_students}" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5"/>
                             <TextBlock Text="1.5K" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="10 0"/>
 
-                            <TextBlock Text="FOLLOWING" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5" Grid.Column="1"/>
+                            <TextBlock Text="{x:Static p:Resources.content_followed}" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5" Grid.Column="1"/>
                             <TextBlock Text="2.3K" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="10 0" Grid.Column="1"/>
                         </Grid>
-                        <TextBlock TextWrapping="Wrap" Margin="10" Foreground="#FFFBFBFB" FontSize="14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat ligula et ornare rutrum. Suspendisse vel nibh massa. Sed maximus porta augue eget viverra. Sed ullamcorper interdum ligula. Aenean vitae.</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Margin="10" Foreground="#FFFBFBFB" FontSize="14" Text="{x:Static p:Resources.content_lorem}"></TextBlock>
                     </StackPanel>
                 </Grid>
                 
@@ -615,10 +615,10 @@
                                   Width="70" Height="30" Margin="5"
                                   Style="{StaticResource MaterialDesignFlatButton}"
                       ToolTip="MaterialDesignOutlinedButton"
-                      Content="Login"/>
+                      Content="{x:Static p:Resources.content_login}"/>
 
                     </TextBlock>
-                    <TextBlock Text="Why Choosing YZY" Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Margin="15" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
+                    <TextBlock Text="{x:Static p:Resources.content_why_choose_yzy}" Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Margin="15" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
                     <WrapPanel  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
 
                         <!--First Flipper-->
@@ -658,9 +658,9 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
                                         <TextBlock
-          Text="PERSONALIZED" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_personalized}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
-          Text="Study Plan" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_study_plan}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
                                           Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                           ToolTip="MaterialDesignFloatingActionButton"    Command="{x:Static materialDesign:Flipper.FlipCommand}" Background="#ffc266" HorizontalAlignment="Right" BorderBrush="{x:Null}">
@@ -738,9 +738,9 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
                                         <TextBlock
-          Text="EXTRA TUTORING" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_extra_tutoring}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
-          Text="1-on-1 free Sessions" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_1_on_1_session}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
                                           Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                           ToolTip="MaterialDesignFloatingActionButton"    Command="{x:Static materialDesign:Flipper.FlipCommand}" Background="#ffc266" HorizontalAlignment="Right" BorderBrush="{x:Null}">
@@ -818,9 +818,9 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
                                         <TextBlock
-          Text="4-8 STUDENTS MAX." FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_optimized_group_size}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
-          Text="4h daliy group class" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_4_8_students_per_class}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
                                           Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                           ToolTip="MaterialDesignFloatingActionButton"    Command="{x:Static materialDesign:Flipper.FlipCommand}" Background="#ffc266" HorizontalAlignment="Right" BorderBrush="{x:Null}">
@@ -900,9 +900,9 @@
         VerticalAlignment="Center">
 
                                         <TextBlock
-          Text="10 YEARS" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_since_1999}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
-          Text="teaching experience" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_skillful_teachers_with_rich_experience}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
                                           Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                           ToolTip="MaterialDesignFloatingActionButton"    Command="{x:Static materialDesign:Flipper.FlipCommand}" Background="#ffc266" HorizontalAlignment="Right" BorderBrush="{x:Null}">
@@ -982,9 +982,9 @@
                                         VerticalAlignment="Center">
 
                                         <TextBlock
-                                            Text="HEART OF THE CITY" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
+                                            Text="{x:Static p:Resources.content_convenient_transportation}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
-                                          Text="Located in the" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
+                                          Text="{x:Static p:Resources.content_100_meters_from_metro_station}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
                                           Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                           ToolTip="MaterialDesignFloatingActionButton"    Command="{x:Static materialDesign:Flipper.FlipCommand}" Background="#ffc266" HorizontalAlignment="Right" BorderBrush="{x:Null}">
@@ -1065,9 +1065,9 @@
                                         VerticalAlignment="Center">
 
                                         <TextBlock
-                                             Text="E-LEARNING" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
+                                             Text="{x:Static p:Resources.content_e_learning}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
-                                             Text="toolkit" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
+                                             Text="{x:Static p:Resources.content_e_learning_toolkit}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
                                           Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                           ToolTip="MaterialDesignFloatingActionButton"    Command="{x:Static materialDesign:Flipper.FlipCommand}" Background="#ffc266" HorizontalAlignment="Right" BorderBrush="{x:Null}">

@@ -77,7 +77,7 @@ PostalCode NCHAR(6) NOT NULL,
 Phone NCHAR(10) NULL,
 Cell NCHAR(10) NOT NULL,
 Email  NVARCHAR(20) not null,
-Photo VARBINARY null,
+Photo VARBINARY(MAX) null,
 Password NVARCHAR(20) MASKED WITH (FUNCTION = 'DEFAULT()') NOT NULL,
 
 CONSTRAINT PK_USERS PRIMARY KEY (UserID),
@@ -154,7 +154,7 @@ RegisterID INT IDENTITY(1,1) NOT NULL,
 UserID INT NOT NULL, -- Fk Users , only for Students
 CourseID INT NOT NULL, -- Fk Courses
 RegisterStatus INT not null , -- In order to generate Enum in EntityFramework, need to set data type in INT. 1:'Pending', 2:'Done', 3:'Cancelled'
-PaymentID int null, -- FK Payments
+Grade VARCHAR(2) NULL,
 
 
 CONSTRAINT PK_REGISTERS PRIMARY KEY (RegisterID)
@@ -215,10 +215,7 @@ ALTER TABLE REGISTERS
 	REFERENCES Users(UserID), 
 
     CONSTRAINT FK_REGISTERS_COURSES FOREIGN KEY (CourseID) 
-	REFERENCES COURSES(CourseID),
-
-	CONSTRAINT FK_REGISTERS_PAYMENTS FOREIGN KEY (PaymentID) 
-	REFERENCES PAYMENTS(PaymentID)
+	REFERENCES COURSES(CourseID)
 
 GO
 ;

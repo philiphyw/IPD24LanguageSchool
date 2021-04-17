@@ -228,6 +228,12 @@
   <data name="column_user_sin" xml:space="preserve">
     <value>社保号</value>
   </data>
+  <data name="content_1_on_1_session" xml:space="preserve">
+    <value>一对一课程</value>
+  </data>
+  <data name="content_4_8_students_per_class" xml:space="preserve">
+    <value>每班仅4-8名学生</value>
+  </data>
   <data name="content_account_number" xml:space="preserve">
     <value>用户数量</value>
   </data>
@@ -249,6 +255,12 @@
   <data name="content_cancel_button" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="content_contact_us" xml:space="preserve">
+    <value>联系我们</value>
+  </data>
+  <data name="content_convenient_transportation" xml:space="preserve">
+    <value>交通方便</value>
+  </data>
   <data name="content_course_number" xml:space="preserve">
     <value>课程数量</value>
   </data>
@@ -267,17 +279,56 @@
   <data name="content_edituser_dialog" xml:space="preserve">
     <value>编辑账户</value>
   </data>
+  <data name="content_extra_tutoring" xml:space="preserve">
+    <value>特别补习</value>
+  </data>
+  <data name="content_e_learning" xml:space="preserve">
+    <value>在线教学</value>
+  </data>
+  <data name="content_e_learning_toolkit" xml:space="preserve">
+    <value>多元化在线学习工具</value>
+  </data>
+  <data name="content_followed" xml:space="preserve">
+    <value>已关注</value>
+  </data>
   <data name="content_gender_options" xml:space="preserve">
     <value>Female: 女，Male: 男， Other: 其他，Unknown: 未知</value>
   </data>
+  <data name="content_login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="content_lorem" xml:space="preserve">
+    <value>老夫聊发少年狂。左牵黄。右擎苍。锦帽貂裘，千骑卷平冈。为报倾城随太守，亲射虎，看孙郎。酒酣胸胆尚开张。鬓微霜。又何妨。持节云中，何日遣冯唐？会挽雕弓如满月，西北望，射天狼。</value>
+  </data>
+  <data name="content_manage_course" xml:space="preserve">
+    <value>我的课程</value>
+  </data>
+  <data name="content_manage_payment" xml:space="preserve">
+    <value>我的支付</value>
+  </data>
+  <data name="content_manage_profile" xml:space="preserve">
+    <value>个人信息</value>
+  </data>
   <data name="content_open_courses" xml:space="preserve">
     <value>开放的课程</value>
+  </data>
+  <data name="content_optimized_group_size" xml:space="preserve">
+    <value>优化小班教学</value>
+  </data>
+  <data name="content_our_courses" xml:space="preserve">
+    <value>课程信息</value>
+  </data>
+  <data name="content_our_teachers" xml:space="preserve">
+    <value>教师信息</value>
   </data>
   <data name="content_paid_tuition" xml:space="preserve">
     <value>已付学费</value>
   </data>
   <data name="content_pay" xml:space="preserve">
     <value>支付</value>
+  </data>
+  <data name="content_personalized" xml:space="preserve">
+    <value>个人定制</value>
   </data>
   <data name="content_pick_picture" xml:space="preserve">
     <value>选取图片</value>
@@ -300,6 +351,15 @@
   <data name="content_signon_button" xml:space="preserve">
     <value>登录</value>
   </data>
+  <data name="content_since_1999" xml:space="preserve">
+    <value>创立于1999</value>
+  </data>
+  <data name="content_skillful_teachers_with_rich_experience" xml:space="preserve">
+    <value>有丰富教学经验的老师</value>
+  </data>
+  <data name="content_study_plan" xml:space="preserve">
+    <value>学习计划</value>
+  </data>
   <data name="content_submit_button" xml:space="preserve">
     <value>递交</value>
   </data>
@@ -315,6 +375,9 @@
   <data name="content_teacher_tab_title" xml:space="preserve">
     <value>课程列表</value>
   </data>
+  <data name="content_total_students" xml:space="preserve">
+    <value>学生总计</value>
+  </data>
   <data name="content_tuition_total" xml:space="preserve">
     <value>学费总数</value>
   </data>
@@ -323,6 +386,9 @@
   </data>
   <data name="content_update_button" xml:space="preserve">
     <value>更新</value>
+  </data>
+  <data name="content_why_choose_yzy" xml:space="preserve">
+    <value>为什么选择易学</value>
   </data>
   <data name="error_course_id" xml:space="preserve">
     <value>课程编码输入错误</value>

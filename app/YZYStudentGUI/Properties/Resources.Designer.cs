@@ -385,6 +385,33 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to one on one section.
+        /// </summary>
+        public static string content_1_on_1_session {
+            get {
+                return ResourceManager.GetString("content_1_on_1_session", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 100 meters from the metro station.
+        /// </summary>
+        public static string content_100_meters_from_metro_station {
+            get {
+                return ResourceManager.GetString("content_100_meters_from_metro_station", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4-8 students per class.
+        /// </summary>
+        public static string content_4_8_students_per_class {
+            get {
+                return ResourceManager.GetString("content_4_8_students_per_class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of Accounts.
         /// </summary>
         public static string content_account_number {
@@ -448,6 +475,24 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact Us.
+        /// </summary>
+        public static string content_contact_us {
+            get {
+                return ResourceManager.GetString("content_contact_us", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transportation.
+        /// </summary>
+        public static string content_convenient_transportation {
+            get {
+                return ResourceManager.GetString("content_convenient_transportation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of Courses.
         /// </summary>
         public static string content_course_number {
@@ -484,6 +529,24 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to E-LEARNING.
+        /// </summary>
+        public static string content_e_learning {
+            get {
+                return ResourceManager.GetString("content_e_learning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toolkit to support online learning.
+        /// </summary>
+        public static string content_e_learning_toolkit {
+            get {
+                return ResourceManager.GetString("content_e_learning_toolkit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string content_edit {
@@ -502,6 +565,24 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EXTRA TUTORING.
+        /// </summary>
+        public static string content_extra_tutoring {
+            get {
+                return ResourceManager.GetString("content_extra_tutoring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Followed.
+        /// </summary>
+        public static string content_followed {
+            get {
+                return ResourceManager.GetString("content_followed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Female ,Male, Other, Unknown.
         /// </summary>
         public static string content_gender_options {
@@ -511,11 +592,83 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string content_login {
+            get {
+                return ResourceManager.GetString("content_login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat ligula et ornare rutrum. Suspendisse vel nibh massa. Sed maximus porta augue eget viverra. Sed ullamcorper interdum ligula. Aenean vitae..
+        /// </summary>
+        public static string content_lorem {
+            get {
+                return ResourceManager.GetString("content_lorem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage Course.
+        /// </summary>
+        public static string content_manage_course {
+            get {
+                return ResourceManager.GetString("content_manage_course", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment.
+        /// </summary>
+        public static string content_manage_payment {
+            get {
+                return ResourceManager.GetString("content_manage_payment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile.
+        /// </summary>
+        public static string content_manage_profile {
+            get {
+                return ResourceManager.GetString("content_manage_profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Courses.
         /// </summary>
         public static string content_open_courses {
             get {
                 return ResourceManager.GetString("content_open_courses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OPTIMIZED GROUP SIZE.
+        /// </summary>
+        public static string content_optimized_group_size {
+            get {
+                return ResourceManager.GetString("content_optimized_group_size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Courses.
+        /// </summary>
+        public static string content_our_courses {
+            get {
+                return ResourceManager.GetString("content_our_courses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Teachers.
+        /// </summary>
+        public static string content_our_teachers {
+            get {
+                return ResourceManager.GetString("content_our_teachers", resourceCulture);
             }
         }
         
@@ -534,6 +687,15 @@ namespace YZYStudentGUI.Properties {
         public static string content_pay {
             get {
                 return ResourceManager.GetString("content_pay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PERSONALIZED.
+        /// </summary>
+        public static string content_personalized {
+            get {
+                return ResourceManager.GetString("content_personalized", resourceCulture);
             }
         }
         
@@ -610,6 +772,33 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SINCE 1999.
+        /// </summary>
+        public static string content_since_1999 {
+            get {
+                return ResourceManager.GetString("content_since_1999", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skillful teachers with rich experience.
+        /// </summary>
+        public static string content_skillful_teachers_with_rich_experience {
+            get {
+                return ResourceManager.GetString("content_skillful_teachers_with_rich_experience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to study plan.
+        /// </summary>
+        public static string content_study_plan {
+            get {
+                return ResourceManager.GetString("content_study_plan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
         public static string content_submit_button {
@@ -655,6 +844,15 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total Students.
+        /// </summary>
+        public static string content_total_students {
+            get {
+                return ResourceManager.GetString("content_total_students", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tuition Total.
         /// </summary>
         public static string content_tuition_total {
@@ -678,6 +876,15 @@ namespace YZYStudentGUI.Properties {
         public static string content_update_button {
             get {
                 return ResourceManager.GetString("content_update_button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WHY CHOOSE YZY.
+        /// </summary>
+        public static string content_why_choose_yzy {
+            get {
+                return ResourceManager.GetString("content_why_choose_yzy", resourceCulture);
             }
         }
         
