@@ -17,18 +17,18 @@ namespace YZYLibraryAzure
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Courses = new HashSet<Cours>();
+            this.Courses = new HashSet<Course>();
             this.Payments = new HashSet<Payment>();
             this.Registers = new HashSet<Register>();
         }
     
         public int UserID { get; set; }
-        public int UserRole { get; set; }
+        public UserRoleEnum UserRole { get; set; }
         public string FName { get; set; }
         public string MName { get; set; }
         public string LName { get; set; }
         public string UserSIN { get; set; }
-        public int Gender { get; set; }
+        public GenderEnum Gender { get; set; }
         public string StreetNo { get; set; }
         public string StreetName { get; set; }
         public string City { get; set; }
@@ -41,7 +41,7 @@ namespace YZYLibraryAzure
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cours> Courses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payment> Payments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

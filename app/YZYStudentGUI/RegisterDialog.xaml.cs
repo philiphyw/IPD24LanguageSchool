@@ -32,5 +32,10 @@ namespace YZYStudentGUI
         {
             DialogResult = true;
         }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

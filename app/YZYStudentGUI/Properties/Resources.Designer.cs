@@ -430,6 +430,15 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Balance.
+        /// </summary>
+        public static string content_balance {
+            get {
+                return ResourceManager.GetString("content_balance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string content_cancel_button {
@@ -489,6 +498,24 @@ namespace YZYStudentGUI.Properties {
         public static string content_edituser_dialog {
             get {
                 return ResourceManager.GetString("content_edituser_dialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paid Tuition.
+        /// </summary>
+        public static string content_paid_tuition {
+            get {
+                return ResourceManager.GetString("content_paid_tuition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pay.
+        /// </summary>
+        public static string content_pay {
+            get {
+                return ResourceManager.GetString("content_pay", resourceCulture);
             }
         }
         
@@ -597,6 +624,15 @@ namespace YZYStudentGUI.Properties {
         public static string content_teacher_tab_title {
             get {
                 return ResourceManager.GetString("content_teacher_tab_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tuition Total.
+        /// </summary>
+        public static string content_tuition_total {
+            get {
+                return ResourceManager.GetString("content_tuition_total", resourceCulture);
             }
         }
         

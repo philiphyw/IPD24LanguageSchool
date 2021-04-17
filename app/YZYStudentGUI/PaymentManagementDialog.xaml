@@ -7,7 +7,7 @@
         xmlns:p="clr-namespace:YZYStudentGUI.Properties"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="PaymentManagementDialog" Height="550" Width="950">
+        Title="PaymentManagementDialog" Height="550" Width="950" Loaded="Window_Loaded">
     <DockPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -21,15 +21,16 @@
             </Grid.RowDefinitions>
 
             <StackPanel  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="20" HorizontalAlignment="Center">
-                <Label  Content="Pay Account:" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                <TextBox  Width="200" Height="30"/>           
-                <Label  Content="Account:" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                <TextBox  Width="200" Height="30"/>
+                <Label  Content="{x:Static p:Resources.column_pay_account}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                <TextBox  x:Name="tbPayAccount" Width="200" Height="30"/>
+                <Label  Content="{x:Static p:Resources.column_amount}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                <TextBox x:Name="tbAmount" Width="200" Height="30"/>
                 <Button
+                    Click="PayButton_Click"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     materialDesign:ButtonAssist.CornerRadius="10"
                     ToolTip="MaterialDesignRaisedButton with Round Corners">
-                    <TextBlock Text="Pay" />
+                    <TextBlock Text="{x:Static p:Resources.content_pay}" />
                 </Button>
             </StackPanel>
             <materialDesign:Card
@@ -38,33 +39,33 @@
                   Margin="20,5,20,5"
                   UniformCornerRadius="10">
                 <StackPanel  Orientation="Horizontal" >
-                    <Label  Content="Tuition Total:" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
-                    <Label  Content="--" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
-                    <Label  Content="Paid Total:" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
-                    <Label  Content="--" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
-                    <Label  Content="Balance:" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
-                    <Label  Content="--" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
+                    <Label  Content="{x:Static p:Resources.content_tuition_total}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
+                    <Label  x:Name="lbTuitionTotal" Content="--" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
+                    <Label  Content="{x:Static p:Resources.content_paid_tuition}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
+                    <Label  x:Name="lbPaidTuition" Content="--" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
+                    <Label  Content="{x:Static p:Resources.content_balance}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
+                    <Label  x:Name="lbBalance" Content="--" HorizontalAlignment="left" VerticalAlignment="Center" Width="80" Foreground="#FF2196F3" FontWeight="Bold"/>
                 </StackPanel>
             </materialDesign:Card>
             <materialDesign:ColorZone Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                 CornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderBrush="#FF2196F3" BorderThickness="1" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <ScrollViewer Margin="5" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                    <ListView>
+                    <ListView Name="lvRegisters">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="CourseID" />
-                                <GridViewColumn Header="Category" />
-                                <GridViewColumn Header="CourseName" />
-                                <GridViewColumn Header="Teacher Name" />
-                                <GridViewColumn Header="Start Date" />
-                                <GridViewColumn Header="End Date" />
-                                <GridViewColumn Header="Tuition" />
+                                <!--<GridViewColumn Header="{x:Static p:Resources.column_course_id}" DisplayMemberBinding="{Binding CourseID}"/>-->
+                                <GridViewColumn Header="{x:Static p:Resources.column_category_description}" DisplayMemberBinding="{Binding CateDesc}"/>
+                                <GridViewColumn Header="{x:Static p:Resources.column_course_name}" DisplayMemberBinding="{Binding CourseDesc}" />
+                                <GridViewColumn Header="{x:Static p:Resources.column_teacher_name}" DisplayMemberBinding="{Binding Teacher}"/>
+                                <GridViewColumn Header="{x:Static p:Resources.column_start_date}" DisplayMemberBinding="{Binding StartDateStr}"/>
+                                <GridViewColumn Header="{x:Static p:Resources.column_end_date}" DisplayMemberBinding="{Binding EndDateStr}"/>
+                                <GridViewColumn Header="{x:Static p:Resources.column_tuition}" DisplayMemberBinding="{Binding TuitionStr}"/>
                             </GridView>
                         </ListView.View>
                         <ListView.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Edit" Name="miEdit" />
-                                <MenuItem Header="Delete" Name="miDelete"/>
+                                <MenuItem Header="{x:Static p:Resources.content_edit}" Name="miEdit" />
+                                <MenuItem Header="{x:Static p:Resources.content_delete}" Name="miDelete"/>
                             </ContextMenu>
                         </ListView.ContextMenu>
                     </ListView>

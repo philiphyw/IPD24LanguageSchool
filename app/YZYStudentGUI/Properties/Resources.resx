@@ -240,6 +240,9 @@
   <data name="content_add_button" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="content_balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
   <data name="content_cancel_button" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -260,6 +263,12 @@
   </data>
   <data name="content_edituser_dialog" xml:space="preserve">
     <value>Edit User</value>
+  </data>
+  <data name="content_paid_tuition" xml:space="preserve">
+    <value>Paid Tuition</value>
+  </data>
+  <data name="content_pay" xml:space="preserve">
+    <value>Pay</value>
   </data>
   <data name="content_pick_picture" xml:space="preserve">
     <value>Pick Picture</value>
@@ -296,6 +305,9 @@
   </data>
   <data name="content_teacher_tab_title" xml:space="preserve">
     <value>Your Courses List</value>
+  </data>
+  <data name="content_tuition_total" xml:space="preserve">
+    <value>Tuition Total</value>
   </data>
   <data name="content_update" xml:space="preserve">
     <value>Update</value>

@@ -23,13 +23,12 @@ namespace YZYLibraryAzure
         public int RegisterID { get; set; }
         public int UserID { get; set; }
         public int CourseID { get; set; }
-        public int RegisterStatus { get; set; }
-        public Nullable<int> PaymentID { get; set; }
+        public RegisterStatusEnum RegisterStatus { get; set; }
+        public string Grade { get; set; }
     
-        public virtual Cours Cours { get; set; }
+        public virtual Course Cours { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Evaluation> Evaluations { get; set; }
-        public virtual Payment Payment { get; set; }
         public virtual User User { get; set; }
     }
 }

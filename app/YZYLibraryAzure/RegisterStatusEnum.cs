@@ -7,15 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YZYLibrary
+namespace YZYLibraryAzure
 {
     using System;
     
-    public enum GenderEnum : int
+    public enum RegisterStatusEnum : int
     {
-        Female = 1,
-        Male = 2,
-        Other = 3,
-        Unknown = 4
+        Pending = 1,
+        Done = 2,
+        Cancelled = 3
     }
 }

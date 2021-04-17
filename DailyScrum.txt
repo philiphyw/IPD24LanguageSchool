@@ -32,6 +32,15 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 - payment gateway
 3. Need assistance / figure things out
 
+2021/04/16 PH
+1. Done / not done since last scrum:
+- Payment UI
+- Setup DB in Azure and import data
+2. To do until next Scrum:
+- Couse related features
+- Unit test
+3. Need assistance / figure things out
+
 ------------------------------------------------------------------
 
 2021/04/15 PH

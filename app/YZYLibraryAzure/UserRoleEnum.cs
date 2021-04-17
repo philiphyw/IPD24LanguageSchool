@@ -7,15 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YZYLibrary
+namespace YZYLibraryAzure
 {
     using System;
     
-    public enum GenderEnum : int
+    public enum UserRoleEnum : int
     {
-        Female = 1,
-        Male = 2,
-        Other = 3,
-        Unknown = 4
+        Admin = 1,
+        Teacher = 2,
+        Student = 3
     }
 }

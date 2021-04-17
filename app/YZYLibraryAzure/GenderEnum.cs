@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YZYLibrary
+namespace YZYLibraryAzure
 {
     using System;
     
