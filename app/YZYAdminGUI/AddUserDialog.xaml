@@ -30,7 +30,7 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <TextBox x:Name="tbNewFirstName" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_first_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=FName, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewFirstName" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_first_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=FName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -46,7 +46,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewMiddleName" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_middle_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=MName, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewMiddleName" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_middle_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=MName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -62,7 +62,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewLastName" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_last_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LName, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewLastName" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_last_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -79,7 +79,7 @@
                         </Validation.ErrorTemplate>
 
                     </TextBox>
-                    <TextBox x:Name="tbNewPassword" Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Password, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewPassword" Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -95,23 +95,8 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewConfirmPassword" Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_confirm_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5">
-                        <Validation.ErrorTemplate>
-                            <ControlTemplate>
-                                <StackPanel>
-                                    <AdornedElementPlaceholder x:Name="tbNewConfirmPassword"/>
-                                    <ItemsControl ItemsSource="{Binding}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
-                            </ControlTemplate>
-                        </Validation.ErrorTemplate>
-                    </TextBox>
-                    <TextBox x:Name="tbNewSIN" Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_sin}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserSIN, Mode=TwoWay}">
+                    
+                    <TextBox x:Name="tbNewSIN" Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_sin}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserSIN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -127,7 +112,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox  x:Name="tbNewGender" Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_gender}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=Gender, Mode=TwoWay}">
+                    <TextBox  x:Name="tbNewGender" Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_gender}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=Gender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -144,7 +129,7 @@
                         </Validation.ErrorTemplate>
                     </TextBox>
 
-                    <TextBox  x:Name="tbNewRole" Grid.Row="7" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_role}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserRole, Mode=TwoWay}">
+                    <TextBox  x:Name="tbNewRole" Grid.Row="7" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_role}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=UserRole, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -160,7 +145,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewStreetNo" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_no}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetNo, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewStreetNo" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_no}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -176,7 +161,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewStreetName" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetName, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewStreetName" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=StreetName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -192,7 +177,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewCity" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_city}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=City, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewCity" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_city}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=City, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -208,7 +193,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewProvince" Grid.Row="3" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_province}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Province, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewProvince" Grid.Row="3" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_province}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Province, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -224,7 +209,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewPostalCode" Grid.Row="4" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_postal_code}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=PostalCode, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewPostalCode" Grid.Row="4" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_postal_code}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=PostalCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -240,7 +225,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewPhone" Grid.Row="5" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_phone}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Phone, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewPhone" Grid.Row="5" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_phone}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -256,7 +241,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewCell" Grid.Row="6" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_cell}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Cell, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewCell" Grid.Row="6" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_cell}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Cell, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>
@@ -272,7 +257,7 @@
                             </ControlTemplate>
                         </Validation.ErrorTemplate>
                     </TextBox>
-                    <TextBox x:Name="tbNewEmail"  Grid.Row="7" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_email}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Email, Mode=TwoWay}">
+                    <TextBox x:Name="tbNewEmail"  Grid.Row="7" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_email}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
                         <Validation.ErrorTemplate>
                             <ControlTemplate>
                                 <StackPanel>

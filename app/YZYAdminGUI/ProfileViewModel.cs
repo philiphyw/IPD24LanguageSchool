@@ -10,7 +10,7 @@ using YZYLibrary;
 
 namespace YZYAdminGUI
 {
-    class ProfileViewModel : IDataErrorInfo
+    class ProfileViewModel
     {
         private YZYDbContext ctx;
         public User LoginUser { get; set; }
@@ -51,7 +51,18 @@ namespace YZYAdminGUI
 
         public bool CanUpdate()
         {
-            return true;
+            bool isPropertyFilledCorrectly;
+            try
+            {
+                ValidationRules.checkEmail(LoginUser.Email);
+                ValidationRules.checkPostCode(LoginUser.PostalCode);
+                isPropertyFilledCorrectly = true;
+            }
+            catch (InvalidParameterException)
+            {
+                isPropertyFilledCorrectly = false;
+            }
+            return isPropertyFilledCorrectly;
         }
         public void OnUpdate()
         {
@@ -63,26 +74,6 @@ namespace YZYAdminGUI
                 when ((ex is InvalidParameterException) || (ex is SystemException))
             {
                 Log.WriteLine(ex.Message);
-            }
-        }
-
-        private string[] _errorMessage = new string[7] { string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty };
-        public string Error
-        {
-            get { return null; }
-        }
-        public string this[string columnName]
-        {
-            get
-            {
-                switch (columnName)
-                {
-                    case "UserID":
-                        if (!String.IsNullOrEmpty(_errorMessage[0]))
-                            return _errorMessage[0];
-                        break;
-                }
-                return string.Empty;
             }
         }
     }

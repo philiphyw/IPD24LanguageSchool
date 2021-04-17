@@ -35,7 +35,16 @@ namespace YZYAdminGUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            try
+            {
+                ValidationRules.checkEmail(tbNewEmail.Text);
+                ValidationRules.checkPostCode(tbNewPostalCode.Text);
+                DialogResult = true;
+            }
+            catch (InvalidParameterException ex)
+            {
+                MessageBox.Show(ex.Message, Properties.Resources.windows_title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

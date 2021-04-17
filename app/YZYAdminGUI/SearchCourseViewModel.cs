@@ -9,8 +9,9 @@ using YZYLibrary;
 
 namespace YZYAdminGUI
 {
-    class SearchCourseViewModel : IDataErrorInfo
+    class SearchCourseViewModel
     {
+
         private YZYDbContext ctx;
         public ObservableCollection<Course> Courses { get; set; }
         public List<Category> Categories { get; set; }
@@ -35,7 +36,7 @@ namespace YZYAdminGUI
             Categories = new List<Category>();
             CategoryStrings = new List<string>();
             LoadCourse();
-            DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
+            DeleteCommand = new YZYCommand(this.OnDelete, this.CanDelete);
             UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
             AddCommand = new YZYCommand(this.OnAdd, this.CanExecute);
         }
@@ -63,7 +64,6 @@ namespace YZYAdminGUI
                 Log.WriteLine(ex.Message);
             }
         }
-
         private Course _selectedCourse;
         public Course SelectedCourse
         {
@@ -79,17 +79,37 @@ namespace YZYAdminGUI
 
         public void OnDelete()
         {
-            //FIXME: if not selected
             //FIXME: failed if continously delete 2nd time
             ctx.Courses.Remove(SelectedCourse);
             ctx.SaveChanges();
             LoadCourse();
         }
-        public bool CanExecute()
+        public bool CanDelete()
         {
             if (SelectedCourse != null)
             {
                 return true;
+            }
+            return false;
+        }
+
+        public bool CanExecute()
+        {
+            if (SelectedCourse != null)
+            {
+                bool isPropertyFilledCorrectly;
+                try
+                {
+                    ValidationRules.checkCourseDesc(SelectedCourse.CourseDesc);
+                    ValidationRules.checkCourseTuition(SelectedCourse.Tuition);
+                    ValidationRules.checkCourseDatetime(SelectedCourse.StartDate, SelectedCourse.EndDate);
+                    isPropertyFilledCorrectly = true;
+                }
+                catch (InvalidParameterException)
+                {
+                    isPropertyFilledCorrectly = false;
+                }
+                return isPropertyFilledCorrectly;
             }
             return false;
         }
@@ -101,12 +121,13 @@ namespace YZYAdminGUI
                 if (item != null)
                 {
                     item.CourseID = SelectedCourse.CourseID;
+                    item.CourseDesc = SelectedCourse.CourseDesc;
                     item.StartDate = SelectedCourse.StartDate;
                     item.EndDate = SelectedCourse.EndDate;
-                    item.CourseDesc = SelectedCourse.CourseDesc;
                     item.Tuition = SelectedCourse.Tuition;
                     item.UserID = SelectedCourse.UserID;//FIXME: if name is changed, we have to check related userid in database
                     item.CategoryID = SelectedCourse.CategoryID;
+
                 }
                 ctx.SaveChanges();
                 LoadCourse();
@@ -117,60 +138,7 @@ namespace YZYAdminGUI
                 Log.WriteLine(ex.Message);
             }
         }
-
-        private string[] _errorMessage = new string[7] { string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty };
-        public string Error
-        {
-            get { return null; }
-        }
-        public string this[string columnName]
-        {
-            get
-            {
-                switch (columnName)
-                {
-                    case "CourseID":
-                        if (!String.IsNullOrEmpty(_errorMessage[0]))
-                            return _errorMessage[0];
-                        break;
-                }
-                return string.Empty;
-            }
-        }
-        /*
-        private Course _newCourse;
-        public Course NewCourse
-        {
-            get
-            {
-                return _newCourse;
-            }
-        }
-        public int CourseID
-        {
-            get
-            {
-                return _newCourse.CourseID;
-            }
-            set
-            {
-                if (_newCourse == null)
-                {
-                    _newCourse = new Course();
-                }
-                try
-                {
-                    ValidationRules.checkCourseID(value);
-                    _newCourse.CourseID = value;
-                    _errorMessage[0] = string.Empty;
-                }
-                catch (InvalidParameterException ex)
-                {
-                    _errorMessage[0] = ex.Message;
-                }
-            }
-        }
-        */
+        
         public void OnAdd()
         {
             try

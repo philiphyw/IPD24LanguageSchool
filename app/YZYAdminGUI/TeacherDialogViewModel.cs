@@ -56,7 +56,17 @@ namespace YZYAdminGUI
         {
             if (SelectedRegister != null)
             {
-                return true;
+                bool result;
+                try
+                {
+                    ValidationRules.checkGrade(SelectedRegister.Grade);
+                    result = true;
+                }
+                catch (InvalidParameterException)
+                {
+                    result = false;
+                }
+                return result;
             }
             return false;
         }

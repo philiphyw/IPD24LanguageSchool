@@ -63,6 +63,9 @@
     <Compile Include="Evaluation.cs">
       <DependentUpon>YZYDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="GenderEnum.cs">
+      <DependentUpon>YZYDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Payment.cs">
       <DependentUpon>YZYDbContext.tt</DependentUpon>
     </Compile>

@@ -24,14 +24,14 @@
                         <RowDefinition Height="*" />
 
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Grid.Column="0">
+                    <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
                         <Button Name="btPickPicture"  Margin="15" Width="150" Height="150" Background="#ffb380">
                             <Grid Width="150" Height="150">
-                                <TextBlock x:Name="tbImage" Text="photo" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock x:Name="tbImage" Text="{x:Static p:Resources.content_pick_picture}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 <Image Name="imageViewer" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                             </Grid>
                         </Button>
-                    </StackPanel>
+                    </StackPanel> 
 
                     <Grid Grid.Row="0" Grid.Column="1">
                         <Grid.ColumnDefinitions>
@@ -48,47 +48,29 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <TextBlock x:Name="tbNewFirstName" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_first_name}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5" Text="{Binding Path=LoginUser.FName, Mode=TwoWay}">
-                        </TextBlock>
-                        <TextBlock x:Name="tbNewMiddleName" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_middle_name}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5"  Text="{Binding Path=LoginUser.MName, Mode=TwoWay}">
-                        </TextBlock>
-                        <TextBlock x:Name="tbNewLastName" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_last_name}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5"  Text="{Binding Path=LoginUser.LName, Mode=TwoWay}">
+                        <TextBlock x:Name="tbFirstName" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_first_name}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5" Text="{Binding Path=LoginUser.FName}"/>
+                        <TextBlock x:Name="tbMiddleName" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_middle_name}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5"  Text="{Binding Path=LoginUser.MName}"/>
+                        <TextBlock x:Name="tbLastName" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_last_name}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5"  Text="{Binding Path=LoginUser.LName}"/>
 
-                        </TextBlock>
-                        <TextBox x:Name="tbNewPassword" Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Password, Mode=TwoWay}">
-                        </TextBox>
-                        <TextBox x:Name="tbNewConfirmPassword" Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_confirm_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5">
-                        </TextBox>
-                        <TextBox x:Name="tbNewSIN" Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_sin}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.UserSIN, Mode=TwoWay}">
+                        <TextBlock x:Name="tbSIN" Grid.Row="3" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_sin}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5"  Text="{Binding Path=LoginUser.UserSIN}"/>
+                        <TextBlock x:Name="tbGender" Grid.Row="4" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_gender}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5"  Text="{Binding Path=LoginUser.Gender}"/>
+                        <TextBlock x:Name="tbRole" Grid.Row="5" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_role}" Style="{StaticResource MaterialDesignTextBlock}" Margin="0 5"  Text="{Binding Path=LoginUser.UserRole}"/>
 
-                        </TextBox>
-                        <TextBox  x:Name="tbNewGender" Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_gender}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.Gender, Mode=TwoWay}">
-                        </TextBox>
+                        <TextBox x:Name="tbNewPassword" Grid.Row="6" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Password, Mode=TwoWay}"/>
+                        <TextBox x:Name="tbNewConfirmPassword" Grid.Row="7" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_confirm_password}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
 
-                        <TextBox  x:Name="tbNewRole" Grid.Row="7" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_user_role}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.UserRole, Mode=TwoWay}">
-                        </TextBox>
-                        <TextBox x:Name="tbNewStreetNo" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_no}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.StreetNo, Mode=TwoWay}">
-                        </TextBox>
-                        <TextBox x:Name="tbNewStreetName" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.StreetName, Mode=TwoWay}">
-                        </TextBox>
-                        <TextBox x:Name="tbNewCity" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_city}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.City, Mode=TwoWay}">
-                        </TextBox>
-                        <TextBox x:Name="tbNewProvince" Grid.Row="3" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_province}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Province, Mode=TwoWay}">
-                        </TextBox>
-                        <TextBox x:Name="tbNewPostalCode" Grid.Row="4" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_postal_code}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.PostalCode, Mode=TwoWay}">
+                        <TextBox x:Name="tbNewStreetNo" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_no}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.StreetNo, Mode=TwoWay}"/>
+                        <TextBox x:Name="tbNewStreetName" Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_street_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.StreetName, Mode=TwoWay}"/>
+                        <TextBox x:Name="tbNewCity" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_city}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"  Text="{Binding Path=LoginUser.City, Mode=TwoWay}"/>
+                        <TextBox x:Name="tbNewProvince" Grid.Row="3" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_province}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Province, Mode=TwoWay}"/>
+                        <TextBox x:Name="tbNewPostalCode" Grid.Row="4" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_postal_code}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.PostalCode, Mode=TwoWay}"/>
 
-                        </TextBox>
-                        <TextBox x:Name="tbNewPhone" Grid.Row="5" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_phone}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Phone, Mode=TwoWay}">
-
-                        </TextBox>
-                        <TextBox x:Name="tbNewCell" Grid.Row="6" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_cell}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Cell, Mode=TwoWay}">
-
-                        </TextBox>
-                        <TextBox x:Name="tbNewEmail"  Grid.Row="7" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_email}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Email, Mode=TwoWay}">
-                        </TextBox>
+                        <TextBox x:Name="tbNewPhone" Grid.Row="5" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_phone}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Phone, Mode=TwoWay}"/>
+                        <TextBox x:Name="tbNewCell" Grid.Row="6" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_cell}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Cell, Mode=TwoWay}"/>
+                        <TextBox x:Name="tbNewEmail"  Grid.Row="7" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_email}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Text="{Binding Path=LoginUser.Email, Mode=TwoWay}"/>
                     </Grid>
                 </Grid>
-                <Button Content="{x:Static p:Resources.content_submit_button}" Margin="0 20" Command="{Binding Path=UpdateCommand}"/>
+                <Button Content="{x:Static p:Resources.content_update_button}" Margin="0 20" Command="{Binding Path=UpdateCommand}"/>
             </StackPanel>
         </Border>
     </Grid>

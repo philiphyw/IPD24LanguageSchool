@@ -294,11 +294,29 @@
   <data name="content_update_button" xml:space="preserve">
     <value>Update</value>
   </data>
+  <data name="error_course_date" xml:space="preserve">
+    <value>date can only be in (2000, 2100)</value>
+  </data>
   <data name="error_course_id" xml:space="preserve">
     <value>invalid input of course ID</value>
   </data>
+  <data name="error_course_name" xml:space="preserve">
+    <value>name can only be more than 2 chars</value>
+  </data>
+  <data name="error_course_tuition" xml:space="preserve">
+    <value>tuition can only be positive decimal</value>
+  </data>
   <data name="error_full_name" xml:space="preserve">
     <value>invalid input of full name</value>
+  </data>
+  <data name="error_user_email" xml:space="preserve">
+    <value>invalid input of email</value>
+  </data>
+  <data name="error_user_grade" xml:space="preserve">
+    <value>invalid input of grade</value>
+  </data>
+  <data name="error_user_postcode" xml:space="preserve">
+    <value>invalid input of post code</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome</value>

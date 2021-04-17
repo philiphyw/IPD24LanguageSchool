@@ -592,6 +592,15 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to date can only be in (2000, 2100).
+        /// </summary>
+        public static string error_course_date {
+            get {
+                return ResourceManager.GetString("error_course_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to invalid input of course ID.
         /// </summary>
         public static string error_course_id {
@@ -601,11 +610,56 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to name can only be more than 2 chars.
+        /// </summary>
+        public static string error_course_name {
+            get {
+                return ResourceManager.GetString("error_course_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tuition can only be positive decimal.
+        /// </summary>
+        public static string error_course_tuition {
+            get {
+                return ResourceManager.GetString("error_course_tuition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to invalid input of full name.
         /// </summary>
         public static string error_full_name {
             get {
                 return ResourceManager.GetString("error_full_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to invalid input of email.
+        /// </summary>
+        public static string error_user_email {
+            get {
+                return ResourceManager.GetString("error_user_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to invalid input of grade.
+        /// </summary>
+        public static string error_user_grade {
+            get {
+                return ResourceManager.GetString("error_user_grade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to invalid input of post code.
+        /// </summary>
+        public static string error_user_postcode {
+            get {
+                return ResourceManager.GetString("error_user_postcode", resourceCulture);
             }
         }
         

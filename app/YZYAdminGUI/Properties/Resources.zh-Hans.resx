@@ -294,11 +294,29 @@
   <data name="content_update_button" xml:space="preserve">
     <value>更新</value>
   </data>
+  <data name="error_course_date" xml:space="preserve">
+    <value>课程年份必须在2000到2100之间</value>
+  </data>
   <data name="error_course_id" xml:space="preserve">
     <value>课程编码输入错误</value>
   </data>
+  <data name="error_course_name" xml:space="preserve">
+    <value>课程名称必须多余2字节</value>
+  </data>
+  <data name="error_course_tuition" xml:space="preserve">
+    <value>课程费用必须大于零</value>
+  </data>
   <data name="error_full_name" xml:space="preserve">
     <value>姓名输入错误</value>
+  </data>
+  <data name="error_user_email" xml:space="preserve">
+    <value>电子邮箱输入错误</value>
+  </data>
+  <data name="error_user_postcode" xml:space="preserve">
+    <value>邮政编码输入错误</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>成绩输入错误</value>
   </data>
   <data name="welcome" xml:space="preserve">
     <value>欢迎</value>
