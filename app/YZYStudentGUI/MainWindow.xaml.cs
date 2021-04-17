@@ -162,6 +162,13 @@ namespace YZYStudentGUI
             dlg.Owner = this;
             dlg.ShowDialog();
         }
+
+        private void ButtonProfile_Click(object sender, RoutedEventArgs e)
+        {
+            StudentProfileDialog dlg = new StudentProfileDialog();
+            dlg.Owner = this;
+            dlg.ShowDialog();
+        }
     }
 
     public class GlobalSettings

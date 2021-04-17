@@ -418,12 +418,22 @@
                             </ListViewItem.RenderTransform>
                             <!--TODO: add a button to trigger on click event-->
 
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5" Width="159">
+                                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5" Width="159">
                             
                                     <materialDesign:PackIcon Kind="PencilAddOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
                                 <TextBlock Text="Manage Course" Margin="10" VerticalAlignment="Center" Foreground="white"/>
                                
-                            </StackPanel>
+                            </StackPanel>-->
+
+                            <Button Click="ButtonManageCourse_Click"         
+                                  Width="189" HorizontalAlignment="Left"
+                                Background="{x:Null}" BorderBrush="{x:Null}">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
+                                    <materialDesign:PackIcon Kind="PencilAddOutline" Width="30" Height="30"/>
+                                    <TextBlock Margin="15 0">Manage Couse</TextBlock>
+                                </StackPanel>
+                            </Button>
+
 
                         </ListViewItem>
                         <ListViewItem x:Name="listViewItem4" Height="60" RenderTransformOrigin="0.5,0.5">
@@ -453,7 +463,7 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
-                            <Button
+                            <Button Click="ButtonProfile_Click"
                                   Width="189" HorizontalAlignment="Left"
                                 Background="{x:Null}" BorderBrush="{x:Null}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">

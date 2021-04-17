@@ -264,6 +264,12 @@
   <data name="content_edituser_dialog" xml:space="preserve">
     <value>Edit User</value>
   </data>
+  <data name="content_gender_options" xml:space="preserve">
+    <value>Female ,Male, Other, Unknown</value>
+  </data>
+  <data name="content_open_courses" xml:space="preserve">
+    <value>Open Courses</value>
+  </data>
   <data name="content_paid_tuition" xml:space="preserve">
     <value>Paid Tuition</value>
   </data>
@@ -278,6 +284,9 @@
   </data>
   <data name="content_register" xml:space="preserve">
     <value>Registration</value>
+  </data>
+  <data name="content_registered_courses" xml:space="preserve">
+    <value>Registered Courses</value>
   </data>
   <data name="content_register_button" xml:space="preserve">
     <value>Register</value>

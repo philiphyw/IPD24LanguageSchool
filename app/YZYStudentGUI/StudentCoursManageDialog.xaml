@@ -37,7 +37,7 @@
                         <RowDefinition Height="25" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Label Content="Registerred Courses"  Grid.Row="0"/>
+                    <Label Content="{x:Static p:Resources.content_registered_courses}"  Grid.Row="0"/>
                     
                     <!--registerred courses start-->
                     <ScrollViewer Grid.Row="1" Grid.Column="0" Margin="8" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -62,7 +62,7 @@
                     </ScrollViewer>
                     <!--registerred courses end-->
 
-                    <Label Content="Open Courses"  Grid.Row="2"/>
+                    <Label Content="{x:Static p:Resources.content_open_courses}"  Grid.Row="2"/>
                     <!--open courses start-->
                     <ScrollViewer Grid.Row="3" Grid.Column="0" Margin="8" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                         <ListView x:Name="lvOpenCourses"  SelectionChanged="lvOpenCourses_SelectionChanged">

@@ -502,6 +502,24 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Female ,Male, Other, Unknown.
+        /// </summary>
+        public static string content_gender_options {
+            get {
+                return ResourceManager.GetString("content_gender_options", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Courses.
+        /// </summary>
+        public static string content_open_courses {
+            get {
+                return ResourceManager.GetString("content_open_courses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Paid Tuition.
         /// </summary>
         public static string content_paid_tuition {
@@ -552,6 +570,15 @@ namespace YZYStudentGUI.Properties {
         public static string content_register_button {
             get {
                 return ResourceManager.GetString("content_register_button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registered Courses.
+        /// </summary>
+        public static string content_registered_courses {
+            get {
+                return ResourceManager.GetString("content_registered_courses", resourceCulture);
             }
         }
         

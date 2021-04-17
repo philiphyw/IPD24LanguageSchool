@@ -74,7 +74,7 @@
           <Property Name="Phone" Type="nchar" MaxLength="10" />
           <Property Name="Cell" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Photo" Type="varbinary" MaxLength="1" />
+          <Property Name="Photo" Type="varbinary(max)" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -337,7 +337,7 @@ warning 6002: The table/view 'yzyschool.dbo.vStudentRegister' does not have a pr
           <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Cell" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Photo" Type="Binary" MaxLength="1" FixedLength="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Courses" Relationship="Self.FK_COURSES_USERS" FromRole="Users" ToRole="Courses" />
           <NavigationProperty Name="Payments" Relationship="Self.FK_PAYMENTS_USERS" FromRole="Users" ToRole="Payments" />
