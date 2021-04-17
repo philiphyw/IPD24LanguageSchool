@@ -58,7 +58,7 @@ namespace YZYStudentGUI
                     lbPaidTuition.Content = String.Format("{0:.##}", paidTuition);
                     lbBalance.Content = String.Format("{0:.##}", (totalTuition - paidTuition));
 
-                    lvRegisters.ItemsSource = ctx.vStudentRegisters.Where(r => r.UserID == curUser.UserID).ToList();
+                    lvPayments.ItemsSource = ctx.Payments.Where(r => r.UserID == curUser.UserID).OrderBy(p => p.PayDate).ToList();
                     
                 }
             }

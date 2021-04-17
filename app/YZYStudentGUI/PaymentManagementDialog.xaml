@@ -50,16 +50,14 @@
             <materialDesign:ColorZone Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                 CornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderBrush="#FF2196F3" BorderThickness="1" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <ScrollViewer Margin="5" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                    <ListView Name="lvRegisters">
+                    <ListView Name="lvPayments">
                         <ListView.View>
                             <GridView>
                                 <!--<GridViewColumn Header="{x:Static p:Resources.column_course_id}" DisplayMemberBinding="{Binding CourseID}"/>-->
-                                <GridViewColumn Header="{x:Static p:Resources.column_category_description}" DisplayMemberBinding="{Binding CateDesc}"/>
-                                <GridViewColumn Header="{x:Static p:Resources.column_course_name}" DisplayMemberBinding="{Binding CourseDesc}" />
-                                <GridViewColumn Header="{x:Static p:Resources.column_teacher_name}" DisplayMemberBinding="{Binding Teacher}"/>
-                                <GridViewColumn Header="{x:Static p:Resources.column_start_date}" DisplayMemberBinding="{Binding StartDateStr}"/>
-                                <GridViewColumn Header="{x:Static p:Resources.column_end_date}" DisplayMemberBinding="{Binding EndDateStr}"/>
-                                <GridViewColumn Header="{x:Static p:Resources.column_tuition}" DisplayMemberBinding="{Binding TuitionStr}"/>
+                                <GridViewColumn Header="{x:Static p:Resources.column_pay_account}" DisplayMemberBinding="{Binding PayAccount}"/>
+                                <GridViewColumn Header="{x:Static p:Resources.column_amount}" DisplayMemberBinding="{Binding AmountStr}" />
+                                <GridViewColumn Header="{x:Static p:Resources.column_pay_date}" DisplayMemberBinding="{Binding PayDateStr}"/>
+
                             </GridView>
                         </ListView.View>
                         <ListView.ContextMenu>

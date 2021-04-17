@@ -21,5 +21,8 @@ namespace YZYLibraryAzure
         public System.DateTime PayDate { get; set; }
     
         public virtual User User { get; set; }
+
+        public string AmountStr { get { return string.Format("{0:.##}", Amount); } }
+        public string PayDateStr { get { return $"{PayDate:d}"; } }
     }
 }
