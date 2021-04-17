@@ -49,11 +49,21 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UTValidationRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YZYAdminGUI\YZYAdminGUI.csproj">
+      <Project>{D7E53D5E-8866-4F51-938B-FF76200A8585}</Project>
+      <Name>YZYAdminGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YZYLibrary\YZYLibrary.csproj">
+      <Project>{05d7154e-38fb-4227-b10a-3ca2c3335a59}</Project>
+      <Name>YZYLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
