@@ -39,7 +39,6 @@
                 <TabItem Header="{x:Static p:Resources.content_course_tab}" x:Name="tabCourse">
                     <!-- DataContext="{Binding SearchCourseViewModel}" -->
                     <local:UCSearchingCourse Margin="10" HorizontalAlignment="Center" x:Name="ucCourse"/>
-                    <!--<TextBlock Text="Hello World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                 </TabItem>
                 <TabItem Header="{x:Static p:Resources.content_account_tab}" x:Name="tabAccount">
                     <local:UCSearchingAccount Margin="10" HorizontalAlignment="Center" x:Name="ucAccount"/>
