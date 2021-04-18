@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="YZYAdminGUI.exe" version="1.0.0.2" publicKeyToken="1b5d1667630446d5" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="YZY.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="YZYAdminGUI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="YZYAdminGUI.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dragablz.dll" size="239104">
+      <assemblyIdentity name="Dragablz" version="0.0.3.223" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>bFck7+GfWUUUNiaoJwycOhiNSIburKCDxXx0Kphcczg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="4991352">
+      <assemblyIdentity name="EntityFramework" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>/0K8pwRgXhh6u0VSOGixUSjWrxworUCkV51QfTSpU7I=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.SqlServer.dll" size="591752">
+      <assemblyIdentity name="EntityFramework.SqlServer" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>qWDdTS8PN7PAn/uVZ8MkJrh5ExDX65NcBMgZw9Rr1J4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MaterialDesignColors.dll" size="302080">
+      <assemblyIdentity name="MaterialDesignColors" version="2.0.0.2422" publicKeyToken="DF2A72020BD7962A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>n6OBl+7Vyh+sLQVvz9J2enRki8g2cl0lVHeyUVZ7rbY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MaterialDesignThemes.Wpf.dll" size="8171520">
+      <assemblyIdentity name="MaterialDesignThemes.Wpf" version="4.0.0.2422" publicKeyToken="DF2A72020BD7962A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>myTnN3zwPtk812xOETMOLGfMQuKHWpf6ULmgNqAF910=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YZYAdminGUI.exe" size="100264">
+      <assemblyIdentity name="YZYAdminGUI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>FewU+kRXfdaba96Co0GVnfwrwLOLghdHJ0BGW+6kKHE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="zh-Hans\YZYAdminGUI.resources.dll" size="7680">
+      <assemblyIdentity name="YZYAdminGUI.resources" version="1.0.0.0" language="zh-Hans" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>t4gyfywW8TNyafcO6Nl559mSN+0lGIesZ6y+vJBRdiQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YZYLibraryAzure.dll" size="53760">
+      <assemblyIdentity name="YZYLibraryAzure" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>RnXMuwhsSy6Zf311TXV6oSk8372b+PFxGf8C0xHnGcU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="YZY.ico" size="4286">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>sasmYvBBztO1HFRIYBpsMUEG5snngA9w5ampZDdU03A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="YZYAdminGUI.exe.config" size="3083">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qtQb+L+yJtcjD87JjQ2vnvN/uQhQcbjL62zrI946Zhg=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=WINMAC\Edwin" issuerKeyHash="f702fa92965082600847fec247cccfe7f94238ed" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>tRq+v/N2eRBWcHMRzx9EEBYgdSdtebA2aSJ5dBQiM7M=</DigestValue></Reference></SignedInfo><SignatureValue>Xpl4W7SRzXLiZapaf0Sjavb5g82sXi3+HFiJdMi31/DHJeJ20qsvwG8tycOjZneWiDjC8ukVjrCUX31mmKDAWVSA1hS+oT7GFLrtJapzdPGPEXon1509q8pA+0nhZDcLXtDDtgKnElD5h5Vkk7WWu3UTgF2SCLNSsXAiSS54ZkI=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>0euRIsoPXmGnsI6mAKxu/K2aN93ma9Qjqivu8FMzZW0WtllgJesLU9yi2fZPmym3p4rh1xjAZ2cD5tAge2uzNzCww5rmU+IjTYXPPISihmCZd7Hhln3JRkFk0n21bds81+PbALa82TK/H9YKSbiGjiM7G5C9p4GPBEcgLX449i0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="b33322147479226936b0796d2775201610441fcf11737056107976f3bfbe1ab5" Description="" Url=""><as:assemblyIdentity name="YZYAdminGUI.exe" version="1.0.0.2" publicKeyToken="1b5d1667630446d5" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=WINMAC\Edwin</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>VRyyqQTMH/FsMI10ba2izUllaJe+uQWMhDDcxreL9nE=</DigestValue></Reference></SignedInfo><SignatureValue>nOckiGcW+CsNeuLo5q9+7GHi2uJO5E6XLXPmwrkd/UkT/lhQ41zMpYX76zDKvXuTGfF2T4zP47Ld+lMGSHxMbLpekYqqy7pme6kpOjXt8joD8ZzazivcQP3BOolhNpnV57nXQA/3nnnlSyulsXdHKV5ZrhlrZqGkL9+isEVpKpI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>0euRIsoPXmGnsI6mAKxu/K2aN93ma9Qjqivu8FMzZW0WtllgJesLU9yi2fZPmym3p4rh1xjAZ2cD5tAge2uzNzCww5rmU+IjTYXPPISihmCZd7Hhln3JRkFk0n21bds81+PbALa82TK/H9YKSbiGjiM7G5C9p4GPBEcgLX449i0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQccMpAVNfqaZNOk+NSuJLTzANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgAVwBJAE4ATQBBAEMAXABFAGQAdwBpAG4wHhcNMjEwNDE4MDIzMDU1WhcNMjIwNDE4MDgzMDU1WjAjMSEwHwYDVQQDHhgAVwBJAE4ATQBBAEMAXABFAGQAdwBpAG4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANHrkSLKD15hp7COpgCsbvytmjfd5mvUI6or7vBTM2VtFrZZYCXrC1Pcotn2T5spt6eK4dcYwGdnA+bQIHtrszcwsMOa5lPiI02FzzyEooZgmXex4ZZ9yUZBZNJ9tW3bPNfj2wC2vNkyvx/WCkm4ho4jOxuQvaeBjwRHIC1+OPYtAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAtawDeIdDth0b3skjjKXQlQilxg7iK9KQT72z8Srb1ATibmoEj7jEVmPNDQutdO4qlU/9zqn6kxlSBuO8p0sG0EsqV7Nx/aCyDvSGw6GvMI2L4dEyEn7RfuKAZL5W2jpTfLoSxZaMkM7kHKT8DZKRcnZBJW+BqpTiS9TIWHXfF9E=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
