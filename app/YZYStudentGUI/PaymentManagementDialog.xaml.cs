@@ -72,28 +72,45 @@ namespace YZYStudentGUI
 
         private void PayButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                List<string> errList = new List<string>();
             if (curUser == null)
             {
                 return;
             }
 
-            if (tbPayAccount.Text.Length < 0)
+            if (tbPayAccount.Text.Length < 5 || tbPayAccount.Text.Length>30)
             {
-                return;
+                errList.Add("Account must be 5 -30 characters");
             }
 
 
-            if (tbAmount.Text.Length < 0)
+            if (tbAmount.Text.Length == 0)
             {
-                return;
+                errList.Add("Account can not be empty");
             }
 
-            try
-            {
-                if (!decimal.TryParse(tbAmount.Text, out decimal amount))
+
+                if (!decimal.TryParse(tbAmount.Text, out decimal amount) && tbAmount.Text.Length>0)
                 {
-                    return;
+                    errList.Add("Account must be a valid number");
                 }
+
+
+                if (errList.Count>0)
+            {
+                string errStr="";
+
+                foreach (string r in errList)
+                {
+                    errStr += $"{r}\n";
+                }
+
+                MessageBox.Show($"Error found:\n{errStr}");
+                return;
+            }
+
 
                 using (YZYDbContextAzure ctx = new YZYDbContextAzure())
                 {
@@ -104,10 +121,11 @@ namespace YZYStudentGUI
                     LoadData();
                 }
             }
-            catch (Exception ex)
+            catch (SystemException ex)
             {
 
-                Console.WriteLine(ex.Message);
+                MessageBox.Show($"Fetal Error: {ex.Message}");
+                Environment.Exit(1);
             }
         }
 
