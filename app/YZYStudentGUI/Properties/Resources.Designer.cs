@@ -475,6 +475,15 @@ namespace YZYStudentGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.
+        /// </summary>
+        public static string content_card_detail {
+            get {
+                return ResourceManager.GetString("content_card_detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact Us.
         /// </summary>
         public static string content_contact_us {

@@ -258,6 +258,9 @@
   <data name="content_cancel_button" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="content_card_detail" xml:space="preserve">
+    <value>青海长云暗雪山，孤城遥望玉门关。黄沙百战穿金甲，不破楼兰终不还。</value>
+  </data>
   <data name="content_contact_us" xml:space="preserve">
     <value>联系我们</value>
   </data>
