@@ -23,7 +23,7 @@ namespace YZYLibraryAzure
         public virtual User User { get; set; }
 
 
-        public string AmountStr { get { return string.Format("{0:.##}", Amount); } }
+        public string AmountStr { get { return (Amount==0)?"0":string.Format("{0:.##}", Amount); } }
         public string PayDateStr { get { return $"{PayDate:d}"; } }
     }
 }

@@ -19,13 +19,10 @@
                 <StackPanel Margin="25">
                     <TextBox  x:Name="tbEmail" Text="{Binding SummonerName}" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_email}"/>
                     <TextBox  x:Name="tbPassword" Text="{Binding SummonerName}" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="{x:Static p:Resources.column_password}"/>
-               
+
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="50,50,50,10">
-                        <Button Margin="15" Content="cancel" IsCancel="True" Style="{StaticResource MaterialDesignRaisedButton}" />
-                        <Button x:Name="ButtonSignIn" Margin="15" Content="SIGN IN"  Style="{StaticResource MaterialDesignRaisedButton}" Click="ButtonSignIn_Click"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button x:Name="ButtonSignUp" Margin="15" Content="SIGN UP"  Style="{StaticResource MaterialDesignFlatButton}"/>
+                        <Button Margin="15" Content="{x:Static p:Resources.content_cancel_button}" IsCancel="True" Style="{StaticResource MaterialDesignRaisedButton}" />
+                        <Button x:Name="ButtonSignIn" Margin="15" Content="{x:Static p:Resources.content_login}"  Style="{StaticResource MaterialDesignRaisedButton}" Click="ButtonSignIn_Click"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

@@ -52,11 +52,11 @@ namespace YZYStudentGUI
                 {
                     decimal totalTuition = ctx.Registers.Include("Course").Where(r => r.UserID == curUser.UserID).Sum(r => r.Cours.Tuition);
                     decimal paidTuition = ctx.Payments.Where(r => r.UserID == curUser.UserID).Sum(r => r.Amount);
-
+                    decimal balance = totalTuition - paidTuition;
 
                     lbTuitionTotal.Content = String.Format("{0:.##}", totalTuition);
                     lbPaidTuition.Content = String.Format("{0:.##}", paidTuition);
-                    lbBalance.Content = String.Format("{0:.##}", (totalTuition - paidTuition));
+                    lbBalance.Content = balance == 0?"0":String.Format("{0:.##}", balance);
 
                     lvPayments.ItemsSource = ctx.Payments.Where(r => r.UserID == curUser.UserID).OrderBy(p => p.PayDate).ToList();
                     
@@ -119,6 +119,7 @@ namespace YZYStudentGUI
                     ctx.SaveChanges();
                     this.InitializeComponent();
                     LoadData();
+                    ClearField();
                 }
             }
             catch (SystemException ex)
@@ -127,6 +128,12 @@ namespace YZYStudentGUI
                 MessageBox.Show($"Fetal Error: {ex.Message}");
                 Environment.Exit(1);
             }
+        }
+
+        private void ClearField()
+        {
+            tbPayAccount.Text = "";
+            tbAmount.Text = "";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

@@ -433,7 +433,7 @@
                                 Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonPayment_Click" x:Name="btPayment">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="CurrencyUsd" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Payment</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_manage_payment}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -451,7 +451,7 @@
                                 Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonProfile_Click" x:Name="btProfile">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="AccountKey" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Profile</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_manage_profile}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -471,7 +471,7 @@
                                 Background="{x:Null}" BorderBrush="{x:Null}">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="LoginVariant" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0">Login</TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_login}"></TextBlock>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -697,7 +697,7 @@
                                             <TextBlock
             Margin="8 0 0 0"
             VerticalAlignment="Center"
-            Text="EDIT USER" />
+            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -705,7 +705,7 @@
         TextWrapping="Wrap"
         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -777,7 +777,7 @@
                                             <TextBlock
             Margin="8 0 0 0"
             VerticalAlignment="Center"
-            Text="EDIT USER" />
+            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -785,7 +785,7 @@
         TextWrapping="Wrap"
         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -857,7 +857,7 @@
                                             <TextBlock
             Margin="8 0 0 0"
             VerticalAlignment="Center"
-            Text="EDIT USER" />
+            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -865,7 +865,7 @@
         TextWrapping="Wrap"
         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -939,7 +939,7 @@
                                             <TextBlock
             Margin="8 0 0 0"
             VerticalAlignment="Center"
-            Text="EDIT USER" />
+            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -947,7 +947,7 @@
                                         TextWrapping="Wrap"
                                         VerticalAlignment="Center"
                                                                         HorizontalAlignment="Center"
-                                        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+                                        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -1021,7 +1021,7 @@
                                             <TextBlock
                                             Margin="8 0 0 0"
                                             VerticalAlignment="Center"
-                                            Text="EDIT USER" />
+                                            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -1029,7 +1029,7 @@
                                     TextWrapping="Wrap"
                                     VerticalAlignment="Center"
                                                                     HorizontalAlignment="Center"
-                                    Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+                                    Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -1103,7 +1103,7 @@
                                             <TextBlock
                                                 Margin="8 0 0 0"
                                                 VerticalAlignment="Center"
-                                                Text="EDIT USER" />
+                                                Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -1111,7 +1111,7 @@
                                         TextWrapping="Wrap"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-                                        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+                                        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
