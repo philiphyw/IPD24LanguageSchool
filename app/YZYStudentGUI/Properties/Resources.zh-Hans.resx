@@ -228,6 +228,9 @@
   <data name="column_user_sin" xml:space="preserve">
     <value>社保号</value>
   </data>
+  <data name="content_100_meters_from_metro_station" xml:space="preserve">
+    <value>离地铁站仅100米</value>
+  </data>
   <data name="content_1_on_1_session" xml:space="preserve">
     <value>一对一课程</value>
   </data>

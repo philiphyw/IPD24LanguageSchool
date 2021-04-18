@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -125,6 +126,83 @@ namespace YZYStudentGUI
         private void btSubmit_Click(object sender, RoutedEventArgs e)
         {
 
+            //validations
+            List<string> errList = new List<string>();
+
+            if (!Regex.IsMatch(tbNewSIN.Text, @"^[0-9]{9}$"))
+            {
+                errList.Add("SIN must be 9 numbers");
+                
+            }
+
+            if (!Enum.TryParse(tbNewGender.Text, out GenderEnum gender))
+            {
+                errList.Add("Gender must be: Female, Male, Other or Unknown");
+            }
+
+            if (!Regex.IsMatch(tbNewStreetName.Text, @"^[\w\d\s\.\-]{2,50}$"))
+            {
+                errList.Add("Street name must be 2 - 50 characters");
+            }
+
+            if (!Regex.IsMatch(tbNewStreetNo.Text, @"^[\w\d\s\.\-]{2,50}$"))
+            {
+                errList.Add("Street number must be 2 - 50 characters");
+            }
+
+            if (!Regex.IsMatch(tbNewCity.Text, @"^[\w\d\s\.\-]{2,30}$"))
+            {
+                errList.Add("City must be 2 - 30 characters");
+            }
+
+            List<string> provinceList= new List<string>() { "QC", "ON", "BC", "NL", "PE", "NS", "NB", "MB", "SK", "AB", "YT", "NT", "NU" };
+            
+            if (!provinceList.Any(s => tbNewProvince.Text.ToUpper().Equals(s)))
+            {
+                errList.Add("Province must be a 2 characters  Canadian province abbreviation");
+
+            }
+
+            if (!Regex.IsMatch(tbNewPostalCode.Text, @"^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$"))
+            {
+                errList.Add("Postal code must be 6 character, in the format L0L0L0");
+            }
+
+            if (!Regex.IsMatch(tbNewPhone.Text, @"^[0-9]{10}$"))
+            {
+                errList.Add("Phone must be 10 numbers");
+            }
+
+            if (!Regex.IsMatch(tbNewCell.Text, @"^[0-9]{10}$"))
+            {
+                errList.Add("Cell must be 10 numbers");
+            }
+
+            if (!Regex.IsMatch(tbNewEmail.Text, @"^[\w\d\s\.\-\@]{2,20}$"))
+            {
+                errList.Add("Email must be less than 20 characters");
+            }
+
+            if (!Regex.IsMatch(tbNewPassword.Text, @"^[\w\d\s\.\-\@]{2,20}$"))
+            {
+                errList.Add("Password must be less than 20 characters");
+            }
+
+
+            if (errList.Count >0)
+            {
+                string errStr = "";
+
+                foreach (string r in errList)
+                {
+                    errStr += $"{r}\n";
+                }
+
+                MessageBox.Show($"Error found:\n{errStr}");
+                return;
+            }
+
+            //check if password and/or confirmed password have been edited, if yes check if they are matched
             if (isPasswordModified == true)
             {
                 if (!tbNewPassword.Text.Equals(tbNewConfirmPassword.Text))
@@ -147,7 +225,6 @@ namespace YZYStudentGUI
                         udUser.City = tbNewCity.Text;
                         udUser.Email = tbNewEmail.Text;
                         udUser.Password = tbNewPassword.Text;
-                        GenderEnum gender = (GenderEnum)Enum.Parse(typeof(GenderEnum), tbNewGender.Text, true);
                         udUser.Gender = gender;
                         udUser.Phone = tbNewPhone.Text;
                         udUser.PostalCode = tbNewPostalCode.Text;

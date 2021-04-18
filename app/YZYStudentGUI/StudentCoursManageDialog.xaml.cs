@@ -50,7 +50,7 @@ namespace YZYStudentGUI
 
 
                     
-                    lvRegisters.ItemsSource = ctx.vStudentRegisters.Where(r => r.UserID == curUser.UserID).ToList();
+                    lvRegisters.ItemsSource = ctx.vStudentRegisters.Where(r => r.UserID == curUser.UserID).OrderBy(c=>c.StartDate).ToList();
                     lvOpenCourses.ItemsSource = ctx.vOpenCourses.OrderBy(r => r.StartDate).ToList();
 
                 }
@@ -147,6 +147,7 @@ namespace YZYStudentGUI
                     ctx.SaveChanges();
                     this.InitializeComponent();
                     LoadData();
+                    ClearField();
                 }
             }
             catch (SystemException ex)
@@ -169,6 +170,7 @@ namespace YZYStudentGUI
                     ctx.SaveChanges();
                     this.InitializeComponent();
                     LoadData();
+                    ClearField();
                 }
             }
             catch (SystemException ex)
@@ -176,6 +178,17 @@ namespace YZYStudentGUI
                 MessageBox.Show("Failed to connect to database: " + ex.Message);
 
             }
+        }
+
+        private void ClearField()
+        {
+            lbCourseID.Content = "";
+            lbCateDesc.Content = "";
+            lbCourseDesc.Content = "";
+            lbTeacher.Content = "";
+            lbStartDate.Content = "";
+            lbEndDate.Content = "";
+            lbTuition.Content = "";
         }
     }
 }
