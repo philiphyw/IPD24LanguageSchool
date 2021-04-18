@@ -196,7 +196,7 @@ namespace YZYStudentGUI
                         }
                         else
                         {
-                            return;
+                            MessageBox.Show("You are not allowed to login from Student Desktop", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                     }
                     else
@@ -245,6 +245,7 @@ namespace YZYStudentGUI
         public static UserRoleEnum userRole;
         public static int userID;
         public static byte[] currentPhoto;
+        public static string newPassword;
     }
 }
 

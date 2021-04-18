@@ -162,18 +162,18 @@ namespace YZYStudentGUI
                     }
                 }
 
-                if (tbNewPassword.Text == "")
+                if (tbNewPassword.Password == "")
                 {
                     registereErrorList.Add("Password could not be empty");
                 }
 
-                if (tbNewConfirmPassword.Text == "")
+                if (tbNewConfirmPassword.Password == "")
                 {
                     registereErrorList.Add("Comfirmed Password could not be empty");
                 }
                 else
                 {
-                    if ((msg = StudentValidationRules.checkPassword(tbNewPassword.Text, tbNewConfirmPassword.Text)) != null)
+                    if ((msg = StudentValidationRules.checkPassword(tbNewPassword.Password, tbNewConfirmPassword.Password)) != null)
                     {
                         registereErrorList.Add(msg);
                     }
@@ -196,6 +196,7 @@ namespace YZYStudentGUI
                     return;
                 }
 
+                GlobalSettings.newPassword = tbNewPassword.Password;
                 DialogResult = true;
 
             }
