@@ -9,7 +9,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
-        <Border Margin="15" MinWidth="400" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="10" MaxWidth="800">
+        <Border Margin="15" MinWidth="600" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="10" MaxWidth="900">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
@@ -22,10 +22,9 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
-                        <Button Name="btPickPicture"  Margin="15" Width="150" Height="150" Background="#ffb380">
+                        <Button Name="btPickPicture"  Margin="15" Width="150" Height="150" Background="#ffb380" Click="btPickPicture_Click">
                             <Grid Width="150" Height="150">
                                 <TextBlock x:Name="tbImage" Text="{x:Static p:Resources.content_pick_picture}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 <Image Name="imageViewer" Stretch="UniformToFill" HorizontalAlignment="Center"/>

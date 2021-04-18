@@ -15,7 +15,7 @@
                     <TextBlock Text = "{x:Static p:Resources.content_account_number}" />
                 </StatusBarItem>
                 <StatusBarItem Width="607">
-                    <TextBlock Text=""/>
+                    <TextBlock Text="{Binding Path=Users.Count}"/>
                 </StatusBarItem>
             </StatusBar>
             <Grid>

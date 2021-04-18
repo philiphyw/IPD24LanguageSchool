@@ -15,7 +15,7 @@
                     <TextBlock Text = "{x:Static p:Resources.content_course_number}" />
                 </StatusBarItem>
                 <StatusBarItem Width="607">
-                    <TextBlock Text=""/>
+                    <TextBlock Text="{Binding Path=Courses.Count}" />
                 </StatusBarItem>
             </StatusBar>
             <Grid>
@@ -35,19 +35,8 @@
                                     <GridViewColumn Header="{x:Static p:Resources.column_category}" DisplayMemberBinding="{Binding Category.CateDesc}" />
                                     <GridViewColumn Header="{x:Static p:Resources.column_course_name}" DisplayMemberBinding="{Binding CourseDesc}" />
                                     <GridViewColumn Header="{x:Static p:Resources.column_teacher_name}" DisplayMemberBinding="{Binding User.FullName}" />
-                                    <!--
-                                    <GridViewColumn Header="{x:Static p:Resources.column_tuition}" DisplayMemberBinding="{Binding Tuition, StringFormat=N2}" />
-                                    <GridViewColumn Header="{x:Static p:Resources.column_start_date}" DisplayMemberBinding="{Binding StartDate, StringFormat=d}" />
-                                    <GridViewColumn Header="{x:Static p:Resources.column_end_date}" DisplayMemberBinding="{Binding EndDate, StringFormat=d}" />
-                                    -->
                                 </GridView>
                             </ListView.View>
-                            <ListView.ContextMenu>
-                                <ContextMenu>
-                                    <MenuItem Header="{x:Static p:Resources.content_edit}" Name="miEdit" />
-                                    <MenuItem Header="{x:Static p:Resources.content_delete}" Name="miDelete"/>
-                                </ContextMenu>
-                            </ListView.ContextMenu>
                         </ListView>
                     </ScrollViewer>
                 </materialDesign:ColorZone>
@@ -67,22 +56,24 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="{x:Static p:Resources.column_course_id}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=SelectedCourse.CourseID}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="{x:Static p:Resources.column_category}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                    
+                    <Label Grid.Row="0" Grid.Column="0" Content="{x:Static p:Resources.column_course_id}" HorizontalAlignment="left" VerticalAlignment="Center"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=SelectedCourse.CourseID}" HorizontalAlignment="left" VerticalAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="{x:Static p:Resources.column_category}" HorizontalAlignment="left" VerticalAlignment="Center" />
                     <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=CategoryStrings}" SelectedIndex="{Binding Path=SelectedCourse.CategoryID}"
                               materialDesign:HintAssist.Hint="{x:Static p:Resources.column_category}" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True" Width="200"  materialDesign:TextFieldAssist.HasClearButton="True"/>
-                    <Label Grid.Row="2" Grid.Column="0" Content="{x:Static p:Resources.column_course_name}" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
-                    <TextBox x:Name="tbCourseName" Grid.Row="2" Grid.Column="1"  Width="200" Height="30"  materialDesign:HintAssist.Hint="{x:Static p:Resources.error_course_name}" materialDesign:HintAssist.HintOpacity=".26" Text="{Binding Path=SelectedCourse.CourseDesc}">
+                    <Label Grid.Row="2" Grid.Column="0" Content="{x:Static p:Resources.column_course_name}" HorizontalAlignment="left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="tbCourseName" Grid.Row="2" Grid.Column="1" Margin="15" materialDesign:HintAssist.Hint="{x:Static p:Resources.error_course_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Path=SelectedCourse.CourseDesc}">
                     </TextBox>
-                    <Label Grid.Row="3" Grid.Column="0" Content="{x:Static p:Resources.column_teacher_name}" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
-                    <TextBox Grid.Row="3" Grid.Column="1"  Width="200" Height="30" Text="{Binding Path=SelectedCourse.User.FullName}" />
-                    <Label Grid.Row="4" Grid.Column="0" Content="{x:Static p:Resources.column_start_date}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="{x:Static p:Resources.column_teacher_name}" HorizontalAlignment="left" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="3" Grid.Column="1"  Width="200" Height="30" Margin="15" Text="{Binding Path=SelectedCourse.User.FullName}" />
+                    <Label Grid.Row="4" Grid.Column="0" Content="{x:Static p:Resources.column_start_date}" HorizontalAlignment="left" VerticalAlignment="Center"/>
                     <DatePicker Grid.Row="4" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="{x:Static p:Resources.error_course_date}" materialDesign:HintAssist.HintOpacity=".26" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding Path=SelectedCourse.StartDate}"/>
-                    <Label Grid.Row="5" Grid.Column="0" Content="{x:Static p:Resources.column_end_date}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
+                    <Label Grid.Row="5" Grid.Column="0" Content="{x:Static p:Resources.column_end_date}" HorizontalAlignment="left" VerticalAlignment="Center"/>
                     <DatePicker Grid.Row="5" Grid.Column="1" Width="200" materialDesign:HintAssist.Hint="{x:Static p:Resources.error_course_date}" materialDesign:HintAssist.HintOpacity=".26"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding Path=SelectedCourse.EndDate}"/>
-                    <Label Grid.Row="6" Grid.Column="0" Content="{x:Static p:Resources.column_tuition}" HorizontalAlignment="left" VerticalAlignment="Center" Width="90"/>
-                    <TextBox Grid.Row="6" Grid.Column="1"  Width="200" Height="30" Text="{Binding Path=SelectedCourse.Tuition, StringFormat=N2}"  materialDesign:HintAssist.Hint="{x:Static p:Resources.error_course_tuition}" materialDesign:HintAssist.HintOpacity=".26" />
+                    <Label Grid.Row="6" Grid.Column="0" Content="{x:Static p:Resources.column_tuition}" HorizontalAlignment="left" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Margin="15" Text="{Binding Path=SelectedCourse.Tuition, StringFormat=N2}"  materialDesign:HintAssist.Hint="{x:Static p:Resources.error_course_tuition}" Style="{StaticResource  MaterialDesignFloatingHintTextBox}" />
+                    
                     <StackPanel  Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left">
                         <Button
                           Style="{StaticResource MaterialDesignFloatingActionButton}"

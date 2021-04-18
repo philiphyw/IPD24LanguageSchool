@@ -17,6 +17,7 @@ namespace YZYAdminGUI
 
         public YZYCommand UpdateCommand { get; set; }
 
+        public byte[] Photo { get; set; }
         public ProfileViewModel()
         {
             Log.setLogOnFile();
@@ -54,9 +55,16 @@ namespace YZYAdminGUI
             bool isPropertyFilledCorrectly;
             try
             {
-                ValidationRules.checkEmail(LoginUser.Email);
-                ValidationRules.checkPostCode(LoginUser.PostalCode);
-                isPropertyFilledCorrectly = true;
+                if (LoginUser != null)
+                {
+                    ValidationRules.checkEmail(LoginUser.Email);
+                    ValidationRules.checkPostCode(LoginUser.PostalCode);
+                    isPropertyFilledCorrectly = true;
+                }
+                else
+                {
+                    isPropertyFilledCorrectly = false;
+                }
             }
             catch (InvalidParameterException)
             {
@@ -68,6 +76,7 @@ namespace YZYAdminGUI
         {
             try
             {
+                LoginUser.Photo = this.Photo;
                 ctx.SaveChanges();
             }
             catch (Exception ex)

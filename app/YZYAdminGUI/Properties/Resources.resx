@@ -261,6 +261,9 @@
   <data name="content_edituser_dialog" xml:space="preserve">
     <value>Edit User</value>
   </data>
+  <data name="content_login_button" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="content_pick_picture" xml:space="preserve">
     <value>Pick Picture</value>
   </data>
@@ -295,16 +298,16 @@
     <value>Update</value>
   </data>
   <data name="error_course_date" xml:space="preserve">
-    <value>date can only be in (2000, 2100)</value>
+    <value>only be in (2000, 2100)</value>
   </data>
   <data name="error_course_id" xml:space="preserve">
     <value>invalid input of course ID</value>
   </data>
   <data name="error_course_name" xml:space="preserve">
-    <value>name can only be more than 2 chars</value>
+    <value>no less than 2 chars</value>
   </data>
   <data name="error_course_tuition" xml:space="preserve">
-    <value>tuition can only be positive decimal</value>
+    <value>positive decimal only</value>
   </data>
   <data name="error_full_name" xml:space="preserve">
     <value>invalid input of full name</value>

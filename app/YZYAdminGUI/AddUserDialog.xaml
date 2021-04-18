@@ -274,13 +274,14 @@
                         </Validation.ErrorTemplate>
                     </TextBox>
                 </Grid>
-                <Button Name="btPickPicture"  Margin="93,20,104,10" Width="150" Height="150" Background="#ffb380">
+                <Button Name="btPickPicture"  Margin="93,20,104,10" Width="150" Height="150" Background="#ffb380" Click="btPickPicture_Click">
                     <Grid Width="150" Height="150">
                         <TextBlock x:Name="tbImage" Text="{x:Static p:Resources.content_pick_picture}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         <Image Name="imageViewer" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                     </Grid>
                 </Button>
-                <Button Content="{x:Static p:Resources.content_submit_button}" Margin="0 20" Command="{Binding Path=RegisterCommand}" Click="Button_Click"/>
+                <Button Content="{x:Static p:Resources.content_submit_button}" Margin="0 20"  Click="Button_Click"/>
+                <!--Command="{Binding Path=RegisterCommand}"-->
             </StackPanel>
             
         </Border>

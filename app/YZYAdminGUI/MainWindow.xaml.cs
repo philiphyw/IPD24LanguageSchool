@@ -65,6 +65,11 @@ namespace YZYAdminGUI
                     Environment.Exit(1);
                 }
             }
+            else
+            {
+                GlobalSettings.userRole = UserRoleEnum.Student;
+                GlobalSettings.userID = -1;
+            }
 
             InitializeComponent();
 

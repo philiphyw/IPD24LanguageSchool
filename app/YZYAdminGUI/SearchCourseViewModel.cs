@@ -20,6 +20,13 @@ namespace YZYAdminGUI
         public YZYCommand UpdateCommand { get; set; }
         public YZYCommand AddCommand { get; set; }
 
+        public int CourseNumber
+        {
+            get
+            {
+                return Courses.Count;
+            }
+        }
         public SearchCourseViewModel()
         {
             Log.setLogOnFile();

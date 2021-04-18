@@ -493,6 +493,15 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string content_login_button {
+            get {
+                return ResourceManager.GetString("content_login_button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pick Picture.
         /// </summary>
         public static string content_pick_picture {
@@ -592,7 +601,7 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to date can only be in (2000, 2100).
+        ///   Looks up a localized string similar to only be in (2000, 2100).
         /// </summary>
         public static string error_course_date {
             get {
@@ -610,7 +619,7 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to name can only be more than 2 chars.
+        ///   Looks up a localized string similar to no less than 2 chars.
         /// </summary>
         public static string error_course_name {
             get {
@@ -619,7 +628,7 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tuition can only be positive decimal.
+        ///   Looks up a localized string similar to positive decimal only.
         /// </summary>
         public static string error_course_tuition {
             get {

@@ -264,6 +264,9 @@
   <data name="content_edituser_dialog" xml:space="preserve">
     <value>编辑账户</value>
   </data>
+  <data name="content_login_button" xml:space="preserve">
+    <value>登录</value>
+  </data>
   <data name="content_pick_picture" xml:space="preserve">
     <value>选取图片</value>
   </data>

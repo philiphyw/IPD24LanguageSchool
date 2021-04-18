@@ -18,6 +18,7 @@ namespace YZYAdminGUI
         public YZYCommand DeleteCommand { get; set; }
         public YZYCommand UpdateCommand { get; set; }
         public YZYCommand AddCommand { get; set; }
+        //public YZYCommand RegisterCommand { get; set; }
 
         public SearchAccountViewModel()
         {
@@ -36,6 +37,7 @@ namespace YZYAdminGUI
             DeleteCommand = new YZYCommand(this.OnDelete, this.CanExecute);
             UpdateCommand = new YZYCommand(this.OnUpdate, this.CanExecute);
             AddCommand = new YZYCommand(this.OnAdd, this.CanAdd);
+            //RegisterCommand = new YZYCommand(this.OnRegister, this.CanRegister);
         }
 
         private void LoadCourse()
@@ -100,6 +102,26 @@ namespace YZYAdminGUI
                 dlg.DataContext = SelectedUser;
                 if (dlg.ShowDialog() == true)
                 {
+                    var item = (from r in ctx.Users where r.UserID == SelectedUser.UserID select r).FirstOrDefault<User>();
+                    if (item != null)
+                    {
+                        item.FName = SelectedUser.FName;
+                        item.MName = SelectedUser.MName;
+                        item.LName = SelectedUser.LName;
+                        item.UserSIN = SelectedUser.UserSIN;
+                        item.UserRole = SelectedUser.UserRole;
+                        item.Gender = SelectedUser.Gender;
+                        item.StreetNo = SelectedUser.StreetNo;
+                        item.StreetName = SelectedUser.StreetName;
+                        item.City = SelectedUser.City;
+                        item.Province = SelectedUser.Province;
+                        item.PostalCode = SelectedUser.PostalCode;
+                        item.Phone = SelectedUser.Phone;
+                        item.Cell = SelectedUser.Cell;
+                        item.Email = SelectedUser.Email; 
+                        item.Photo = dlg.Photo;
+                        item.Password = SelectedUser.Password;
+                    }
                     ctx.SaveChanges();
                     LoadCourse();
                 }
@@ -140,6 +162,7 @@ namespace YZYAdminGUI
                 dlg.DataContext = user;
                 if (dlg.ShowDialog() == true)
                 {
+                    user.Photo = dlg.Photo;
                     ctx.Users.Add(user);
                     ctx.SaveChanges();
                     LoadCourse();
