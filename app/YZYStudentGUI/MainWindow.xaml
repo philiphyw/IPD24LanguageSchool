@@ -225,8 +225,8 @@
                                     <StackPanel Orientation="Vertical" Background="#e6faff">
 
                                         <StackPanel Orientation="Horizontal" Background="#e6faff">
-                                            <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding FName}" FontSize="15"/>
-                                            <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding LName}" FontSize="15"/>
+                                            <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding FName}" FontSize="15" FontWeight="Bold"/>
+                                            <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding LName}" FontSize="15" FontWeight="Bold"/>
                                         </StackPanel>
                                         <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding Gender}" FontSize="15"/>
                                         <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding Email}" FontSize="15"/>
@@ -253,22 +253,23 @@
         </materialDesign:DrawerHost.BottomDrawerContent>
 
         <materialDesign:DrawerHost.LeftDrawerContent>
-            <StackPanel Margin="20 0" Width="250" Height="250">
+            <StackPanel Margin="20 0" Width="250" Height="580" Background="#e6faff">
                 <StackPanel Orientation="Vertical" Margin="10">
+                    <Image Height="150" VerticalAlignment="Top" Source="Assets/logo.jpg" Stretch="UniformToFill" Margin="0,30,0,30"/>
                     <TextBlock
-                      Style="{StaticResource MaterialDesignHeadline6TextBlock}" Text="{x:Static p:Resources.windows_title}" Margin="10"/>
+                      Style="{StaticResource MaterialDesignHeadline6TextBlock}" Text="{x:Static p:Resources.windows_title}" Margin="10,20,10,20"/>
                     <TextBlock
                       Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{x:Static p:Resources.column_address}"/>
                     <TextBlock
-                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="123 Rue Blue and Red, H9H9H9,QC"/>
+                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="123 Rue Blue and Red, H9H9H9,QC" Margin="10,0,10,20"/>
                     <TextBlock
                       Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{x:Static p:Resources.column_phone}"/>
                     <TextBlock
-                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="514-999-9999"/>
+                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="514-999-9999" Margin="10,0,10,20"/>
                     <TextBlock
                       Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{x:Static p:Resources.column_email}"/>
                     <TextBlock
-                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="yzy@gmail.com"/>
+                      Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="yzy@gmail.com" Margin="10,0,10,30"/>
 
                     <Button
                     Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
@@ -276,7 +277,7 @@
                     Style="{DynamicResource MaterialDesignFlatButton}"
                     Margin="4"
                     VerticalAlignment="Center" HorizontalAlignment="Right">
-                        <materialDesign:PackIcon Kind="ArrowRightBold" Foreground="#FFEE6917"/>
+                        <materialDesign:PackIcon Kind="ArrowLeftBold" Foreground="#FFEE6917" Width="25" Height="25"/>
                     </Button>
                 </StackPanel>
             </StackPanel>

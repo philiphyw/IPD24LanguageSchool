@@ -516,6 +516,8 @@ namespace YZYStudentGUI
                 {
                 //WORKROUND: wdit a selected item to Add
                 //TOFIX: add item cannot reuse controller bound with list view
+                NewUser.Password = GlobalSettings.newPassword;
+                NewUser.UserRole = (UserRoleEnum)Enum.Parse(typeof(UserRoleEnum), "Student", true);
                 NewUser.Photo = GlobalSettings.currentPhoto;
                     database.Users.Add(NewUser);
                     database.SaveChanges();
