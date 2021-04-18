@@ -5,13 +5,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYAdminGUI
 {
     class TeacherDialogViewModel : IDataErrorInfo
     {
-        private YZYDbContext ctx;
+        private YZYDbContextAzure ctx;
         private int _selectedCourseID;
         public ObservableCollection<Register> Registers { get; set; }
         public YZYCommand UpdateGradeCommand { get; set; }
@@ -22,7 +22,7 @@ namespace YZYAdminGUI
             Log.setLogOnFile();
             try
             {
-                ctx = new YZYDbContext();
+                ctx = new YZYDbContextAzure();
             }
             catch (SystemException ex)
             {

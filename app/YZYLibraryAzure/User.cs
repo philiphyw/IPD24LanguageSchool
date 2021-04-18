@@ -11,7 +11,8 @@ namespace YZYLibraryAzure
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,48 @@ namespace YZYLibraryAzure
             this.Payments = new HashSet<Payment>();
             this.Registers = new HashSet<Register>();
         }
-    
+        private string _fullname = string.Empty;
+        [NotMapped]
+        public string FullName
+        {
+            get
+            {
+                if (_fullname == string.Empty)
+                {
+                    _fullname = FName + " " + LName;
+                }
+                return _fullname;
+            }
+            set
+            {
+                string[] names = value.Split(' ');
+                if (names != null && names.Length > 1)
+                {
+                    _fullname = value;
+                    switch (names.Length)
+                    {
+                        case 2:
+                            FName = names[0];
+                            LName = names[1];
+                            break;
+                        case 3:
+                            FName = names[0];
+                            MName = names[1];
+                            LName = names[2];
+                            break;
+                    }
+                }
+
+            }
+        }
+        [NotMapped]
+        public string Address
+        {
+            get
+            {
+                return StreetNo + " " + StreetName + ", " + City + ", " + Province + ", " + PostalCode;
+            }
+        }
         public int UserID { get; set; }
         public UserRoleEnum UserRole { get; set; }
         public string FName { get; set; }

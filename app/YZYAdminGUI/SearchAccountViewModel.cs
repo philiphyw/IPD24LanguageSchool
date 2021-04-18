@@ -6,13 +6,13 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYAdminGUI
 {
     class SearchAccountViewModel : IDataErrorInfo
     {
-        private YZYDbContext ctx;
+        private YZYDbContextAzure ctx;
         public ObservableCollection<User> Users { get; set; }
 
         public YZYCommand DeleteCommand { get; set; }
@@ -25,7 +25,7 @@ namespace YZYAdminGUI
             Log.setLogOnFile();
             try
             {
-                ctx = new YZYDbContext();
+                ctx = new YZYDbContextAzure();
             }
             catch (SystemException ex)
             {
@@ -100,6 +100,10 @@ namespace YZYAdminGUI
             {
                 var dlg = new AddUserDialog();
                 dlg.DataContext = SelectedUser;
+                if (SelectedUser.Photo != null)
+                {
+                    dlg.Photo = SelectedUser.Photo;
+                }
                 if (dlg.ShowDialog() == true)
                 {
                     var item = (from r in ctx.Users where r.UserID == SelectedUser.UserID select r).FirstOrDefault<User>();

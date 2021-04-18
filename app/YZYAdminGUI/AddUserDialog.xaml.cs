@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYAdminGUI
 {
@@ -103,6 +103,11 @@ namespace YZYAdminGUI
             get
             {
                 return _photo;
+            }
+            set
+            {
+                _photo = value;
+                showImage();
             }
         }
     }

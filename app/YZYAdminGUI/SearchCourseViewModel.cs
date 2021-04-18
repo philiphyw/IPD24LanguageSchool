@@ -5,14 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYAdminGUI
 {
     class SearchCourseViewModel
     {
 
-        private YZYDbContext ctx;
+        private YZYDbContextAzure ctx;
         public ObservableCollection<Course> Courses { get; set; }
         public List<Category> Categories { get; set; }
         public List<string> CategoryStrings { get; set; }
@@ -32,7 +32,7 @@ namespace YZYAdminGUI
             Log.setLogOnFile();
             try
             {
-                ctx = new YZYDbContext();
+                ctx = new YZYDbContextAzure();
             }
             catch (SystemException ex)
             {

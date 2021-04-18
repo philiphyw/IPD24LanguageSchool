@@ -28,7 +28,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -218,12 +218,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YZYLibrary\YZYLibrary.csproj">
-      <Project>{05d7154e-38fb-4227-b10a-3ca2c3335a59}</Project>
-      <Name>YZYLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
@@ -237,6 +231,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="YZY.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YZYLibraryAzure\YZYLibraryAzure.csproj">
+      <Project>{fc188ebe-555a-42a6-b1ad-0db94c59994d}</Project>
+      <Name>YZYLibraryAzure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

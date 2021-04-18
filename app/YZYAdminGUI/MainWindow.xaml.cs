@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYAdminGUI
 {
@@ -38,7 +38,7 @@ namespace YZYAdminGUI
                 string password = loginDlg.tbPassword.Text;
                 try
                 {
-                    YZYDbContext ctx = new YZYDbContext();
+                    YZYDbContextAzure ctx = new YZYDbContextAzure();
                     User loginUser = ctx.Users.ToList().Where(u => (u.Email == email && u.Password == password)).FirstOrDefault();
                     if (loginUser != null)
                     {

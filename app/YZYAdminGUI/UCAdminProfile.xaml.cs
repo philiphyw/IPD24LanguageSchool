@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYAdminGUI
 {
@@ -30,6 +30,12 @@ namespace YZYAdminGUI
             InitializeComponent();
             _vmProfile = new ProfileViewModel();
             this.DataContext = _vmProfile;
+            if(_vmProfile.LoginUser!=null && _vmProfile.LoginUser.Photo != null)
+            {
+                _vmProfile.Photo = _vmProfile.LoginUser.Photo;
+                _photo = _vmProfile.LoginUser.Photo;
+                showImage();
+            }
         }
         private byte[] _photo = null;
         private BitmapImage ToImage(byte[] array)
