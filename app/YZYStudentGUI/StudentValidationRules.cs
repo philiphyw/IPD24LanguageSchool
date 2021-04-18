@@ -4,88 +4,172 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYStudentGUI
 {
     public class StudentValidationRules
     {
-        public static void checkFirstName(string value)
+        public static string checkFirstName(string value)
         {
+
             if (!Regex.IsMatch(value, @"^[A-Za-z ]{2,50}$") || String.IsNullOrWhiteSpace(value))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "first name should be 2-50 charactor only";
+            }
+            else
+            {
+                return null;
             }
         }       
-        public static void checkMiddleName(string value)
+        public static string checkMiddleName(string value)
         {
             if (!Regex.IsMatch(value, @"^[A-Za-z ]{2,50}$") || String.IsNullOrWhiteSpace(value))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "middle name should be 2-50 charactor only";
+            }
+            else
+            {
+                return null;
             }
         }     
-        public static void checkLastName(string value)
+        public static string checkLastName(string value)
         {
             if (!Regex.IsMatch(value, @"^[A-Za-z ]{2,50}$") || String.IsNullOrWhiteSpace(value))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "last name should be 2-50 charactor only";
+            }
+            else
+            {
+                return null;
             }
         }       
-        public static void checkSIN(string value)
+        public static string checkSIN(string value)
         {
             if (!Regex.IsMatch(value, @"^[0-9]{9}$"))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "SIN nine digis only";
+            }
+            else
+            {
+                return null;
             }
         }
-        public static void checkStreetNo(string value)
+        public static string checkStreetNo(string value)
         {
             if (!Regex.IsMatch(value, @"^[0-9]+$"))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "street no. should be digis only";
+            }
+            else
+            {
+                return null;
             }
         }
-        public static void checkStreetName(string value)
+        public static string checkStreetName(string value)
         {
             if (!Regex.IsMatch(value, @"^[A-Za-z ]{2,50}$") || String.IsNullOrWhiteSpace(value))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "street name should be 2-50 charactor only";
+            }
+            else
+            {
+                return null;
             }
         }
-        public static void checkCityName(string value)
+        public static string checkCityName(string value)
         {
             if (!Regex.IsMatch(value, @"^[A-Za-z ]{2,30}$") || String.IsNullOrWhiteSpace(value))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "city name should be 2-30 charactor only";
+            }
+            else
+            {
+                return null;
             }
         }
-        public static void checkPostalCode(string value)
+        public static string checkPostalCode(string value)
         {
+
             if (!Regex.IsMatch(value, @"^[A-Z][0-9][A-Z][0-9][A-Z][0-9]$"))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "postal code format is incorrect";
+            }
+            else
+            {
+                return null;
             }
         }
-        public static void checkPhone(string value)
+        public static string checkPhone(string value)
         {
             if (!Regex.IsMatch(value, @"^[0-9]{10}$"))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "phone no. should be 10 digits only";
+            }
+            else
+            {
+                return null;
             }
         }       
-        public static void checkCell(string value)
+        public static string checkCell(string value)
         {
             if (!Regex.IsMatch(value, @"^[0-9]{10}$"))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "cell no. should be 10 digits only";
+            }
+            else
+            {
+                return null;
             }
         }
-        public static void checkEmail(string value)
+        public static string checkEmail(string value)
         {
             if (!Regex.IsMatch(value, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                throw new InvalidParameterException(Properties.Resources.error_course_id + $": {value}");
+                return "email format is not correct";
+            }
+            else
+            {
+                return null;
             }
         }
+        public static string checkPassword(string value1, string value2)
+        {
+            if (!string.Equals(value1, value2))
+            {
+                return "confirmed password should be same as password";
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static string checkProvince(string value)
+        {
+            HashSet<string> mySet = new HashSet<string>();
+            mySet.Add("QC");
+            mySet.Add("ON");
+            mySet.Add("BC");
+            mySet.Add("NL");
+            mySet.Add("PE");
+            mySet.Add("NS");
+            mySet.Add("NB");
+            mySet.Add("MB");
+            mySet.Add("SK");
+            mySet.Add("AB");
+            mySet.Add("YT");
+            mySet.Add("NT");
+            mySet.Add("NU");
+
+            if (!mySet.Contains(value))
+            {
+                return "QC, ON, BC, NL, PE, NS, NB, MB, SK, AB, YT, NT, NU only";
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

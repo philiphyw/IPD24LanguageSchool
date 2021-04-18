@@ -41,7 +41,7 @@ namespace YZYStudentGUI
                 using (ctx = new YZYDbContextAzure())
                 {
                     //TODO set curUser = login user in the login dialog  
-                    curUser = ctx.Users.Where(r => r.UserID == 2).FirstOrDefault();
+                    curUser = ctx.Users.Where(r => r.UserID == GlobalSettings.userID).FirstOrDefault();
 
                     tbNewCell.Text = curUser.Cell;
                     tbNewCity.Text = curUser.City;

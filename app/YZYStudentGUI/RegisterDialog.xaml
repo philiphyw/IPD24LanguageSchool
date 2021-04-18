@@ -7,23 +7,23 @@
         xmlns:p="clr-namespace:YZYStudentGUI.Properties"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" WindowStyle="None" 
-        Title="RegisterDialog" Height="800" Width="800">
+        Title="RegisterDialog" Height="800" Width="800" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Border Margin="15" MinWidth="400" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="10" MaxWidth="800">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{x:Static p:Resources.welcome}" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
-                <Button HorizontalAlignment="Right" x:Name="ButtonClose" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click" Foreground="Red">
-                    <materialDesign:PackIcon Kind="Power"/>
-                </Button>
-                </StackPanel>
-                <Grid Margin="0 0 0 20">
+                <Grid>
+                    <TextBlock Text="{x:Static p:Resources.welcome}" FontSize="30" FontWeight="Bold"  Margin="0 0 0 20"/>
+                    <Button HorizontalAlignment="Right" x:Name="ButtonClose" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click" Foreground="Red" >
+                        <materialDesign:PackIcon Kind="Power" Foreground="#FF2196F3" Width="25" Height="25"/>
+                    </Button>
+                </Grid>
+                <!--<Grid Margin="0 0 0 20">
                     <Button Content="{x:Static p:Resources.content_register}" HorizontalAlignment="Left"/>
                     <Button Content="{x:Static p:Resources.content_signon_button}" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"/>
-                </Grid>
+                </Grid>-->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -298,7 +298,13 @@
                         </Validation.ErrorTemplate>
                     </TextBox>
                 </Grid>
-                <Button Content="{x:Static p:Resources.content_submit_button}" Margin="0 20" Command="{Binding Path=RegisterCommand}" Click="Button_Register_Click"/>
+                <Button Name="btPickPicture"  Margin="93,20,104,10" Width="150" Height="150" Background="#e6faff" Click="btPickPicture_Click">
+                    <Grid Width="150" Height="150">
+                        <TextBlock x:Name="tbImage" Text="{x:Static p:Resources.content_pick_picture}" Foreground="#FF2196F3" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Image Name="imageViewer" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+                <Button Content="{x:Static p:Resources.content_submit_button}" Margin="0 20" Click="Button_Register_Click" Command="{Binding Path = RegisterCommand}" />
             </StackPanel>
         </Border>
     </Grid>

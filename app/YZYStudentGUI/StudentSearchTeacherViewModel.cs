@@ -4,13 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYStudentGUI
 {
     class StudentSearchTeacherViewModel
     {
-        private YZYDbContext ctx;
+        private YZYDbContextAzure ctx;
         public ObservableCollection<User> Users { get; set; }
         public YZYCommand SearchCommand { get; set; }
 
@@ -19,7 +19,7 @@ namespace YZYStudentGUI
             Log.setLogOnFile();
             try
             {
-                ctx = new YZYDbContext();
+                ctx = new YZYDbContextAzure();
             }
             catch (SystemException ex)
             {

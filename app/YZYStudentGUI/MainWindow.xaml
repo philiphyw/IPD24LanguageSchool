@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:YZYStudentGUI"
         mc:Ignorable="d" MouseDown="Window_MouseDown"
         Title="{x:Static p:Resources.windows_title}" MinHeight="720" MinWidth="1024"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        WindowStyle="None" WindowStartupLocation="CenterScreen">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
@@ -100,7 +101,7 @@
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>-->
     </Window.Triggers>
-    
+
     <!--drawerHost Menu-->
     <materialDesign:DrawerHost
           x:Name="DrawerHost"
@@ -123,7 +124,7 @@
               Orientation="Horizontal">
                 <Button
                  Style="{DynamicResource MaterialDesignFlatButton}"
-                 Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_signon_button}" Click="Button_Sign_Click"/>
+                 Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_login}" Click="Button_Sign_Click"/>
                 <Button
                 Style="{DynamicResource MaterialDesignFlatButton}"
                 Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_register_button}" Click="ButtonRegister_Click"/>
@@ -142,7 +143,7 @@
             <ScrollViewer VerticalScrollBarVisibility="Visible">
                 <StackPanel Margin="20 0" Width="500">
 
-                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5" Width="300">
                         <ComboBox
                             x:Name="comboSearchCourse"
                             SelectedIndex="0"
@@ -150,14 +151,13 @@
                             BorderThickness="0"
                             materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
                             BorderBrush="{DynamicResource MaterialDesignPaper}" MinWidth="150" materialDesign:ColorZoneAssist.Mode="Custom" Foreground="#FF3580BF" Background="white"
-                            materialDesign:HintAssist.Hint="Search Courses" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                              materialDesign:TextFieldAssist.HasClearButton="True">
+                            materialDesign:HintAssist.Hint="Search Courses" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:TextFieldAssist.HasClearButton="True"  ItemsSource="{Binding Path=CategoryStrings}" >
                             <!--materialDesign:HintAssist.HelperText="Select one OS"-->
-                            <ComboBoxItem Content="" />
+                            <!--<ComboBoxItem Content="" />
                             <ComboBoxItem Content="English" />
                             <ComboBoxItem Content="Franch" />
                             <ComboBoxItem Content="Mandarin" />
-                            <ComboBoxItem Content="Cantonese" />
+                            <ComboBoxItem Content="Cantonese" />-->
                         </ComboBox>
                         <Button
                         Command="{Binding Path=SearchCommand}" CommandParameter="{Binding SelectedIndex, ElementName=comboSearchCourse}"
@@ -169,31 +169,31 @@
                           Height="50" Content="{materialDesign:PackIcon Kind=Send}">
                         </Button>
 
-
-                    </StackPanel>
-
-
-                    <StackPanel Orientation="Horizontal" Margin="10">
-                        <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="id" FontSize="17" FontFamily="Franklin Gothic Medium"/>
-                        <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="category" FontSize="17" FontFamily="Franklin Gothic Medium"/>
-                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="Description" FontSize="15" FontFamily="Franklin Gothic Medium"/>
-                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="startDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
-                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="endDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
-                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="tuition" FontSize="15" FontFamily="Franklin Gothic Medium"/>
                         <Button
                     Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}"
                     Style="{DynamicResource MaterialDesignFlatButton}"
-                    Margin="4"
+                    Margin="25,4,0,4"
                     VerticalAlignment="Center" HorizontalAlignment="Right">
-                            <materialDesign:PackIcon Kind="ArrowRightBold" Foreground="#FFEE6917"/>
+                            <materialDesign:PackIcon Kind="ArrowRightBold" Foreground="#FFEE6917" Width="25" Height="25"/>
                         </Button>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock  Foreground="#FF2196F3" Margin="9 2" Text="id" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock  Foreground="#FF2196F3" Margin="9 2" Text="category" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock Foreground="#FF2196F3" Margin="9 2" Text="Description" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock Foreground="#FF2196F3" Margin="9 2" Text="startDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock Foreground="#FF2196F3" Margin="9 2" Text="endDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+                        <TextBlock Foreground="#FF2196F3" Margin="9 2" Text="tuition" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+
                     </StackPanel>
 
                     <ItemsControl x:Name="ListViewCourse" ItemsSource="{Binding Courses}" Foreground="Black">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Border Margin="10,5,10,5" Width="400" Height="50" BorderBrush="#99d6ff" BorderThickness="1" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Border CornerRadius="3" Margin="10,5,10,5" Width="450" Height="50" BorderBrush="#99d6ff" BorderThickness="1" materialDesign:ShadowAssist.ShadowDepth="Depth1">
                                     <StackPanel Orientation="Horizontal" Background="#e6faff">
                                         <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding CourseID}" FontSize="15"/>
                                         <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding Category.CateDesc}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
@@ -215,50 +215,41 @@
                 </StackPanel>
             </ScrollViewer>
         </materialDesign:DrawerHost.RightDrawerContent>
-
-
-
         <materialDesign:DrawerHost.BottomDrawerContent>
-            <StackPanel Margin="20 0" Width="500" Height="500">
-                <StackPanel Orientation="Horizontal" Margin="10">
-                    <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="id" FontSize="17" FontFamily="Franklin Gothic Medium"/>
-                    <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="category" FontSize="17" FontFamily="Franklin Gothic Medium"/>
-                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="Description" FontSize="15" FontFamily="Franklin Gothic Medium"/>
-                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="startDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
-                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="endDate" FontSize="15" FontFamily="Franklin Gothic Medium"/>
-                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="tuition" FontSize="15" FontFamily="Franklin Gothic Medium"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                <StackPanel Margin="5" VerticalAlignment="Bottom" Orientation="Horizontal" Height="125">
+                    <ItemsControl x:Name="ListViewTeachers" ItemsSource="{Binding Users}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="10,5,10,5" Width="150" Height="100" BorderBrush="#99d6ff" BorderThickness="1" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                    <StackPanel Orientation="Vertical" Background="#e6faff">
+
+                                        <StackPanel Orientation="Horizontal" Background="#e6faff">
+                                            <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding FName}" FontSize="15"/>
+                                            <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding LName}" FontSize="15"/>
+                                        </StackPanel>
+                                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding Gender}" FontSize="15"/>
+                                        <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding Email}" FontSize="15"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
                     <Button
                     Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                     CommandParameter="{x:Static Dock.Bottom}"
                     Style="{DynamicResource MaterialDesignFlatButton}"
                     Margin="4"
                     VerticalAlignment="Center" HorizontalAlignment="Right">
-                        <materialDesign:PackIcon Kind="ArrowRightBold" Foreground="#FFEE6917"/>
+                        <materialDesign:PackIcon Kind="ArrowRightBold" Foreground="#FFEE6917" Width="25" Height="25"/>
                     </Button>
                 </StackPanel>
-                <ItemsControl x:Name="ListViewTeachers" ItemsSource="{Binding Users}" Foreground="Black">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Margin="10,5,10,5" Width="400" Height="50" BorderBrush="#99d6ff" BorderThickness="1" materialDesign:ShadowAssist.ShadowDepth="Depth1">
-                                <StackPanel Orientation="Horizontal" Background="#e6faff">
-                                    <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding FName}" FontSize="15"/>
-                                    <TextBlock  Foreground="#FF2196F3" Margin="8 2" Text="{Binding MName}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
-                                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding LName}" FontSize="15"/>
-                                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding StartDate, StringFormat=d}" FontSize="15"/>
-                                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding EndDate, StringFormat=d}" FontSize="15"/>
-                                    <TextBlock Foreground="#FF2196F3" Margin="8 2" Text="{Binding Courses.Category}" FontSize="15"/>
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </StackPanel>
-
+            </ScrollViewer>
         </materialDesign:DrawerHost.BottomDrawerContent>
 
         <materialDesign:DrawerHost.LeftDrawerContent>
@@ -306,7 +297,7 @@
                     </StackPanel.RenderTransform>
                     <StackPanel x:Name="stackPanel" Orientation="Horizontal" VerticalAlignment="Top" Height="100" HorizontalAlignment="Center" Margin="0,0,10,0" Width="210">
 
-                        <TextBlock Name="logoName" RenderTransformOrigin="0.5,0.5" Text="{x:Static p:Resources.windows_title}" FontSize="28" FontWeight="Bold" VerticalAlignment="Center">
+                        <TextBlock Name="logoName" RenderTransformOrigin="0.5,0.5" Text="{x:Static p:Resources.windows_title}"  FontSize="28" FontWeight="Bold" VerticalAlignment="Center">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -338,8 +329,8 @@
                                 Background="{x:Null}" BorderBrush="{x:Null}"
                                 Click="Button_Search_Tearch_click">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
-                                    <materialDesign:PackIcon Kind="BookOpenPageVariantOutline" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_our_teachers}"></TextBlock>
+                                    <materialDesign:PackIcon Kind="AccountMultiple" Width="30" Height="30"/>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_our_teachers}"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -365,7 +356,7 @@
                                 Click="Button_Search_Course_Click">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="BookOpenPageVariantOutline" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_our_courses}"></TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_our_courses}"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -400,13 +391,12 @@
                                 Click="Button_Search_Course_Click">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="EmailEditOutline" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_contact_us}"></TextBlock>
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_contact_us}" /> 
                                 </StackPanel>
                             </Button>
-                        </ListViewItem>                       
-                        
-                        
-                        
+                        </ListViewItem>
+
+
                         <ListViewItem x:Name="listViewItem3" Height="60" RenderTransformOrigin="0.5,0.5">
                             <ListViewItem.RenderTransform>
                                 <TransformGroup>
@@ -416,18 +406,10 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
-                            <!--TODO: add a button to trigger on click event-->
-
-                                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5" Width="159">
-                            
-                                    <materialDesign:PackIcon Kind="PencilAddOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Foreground="white"/>
-                                <TextBlock Text="Manage Course" Margin="10" VerticalAlignment="Center" Foreground="white"/>
-                               
-                            </StackPanel>-->
-
+ 
                             <Button Click="ButtonManageCourse_Click"         
                                   Width="189" HorizontalAlignment="Left"
-                                Background="{x:Null}" BorderBrush="{x:Null}">
+                                Background="{x:Null}" BorderBrush="{x:Null}" x:Name="btManageCourse">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="PencilAddOutline" Width="30" Height="30"/>
                                     <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_manage_course}"></TextBlock>
@@ -445,9 +427,9 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
-                            <Button Click="ButtonPayment_Click"         
+                            <Button          
                                   Width="189" HorizontalAlignment="Left"
-                                Background="{x:Null}" BorderBrush="{x:Null}">
+                                Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonPayment_Click" x:Name="btPayment">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="CurrencyUsd" Width="30" Height="30"/>
                                     <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_manage_payment}"></TextBlock>
@@ -463,9 +445,9 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
-                            <Button Click="ButtonProfile_Click"
+                            <Button
                                   Width="189" HorizontalAlignment="Left"
-                                Background="{x:Null}" BorderBrush="{x:Null}">
+                                Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonProfile_Click" x:Name="btProfile">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="AccountKey" Width="30" Height="30"/>
                                     <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_manage_profile}"></TextBlock>
@@ -535,7 +517,26 @@
                         </Ellipse.Fill>
                     </Ellipse>
                     <TextBlock Text="{x:Static p:Resources.windows_title}" Foreground="White" FontSize="28" FontFamily="Nirmala UI Semilight" Margin="10 70" VerticalAlignment="Top"/>
-                    <TextBlock Text="Language" Foreground="White" FontSize="28" FontFamily="Nirmala UI Semilight" Margin="10 100" VerticalAlignment="Top"/>
+                    <!--<TextBlock Text="Language" Foreground="White" FontSize="28" FontFamily="Nirmala UI Semilight" Margin="10 100" VerticalAlignment="Top"/>-->
+                    <!--<StackPanel Margin="0 150">-->
+                        <!--<Grid Height="60" Margin="20 50 20 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="21*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Total Students" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="0,0,5,5" Grid.Column="1"/>
+                            <TextBlock Text="1.5K" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="5,0,10,0" Grid.Column="1"/>
+
+                            <TextBlock Text="FOLLOWING" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5" Grid.Column="2"/>
+                            <TextBlock Text="2.3K" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="10 0" Grid.Column="2"/>
+                        </Grid>-->
+                        <!--<TextBlock TextWrapping="Wrap" Margin="10,60" Foreground="#FFFBFBFB" FontSize="14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat ligula et ornare rutrum. Suspendisse vel nibh massa. Sed maximus porta augue eget viverra. Sed ullamcorper interdum ligula. Aenean vitae.</TextBlock>
+                    </StackPanel>-->
                     <StackPanel Margin="0 150">
                         <Grid Height="60" Margin="20 50 20 0">
                             <Grid.ColumnDefinitions>
@@ -555,7 +556,7 @@
                         <TextBlock TextWrapping="Wrap" Margin="10" Foreground="#FFFBFBFB" FontSize="14" Text="{x:Static p:Resources.content_lorem}"></TextBlock>
                     </StackPanel>
                 </Grid>
-                
+
                 <!--middle part-->
                 <Grid Background="white">
                     <Grid.RowDefinitions>
@@ -600,10 +601,12 @@
                           Width="50"
                           Height="50" Content="{materialDesign:PackIcon Kind=Send}">
                         </Button>
-                        --><!--<Button                                 Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                        -->
+                    <!--<Button                                 Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                                 CommandParameter="{x:Static Dock.Right}" Margin="-30,0,0,0">
                             
-                        </Button>--><!--
+                        </Button>-->
+                    <!--
                         
                         
                         
@@ -658,7 +661,7 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
                                         <TextBlock
-          Text="{x:Static p:Resources.content_personalized}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_personalized}" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
           Text="{x:Static p:Resources.content_study_plan}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
@@ -693,7 +696,7 @@
                                             <TextBlock
             Margin="8 0 0 0"
             VerticalAlignment="Center"
-            Text="EDIT USER" />
+            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -701,7 +704,7 @@
         TextWrapping="Wrap"
         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -738,7 +741,7 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
                                         <TextBlock
-          Text="{x:Static p:Resources.content_extra_tutoring}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_extra_tutoring}" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
           Text="{x:Static p:Resources.content_1_on_1_session}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
@@ -773,7 +776,7 @@
                                             <TextBlock
             Margin="8 0 0 0"
             VerticalAlignment="Center"
-            Text="EDIT USER" />
+            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -781,7 +784,7 @@
         TextWrapping="Wrap"
         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -818,9 +821,9 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
                                         <TextBlock
-          Text="{x:Static p:Resources.content_optimized_group_size}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_4_8_students_per_class}" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
-          Text="{x:Static p:Resources.content_4_8_students_per_class}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_optimized_group_size}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
                                           Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                           ToolTip="MaterialDesignFloatingActionButton"    Command="{x:Static materialDesign:Flipper.FlipCommand}" Background="#ffc266" HorizontalAlignment="Right" BorderBrush="{x:Null}">
@@ -853,7 +856,7 @@
                                             <TextBlock
             Margin="8 0 0 0"
             VerticalAlignment="Center"
-            Text="EDIT USER" />
+            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -861,7 +864,7 @@
         TextWrapping="Wrap"
         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -900,7 +903,7 @@
         VerticalAlignment="Center">
 
                                         <TextBlock
-          Text="{x:Static p:Resources.content_since_1999}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
+          Text="{x:Static p:Resources.content_since_1999}" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
           Text="{x:Static p:Resources.content_skillful_teachers_with_rich_experience}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
@@ -935,7 +938,7 @@
                                             <TextBlock
             Margin="8 0 0 0"
             VerticalAlignment="Center"
-            Text="EDIT USER" />
+            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -943,7 +946,7 @@
                                         TextWrapping="Wrap"
                                         VerticalAlignment="Center"
                                                                         HorizontalAlignment="Center"
-                                        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+                                        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -982,7 +985,7 @@
                                         VerticalAlignment="Center">
 
                                         <TextBlock
-                                            Text="{x:Static p:Resources.content_convenient_transportation}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
+                                            Text="{x:Static p:Resources.content_convenient_transportation}"  FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
                                           Text="{x:Static p:Resources.content_100_meters_from_metro_station}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
@@ -1010,14 +1013,14 @@
                                             Style="{StaticResource MaterialDesignToolForegroundButton}"
                                             Command="{x:Static materialDesign:Flipper.FlipCommand}"
                                             HorizontalAlignment="Left">
-                                            <materialDesign:PackIcon
+                                                <materialDesign:PackIcon
                                               Kind="ArrowLeft"
                                               HorizontalAlignment="Right" />
                                             </Button>
                                             <TextBlock
                                             Margin="8 0 0 0"
                                             VerticalAlignment="Center"
-                                            Text="EDIT USER" />
+                                            Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -1025,7 +1028,7 @@
                                     TextWrapping="Wrap"
                                     VerticalAlignment="Center"
                                                                     HorizontalAlignment="Center"
-                                    Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+                                    Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -1065,7 +1068,7 @@
                                         VerticalAlignment="Center">
 
                                         <TextBlock
-                                             Text="{x:Static p:Resources.content_e_learning}" FontSize="18" FontWeight="Bold" Foreground="#FFEE6917"/>
+                                             Text="{x:Static p:Resources.content_e_learning}" FontSize="20" FontWeight="Bold" Foreground="#FFEE6917"/>
                                         <TextBlock
                                              Text="{x:Static p:Resources.content_e_learning_toolkit}" HorizontalAlignment="Center" Foreground="#FFEE6917"/>
                                         <Button
@@ -1099,7 +1102,7 @@
                                             <TextBlock
                                                 Margin="8 0 0 0"
                                                 VerticalAlignment="Center"
-                                                Text="EDIT USER" />
+                                                Text="" />
                                         </StackPanel>
                                     </materialDesign:ColorZone>
                                     <TextBlock
@@ -1107,7 +1110,7 @@
                                         TextWrapping="Wrap"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-                                        Text="After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott." />
+                                        Text="{x:Static p:Resources.content_card_detail}" />
                                 </Grid>
                             </materialDesign:Flipper.BackContent>
                         </materialDesign:Flipper>
@@ -1118,7 +1121,7 @@
                 <!--<Button  Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click">
                     <materialDesign:PackIcon Kind="Bell"/>
                 </Button>-->
-                
+
                 <!--language switch button-->
                 <TextBlock
                 VerticalAlignment="Center"
@@ -1127,7 +1130,7 @@
                 Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
                 ToolTip="MaterialDesignSwitchAccentToggleButton"
                 Margin="8 0 16 0"
-                x:Name="LanguageToggle" Click="Button_Click"/>
+                x:Name="LanguageToggle" Click="LanguageToggle_Click"/>
                 <TextBlock
                 VerticalAlignment="Center"
                 Text="Zh" Foreground="White"/>
@@ -1135,7 +1138,7 @@
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
             </StackPanel>
-            
+
         </Grid>
     </materialDesign:DrawerHost>
 </Window>
