@@ -171,10 +171,6 @@
       <Project>{fc188ebe-555a-42a6-b1ad-0db94c59994d}</Project>
       <Name>YZYLibraryAzure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YZYLibrary\YZYLibrary.csproj">
-      <Project>{05d7154e-38fb-4227-b10a-3ca2c3335a59}</Project>
-      <Name>YZYLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

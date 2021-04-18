@@ -5,14 +5,16 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYStudentGUI
 {
     class StudentSearchCoursViewModel
     {
-        private YZYDbContext ctx;
+        private YZYDbContextAzure ctx;
         public ObservableCollection<Course> Courses { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<string> CategoryStrings { get; set; }
         public YZYCommand SearchCommand { get; set; }
 
         public StudentSearchCoursViewModel()
@@ -20,7 +22,7 @@ namespace YZYStudentGUI
             Log.setLogOnFile();
             try
             {
-                ctx = new YZYDbContext();
+                ctx = new YZYDbContextAzure();
             }
             catch (SystemException ex)
             {
@@ -28,6 +30,8 @@ namespace YZYStudentGUI
                 Environment.Exit(1);
             }
             Courses = new ObservableCollection<Course>();
+            Categories = new List<Category>();
+            CategoryStrings = new List<string>();
             LoadCourse();
             SearchCommand = new YZYCommand(this.OnSearch);
 
@@ -42,6 +46,13 @@ namespace YZYStudentGUI
                 foreach (var item in CourseList)
                 {
                     Courses.Add(item);
+                }
+                Categories = ctx.Categories.ToList();
+                CategoryStrings.Clear();
+                CategoryStrings.Add("Please select");
+                foreach (var item in Categories)
+                {
+                    CategoryStrings.Add(item.CateDesc);
                 }
             }
             catch (SystemException ex)

@@ -5,20 +5,20 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YZYLibrary;
+using YZYLibraryAzure;
 
 namespace YZYStudentGUI
 {
     class StudentRegisterViewModel : IDataErrorInfo  // validation
     {
-            private YZYDbContext database;
+            private YZYDbContextAzure database;
             public ObservableCollection<User> Users { get; set; }
             public YZYCommand RegisterCommand { get; set; }
             public StudentRegisterViewModel()
             {
                 try
                 {
-                    database = new YZYDbContext();
+                    database = new YZYDbContextAzure();
                 }
                 catch (SystemException ex)
                 {
@@ -514,9 +514,9 @@ namespace YZYStudentGUI
             {
                 try
                 {
-                    //WORKROUND: wdit a selected item to Add
-                    //TOFIX: add item cannot reuse controller bound with list view
-
+                //WORKROUND: wdit a selected item to Add
+                //TOFIX: add item cannot reuse controller bound with list view
+                NewUser.Photo = GlobalSettings.currentPhoto;
                     database.Users.Add(NewUser);
                     database.SaveChanges();
 

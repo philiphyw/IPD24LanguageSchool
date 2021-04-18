@@ -15,7 +15,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using YZYLibrary;
+//using System.Windows.Forms;
+using YZYLibraryAzure;
+//using Webcam;
+using System.IO;
+using System.Data.Entity.Validation;
 
 namespace YZYStudentGUI
 {
@@ -32,6 +36,9 @@ namespace YZYStudentGUI
             Thread.CurrentThread.CurrentUICulture = culture;
 
             InitializeComponent();
+            //Form1 form = new Form1();
+
+            //form.CallCamera();
 
             switch (ConfigurationManager.AppSettings["DefaultCulture"])
             {
@@ -42,12 +49,16 @@ namespace YZYStudentGUI
                     LanguageToggle.IsChecked = false;
                     break;
             }
+            btManageCourse.IsEnabled = false;
+            btProfile.IsEnabled = false;
+            btPayment.IsEnabled = false;
 
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            //Application.Current.Shutdown();
+            this.Close();
         }
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -66,6 +77,7 @@ namespace YZYStudentGUI
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+
         private void Search_CourseByCategory_Click(object sender, RoutedEventArgs e)
         {
             StudentSearchCoursViewModel regvmInstance = new StudentSearchCoursViewModel();
@@ -73,7 +85,7 @@ namespace YZYStudentGUI
             regvmInstance.SelectedCategoryID = comboSearchCourse.SelectedIndex;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LanguageToggle_Click(object sender, RoutedEventArgs e)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
@@ -81,25 +93,69 @@ namespace YZYStudentGUI
             if (LanguageToggle.IsChecked == true)
             {
                 config.AppSettings.Settings.Add("DefaultCulture", "zh-Hans");// TODO: to add selected language string replacing "FIXME"
+
             }
             else
             {
-                config.AppSettings.Settings.Add("DefaultCulture", "en");// TODO: to add selected language string replacing "FIXME"
+                    config.AppSettings.Settings.Add("DefaultCulture", "en");// TODO: to add selected language string replacing "FIXME"
+
             }
             config.Save(ConfigurationSaveMode.Modified);
 
         }
 
+
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
+
             RegisterDialog rd = new RegisterDialog();
             rd.Owner = this;
-            if(rd.ShowDialog() == true)
+            var user = new User();
+            try
             {
-                MessageBox.Show("Hello, Succuess!", "My App");
+                if (rd.ShowDialog() == true)
+                {
+                    //YZYDbContextAzure ctx = new YZYDbContextAzure();
+                    //user.FName = rd.tbNewFirstName.Text;
+                    //user.MName = rd.tbNewMiddleName.Text;
+                    //user.LName = rd.tbNewLastName.Text;
+                    //user.UserSIN = rd.tbNewSIN.Text;
+                    //user.UserRole = (UserRoleEnum)Enum.Parse(typeof(UserRoleEnum),"Student",true);
+                    //user.Gender = (GenderEnum)Enum.Parse(typeof(GenderEnum), rd.tbNewGender.Text, true);
+                    //user.StreetNo = rd.tbNewStreetNo.Text;
+                    //user.StreetName = rd.tbNewStreetName.Text;
+                    //user.City = rd.tbNewCity.Text;
+                    //user.Province = rd.tbNewProvince.Text;
+                    //user.PostalCode = rd.tbNewPostalCode.Text;
+                    //user.Phone = rd.tbNewPhone.Text;
+                    //user.Cell = rd.tbNewCell.Text;
+                    //user.Email = rd.tbNewEmail.Text;
+                    //user.Password = rd.tbNewPassword.Text;
+                    //user.Photo = GlobalSettings.currentPhoto;
+                    //ctx.Users.Add(user);
+                    //ctx.SaveChanges();
+                    System.Windows.MessageBox.Show("Hello, Succuess!", "My App");
+                }
             }
-
-
+            //catch (SystemException ex)
+            //{
+            //    System.Windows.MessageBox.Show(ex.Message, "Database operation failed", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //    Environment.Exit(1); // fatal error
+            //}
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var eve in ex.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
 
         }
 
@@ -125,7 +181,7 @@ namespace YZYStudentGUI
                 string password = loginDlg.tbPassword.Text;
                 try
                 {
-                    YZYDbContext ctx = new YZYDbContext();
+                    YZYDbContextAzure ctx = new YZYDbContextAzure();
                     User loginUser = ctx.Users.ToList().Where(u => (u.Email == email && u.Password == password)).FirstOrDefault();
                     if (loginUser != null)
                     {
@@ -133,19 +189,30 @@ namespace YZYStudentGUI
                         {
                             GlobalSettings.userRole = UserRoleEnum.Student;
                             GlobalSettings.userID = loginUser.UserID;
+                            btManageCourse.IsEnabled = true;
+                            btProfile.IsEnabled = true;
+                            btPayment.IsEnabled = true;
+                            MessageBox.Show("Login Success", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
                             return;
                         }
                     }
+                    else
+                    {
+                    MessageBox.Show("Invalid Password or UserName, Please try again", "Login", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
                 catch (SystemException ex)
                 {
+                    //System.Windows.MessageBox.Show("Hello, Succuess!", "My App");
                     Log.WriteLine(ex.Message);
                     Environment.Exit(1);
                 }
             }
+
+            
         }
 
         private void ButtonPayment_Click(object sender, RoutedEventArgs e)
@@ -169,11 +236,17 @@ namespace YZYStudentGUI
             dlg.Owner = this;
             dlg.ShowDialog();
         }
+
     }
+
 
     public class GlobalSettings
     {
         public static UserRoleEnum userRole;
         public static int userID;
+        public static byte[] currentPhoto;
     }
 }
+
+
+
