@@ -178,7 +178,7 @@ namespace YZYStudentGUI
             if (loginDlg.ShowDialog() == true)
             {
                 string email = loginDlg.tbEmail.Text;
-                string password = loginDlg.tbPassword.Text;
+                string password = loginDlg.tbPassword.Password;
                 try
                 {
                     YZYDbContextAzure ctx = new YZYDbContextAzure();

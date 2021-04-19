@@ -26,6 +26,7 @@ namespace YZYAdminGUI
     {
         public MainWindow()
         {
+            Log.setLogOnFile();
             //TODO: language has to be set here before initialize window
             CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
             Thread.CurrentThread.CurrentCulture = culture;
@@ -35,7 +36,7 @@ namespace YZYAdminGUI
             if (loginDlg.ShowDialog() == true)
             {
                 string email = loginDlg.tbEmail.Text;
-                string password = loginDlg.tbPassword.Text;
+                string password = loginDlg.tbPassword.Password;
                 try
                 {
                     YZYDbContextAzure ctx = new YZYDbContextAzure();
