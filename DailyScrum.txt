@@ -6,6 +6,38 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 3. Where do I need assistance? What do I need to figure out?
 ==========================================================
 
+2021/04/19 Ying
+1.Done/not done since update trello
+
+2.To do until next Scrum:
+- unit test cases
+- password box support (to save hash instead of password if have time)
+- align the size of charts of welcome page
+- ui ppt
+3.Need assistance / figure things out
+
+2021/04/19 PH
+1. Done / not done since last scrum:
+
+2. To do until next Scrum:
+- double check project request
+- test Admin GUI
+- database migration ppt
+3. Need assistance / figure things out
+
+2021/04/19 Edwin
+1. Done / not done since last scrum:
+- profile feature in Admin GUI
+- bug fix
+- validation functionality of Admin GUI
+- setup unit test project and write an example case
+2. To do until next Scrum:
+- bug fix
+- test Student GUI
+3. Need assistance / figure things out
+- technologies of payment gateway is clear but has no time to implement and stablize the feature
+
+------------------------------------------------------------------
 
 2021/04/16 Ying
 1.Done/not done since update trello
