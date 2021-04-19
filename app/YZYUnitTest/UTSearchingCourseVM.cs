@@ -11,66 +11,72 @@ namespace YZYUnitTest
     public class UTSearchingCourseVM
     {
         private SearchCourseViewModel _vmSearchCourse = new SearchCourseViewModel();
-        private int _courseID = -1;
+        private Course _newCourse, _updatedCourse;
+        private static string _newCourseDesc = "SpecialCourseOfYZYUnitTest-2021";
+        private static string _updatedCourseDesc = "SpecialCourseOfYZYUnitTest-2021-updated";
 
-        [TestMethod]
-        public void AddCourse_Success()
+        private int getTeacherID()
         {
-            
-            /*
+            int teacherID = -1;
+            foreach(var course in _vmSearchCourse.Courses)
+            {
+                teacherID = course.UserID;
+                if (teacherID > 0) break;
+            }
+            return teacherID;
+        }
+
+        private int getCategory()
+        {
+            int category;
             Random rnd = new Random();
-            int orderNumber = rnd.Next(1, 100000);
-            
-            string emailOrg = _vmSearchAccount.SelectedUser.Email;
-            string emailNew = $"{_vmSearchAccount.SelectedUser.FName}.{_vmSearchAccount.SelectedUser.LName}.{orderNumber}@hotmail.com";
-            _vmSearchAccount.SelectedUser.Email = emailNew;
-            _vmSearchAccount.OnUpdate();
-            string emailReload = _vmSearchAccount.Users.ToList().Where(u => u.UserID == userIDSelected).FirstOrDefault().Email;
-            */
-            int userIDSelected = _vmSearchAccount.SelectedUser.UserID;
-            _vmSearchAccount.OnDelete();
-            var item = _vmSearchAccount.Users.ToList().Where(u => u.UserID == userIDSelected).FirstOrDefault();
-            Assert.AreEqual(item, null);
+            int index = rnd.Next(0, _vmSearchCourse.Categories.Count-1);
+            category = _vmSearchCourse.Categories.ElementAt(index).CategoryID;
+            return category;
+        }
+        [TestMethod]
+        public void TestCase1_AddCourse_Success()
+        {
+            _newCourse = new Course();
+            _newCourse.CourseDesc = _newCourseDesc;
+            _newCourse.CategoryID = getCategory();
+            _newCourse.UserID = getTeacherID();
+            _newCourse.StartDate = DateTime.Today;
+            _newCourse.EndDate = _newCourse.StartDate.AddDays(50);
+            _vmSearchCourse.SelectedCourse = _newCourse;
+
+            _vmSearchCourse.OnAdd();
+
+            var item = _vmSearchCourse.Courses.ToList().Where(c=>c.CourseDesc.Equals(_newCourse.CourseDesc)).FirstOrDefault();
+            if (item != null)
+            {
+                _newCourse.CourseID = item.CourseID;
+            }
+            Assert.IsNotNull(item);
         }
 
         [TestMethod]
-        public void UpdarteCourse_Success()
+        public void TestCase2_UpdarteCourse_Success()
         {
-            _vmSearchCourse.SelectedCourse = _vmSearchCourse.Courses.ElementAt(_vmSearchCourse.Courses.Count / 2);
-            /*
-            Random rnd = new Random();
-            int orderNumber = rnd.Next(1, 100000);
-            
-            string emailOrg = _vmSearchAccount.SelectedUser.Email;
-            string emailNew = $"{_vmSearchAccount.SelectedUser.FName}.{_vmSearchAccount.SelectedUser.LName}.{orderNumber}@hotmail.com";
-            _vmSearchAccount.SelectedUser.Email = emailNew;
-            _vmSearchAccount.OnUpdate();
-            string emailReload = _vmSearchAccount.Users.ToList().Where(u => u.UserID == userIDSelected).FirstOrDefault().Email;
-            */
-            int userIDSelected = _vmSearchAccount.SelectedUser.UserID;
-            _vmSearchAccount.OnDelete();
-            var item = _vmSearchAccount.Users.ToList().Where(u => u.UserID == userIDSelected).FirstOrDefault();
-            Assert.AreEqual(item, null);
+            _updatedCourse = _vmSearchCourse.Courses.ToList().Where(c => c.CourseDesc.Equals(_newCourseDesc)).FirstOrDefault();
+            _updatedCourse.CourseDesc = _updatedCourseDesc;
+            _vmSearchCourse.SelectedCourse = _updatedCourse;
+
+            _vmSearchCourse.OnUpdate();
+
+            var item = _vmSearchCourse.Courses.ToList().Where(c => c.CourseID== _updatedCourse.CourseID).FirstOrDefault();
+            Assert.AreEqual(item.CourseDesc, _updatedCourseDesc);
         }
 
         [TestMethod]
-        public void DeleteCourse_Success()
+        public void TestCase3_DeleteCourse_Success()
         {
-            _vmSearchCourse.SelectedCourse = _vmSearchCourse.Courses.ElementAt(_vmSearchCourse.Courses.Count / 2);
-            /*
-            Random rnd = new Random();
-            int orderNumber = rnd.Next(1, 100000);
-            
-            string emailOrg = _vmSearchAccount.SelectedUser.Email;
-            string emailNew = $"{_vmSearchAccount.SelectedUser.FName}.{_vmSearchAccount.SelectedUser.LName}.{orderNumber}@hotmail.com";
-            _vmSearchAccount.SelectedUser.Email = emailNew;
-            _vmSearchAccount.OnUpdate();
-            string emailReload = _vmSearchAccount.Users.ToList().Where(u => u.UserID == userIDSelected).FirstOrDefault().Email;
-            */
-            int userIDSelected = _vmSearchAccount.SelectedUser.UserID;
-            _vmSearchAccount.OnDelete();
-            var item = _vmSearchAccount.Users.ToList().Where(u => u.UserID == userIDSelected).FirstOrDefault();
-            Assert.AreEqual(item, null);
+            _updatedCourse = _vmSearchCourse.Courses.ToList().Where(c => c.CourseDesc.Equals(_updatedCourseDesc)).FirstOrDefault();
+            _vmSearchCourse.SelectedCourse = _updatedCourse;
+            _vmSearchCourse.OnDelete();
+
+            var item = _vmSearchCourse.Courses.ToList().Where(c => c.CourseID == _updatedCourse.CourseID).FirstOrDefault();
+            Assert.IsNull(item);
         }
     }
 }
