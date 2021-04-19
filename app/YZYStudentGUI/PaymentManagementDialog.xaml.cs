@@ -50,12 +50,33 @@ namespace YZYStudentGUI
             {
                 using (ctx = new YZYDbContextAzure())
                 {
-                    decimal totalTuition = ctx.Registers.Include("Course").Where(r => r.UserID == curUser.UserID).Sum(r => r.Cours.Tuition);
-                    decimal paidTuition = ctx.Payments.Where(r => r.UserID == curUser.UserID).Sum(r => r.Amount);
+
+                    decimal totalTuition;
+                    decimal paidTuition;
+
+                    if (ctx.Registers.Where(r => r.UserID == curUser.UserID).FirstOrDefault() == null)
+                    {
+                        totalTuition = 0;
+                    }
+                    else
+                    {
+                        totalTuition = ctx.Registers.Include("Course").Where(r => r.UserID == curUser.UserID).Sum(r => r.Cours.Tuition);
+                    }
+                    if (ctx.Payments.Where(r => r.UserID == curUser.UserID).FirstOrDefault() == null)
+                    {
+                        paidTuition = 0;
+                    }
+                    else
+                    {
+                        paidTuition = ctx.Payments.Where(r => r.UserID == curUser.UserID).Sum(r => r.Amount);
+                    }
+
+
+
                     decimal balance = totalTuition - paidTuition;
 
-                    lbTuitionTotal.Content = String.Format("{0:.##}", totalTuition);
-                    lbPaidTuition.Content = String.Format("{0:.##}", paidTuition);
+                    lbTuitionTotal.Content = totalTuition==0?"0":String.Format("{0:.##}", totalTuition);
+                    lbPaidTuition.Content = paidTuition==0?"0":String.Format("{0:.##}", paidTuition);
                     lbBalance.Content = balance == 0?"0":String.Format("{0:.##}", balance);
 
                     lvPayments.ItemsSource = ctx.Payments.Where(r => r.UserID == curUser.UserID).OrderBy(p => p.PayDate).ToList();

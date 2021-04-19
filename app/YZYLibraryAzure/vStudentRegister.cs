@@ -28,6 +28,6 @@ namespace YZYLibraryAzure
 
         public string StartDateStr { get { return $"{StartDate:d}"; } }
         public string EndDateStr { get { return $"{EndDate:d}"; } }
-        public string TuitionStr { get { return string.Format("{0:.##}", Tuition); } }
+        public string TuitionStr { get { return Tuition==0?"0":string.Format("{0:.##}", Tuition); } }
     }
 }
