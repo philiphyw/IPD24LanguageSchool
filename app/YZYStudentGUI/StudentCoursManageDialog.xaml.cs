@@ -190,5 +190,36 @@ namespace YZYStudentGUI
             lbEndDate.Content = "";
             lbTuition.Content = "";
         }
+
+
+        //right click listview to clear selection
+        private void lvRegisters_RightClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lvRegisters.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                ClearField();
+                lvRegisters.SelectedItems.Clear();
+                lvOpenCourses.SelectedItems.Clear();
+            }
+        }
+
+        private void lvOpenCourses_RightClick(object sender, MouseButtonEventArgs e)
+        {
+
+            if (lvOpenCourses.SelectedItem == null)
+            {
+                return;
+            }
+            else
+            {
+                ClearField();
+                lvRegisters.SelectedItems.Clear();
+                lvOpenCourses.SelectedItems.Clear();
+            }
+        }
     }
 }
