@@ -18,6 +18,9 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 
 2021/04/19 PH
 1. Done / not done since last scrum:
+-- Built courses related features
+-- Tested StudentGUi
+-- Adjust Azure DB to meet project requriement
 
 2. To do until next Scrum:
 - double check project request
