@@ -48,7 +48,7 @@ namespace YZYAdminGUI
         };
             P4.Values = new ChartValues<int> { (from r in ctx.Courses where r.CategoryID == 10 || r.CategoryID == 11 || r.CategoryID == 12 select r).ToList().Count
         };
-            PointLabel = chartPoint => string.Format("{1:p})", chartPoint.Y, chartPoint.Participation);            
+            PointLabel = chartPoint => string.Format("{1:p}", chartPoint.Y, chartPoint.Participation);            
             DataContext = this;
         }
 
@@ -69,6 +69,7 @@ namespace YZYAdminGUI
         {
             int qc = (from u in ctx.Users where (string.Equals(u.Province, "QC")) select u).ToList().Count;
             int nb = (from u in ctx.Users where (string.Equals(u.Province, "NB")) select u).ToList().Count;
+            int on = (from u in ctx.Users where (string.Equals(u.Province, "ON")) select u).ToList().Count;
 
             SeriesCollection = new SeriesCollection
             {
@@ -76,15 +77,15 @@ namespace YZYAdminGUI
                 {
                     //Title = "2020",
                     //Title = "",
-                    Title = "student residence",
-                    Values = new ChartValues<double> { qc, nb }
+                    Title = "residence",
+                    Values = new ChartValues<double> { qc, nb,on }
                 }
             };
 
             //also adding values updates and animates the chart automatically
             //SeriesCollection[0].Values.Add(48d);
 
-            Labels = new[] {"QC", "NB"};
+            Labels = new[] {"QC", "NB", "ON"};
             //Formatter = value => value.ToString("N");
             Formatter = value => value.ToString();
 

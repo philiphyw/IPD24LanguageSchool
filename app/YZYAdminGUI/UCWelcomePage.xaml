@@ -14,7 +14,17 @@
         
         <TextBlock Text="{x:Static p:Resources.windows_title}" FontSize="35" FontWeight="Bold" Foreground="#FFEE6917" Margin="25,10"></TextBlock>
         <StackPanel Orientation="Horizontal">
-            <Wpf:PieChart HorizontalAlignment="Left" Margin="0,110,0,84" Width="400" LegendLocation="Bottom" Hoverable="True">
+            
+            <Wpf:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Height="300" Width="400">
+                <Wpf:CartesianChart.AxisX>
+                    <Wpf:Axis Title="province of residence" Labels="{Binding Labels}"></Wpf:Axis>
+                </Wpf:CartesianChart.AxisX>
+                <Wpf:CartesianChart.AxisY>
+                    <Wpf:Axis Title="Numbers" LabelFormatter="{Binding Formatter}"></Wpf:Axis>
+                </Wpf:CartesianChart.AxisY>
+            </Wpf:CartesianChart>
+            
+            <Wpf:PieChart HorizontalAlignment="Left" Margin="0,110,0,84" Width="400" LegendLocation="Bottom" Hoverable="True" Height="300">
                 <Wpf:PieChart.Series>
                     <Wpf:PieSeries x:Name="P1" Title="English" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
                     <Wpf:PieSeries  x:Name="P2" Title="French" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
@@ -23,14 +33,6 @@
                 </Wpf:PieChart.Series>
             </Wpf:PieChart>
 
-            <Wpf:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Height="400" Width="400">
-                <Wpf:CartesianChart.AxisX>
-                    <Wpf:Axis Title="province of residence" Labels="{Binding Labels}"></Wpf:Axis>
-                </Wpf:CartesianChart.AxisX>
-                <Wpf:CartesianChart.AxisY>
-                    <Wpf:Axis Title="Numbers" LabelFormatter="{Binding Formatter}"></Wpf:Axis>
-                </Wpf:CartesianChart.AxisY>
-            </Wpf:CartesianChart>
         </StackPanel>
     </StackPanel>
    

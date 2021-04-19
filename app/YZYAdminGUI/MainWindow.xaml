@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" WindowStyle="None"
         MouseDown="Window_MouseDown"
-        Title="{x:Static p:Resources.windows_title}" Height="750" Width="950" ResizeMode="CanResize" WindowStartupLocation="CenterScreen">
+        Title="{x:Static p:Resources.windows_title}" Height="770" Width="950" ResizeMode="CanResize" WindowStartupLocation="CenterScreen">
     <DockPanel>
         <Grid DockPanel.Dock="Top" Height="66" Background="#ffbf80">
             <TextBlock Text="{x:Static p:Resources.windows_title}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
