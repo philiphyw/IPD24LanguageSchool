@@ -51,7 +51,6 @@ namespace YZYAdminGUI
         }
 
         public Register SelectedRegister { get; set; }
-
         public bool CanUpdateGrade()
         {
             if (SelectedRegister != null)

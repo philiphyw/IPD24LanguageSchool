@@ -61,8 +61,8 @@ namespace YZYAdminGUI
         }
         public static void checkGrade(string value)
         {
-            Regex pattern = new Regex(@"^[A-F]{1}[\+\-]{0,1}$");
-            if (!pattern.IsMatch(value) || String.IsNullOrWhiteSpace(value))
+            Regex pattern = new Regex(@"^[A-F]{1}[\+\-]?$");
+            if (String.IsNullOrWhiteSpace(value) || !pattern.IsMatch(value))
             {
                 throw new InvalidParameterException(Properties.Resources.error_user_grade + $": {value}");
             }

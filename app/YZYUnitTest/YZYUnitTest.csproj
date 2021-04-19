@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UTUserLoginTest.cs" />
+    <Compile Include="UTSearchingCourseVM.cs" />
     <Compile Include="UTUserPorfileFunction.cs" />
     <Compile Include="UTValidationRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

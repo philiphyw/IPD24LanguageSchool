@@ -520,6 +520,15 @@ namespace YZYAdminGUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total Registration Number.
+        /// </summary>
+        public static string content_register_number {
+            get {
+                return ResourceManager.GetString("content_register_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
         public static string content_reset {

@@ -12,10 +12,10 @@
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" Height="50">
             <StatusBarItem Height="41">
-                <TextBlock Text = "{x:Static p:Resources.content_course_number}" />
+                <TextBlock Text = "{x:Static p:Resources.content_register_number}" />
             </StatusBarItem>
             <StatusBarItem Width="607">
-                <TextBlock Text=""/>
+                <TextBlock Text="{Binding Registers.Count}"/>
             </StatusBarItem>
         </StatusBar>
         <Grid>
@@ -62,7 +62,7 @@
                 <DatePicker Grid.Row="2" Grid.Column="1" Width="200"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding Path=EvaluationToUpdate.EvDate }"/>
                 -->
                 <Label Grid.Row="2" Grid.Column="0" Content="{x:Static p:Resources.column_evaluation_comment}" HorizontalAlignment="left" VerticalAlignment="Center" Width="80"/>
-                <TextBox Grid.Row="2" Grid.Column="1"  Width="200" Height="30" Text="{Binding Path=SelectedRegister.Grade, Mode=TwoWay}"/>
+                <TextBox Grid.Row="2" Grid.Column="1"  Width="200" Height="30" Text="{Binding Path=SelectedRegister.Grade, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <StackPanel  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button
                           Style="{StaticResource MaterialDesignFloatingActionButton}"
