@@ -8,7 +8,11 @@ DAILY SCRUM - EVERY DAY AT 8:30AM (as soon as  you arrive)
 
 2021/04/19 Ying
 1.Done/not done since update trello
-
+-binding courses search bar with VM
+-binding teacher search bar with VM
+-user Login
+-user sign up
+-picutre capture
 2.To do until next Scrum:
 - unit test cases
 - password box support (to save hash instead of password if have time)
