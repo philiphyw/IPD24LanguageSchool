@@ -11,7 +11,6 @@ namespace YZYUnitTest
     public class UTSearchingCourseVM
     {
         private SearchCourseViewModel _vmSearchCourse = new SearchCourseViewModel();
-        private Course _newCourse, _updatedCourse;
         private static string _newCourseDesc = "SpecialCourseOfYZYUnitTest-2021";
         private static string _updatedCourseDesc = "SpecialCourseOfYZYUnitTest-2021-updated";
 
@@ -37,7 +36,7 @@ namespace YZYUnitTest
         [TestMethod]
         public void TestCase1_AddCourse_Success()
         {
-            _newCourse = new Course();
+            Course _newCourse = new Course();
             _newCourse.CourseDesc = _newCourseDesc;
             _newCourse.CategoryID = getCategory();
             _newCourse.UserID = getTeacherID();
@@ -48,16 +47,13 @@ namespace YZYUnitTest
             _vmSearchCourse.OnAdd();
 
             var item = _vmSearchCourse.Courses.ToList().Where(c=>c.CourseDesc.Equals(_newCourse.CourseDesc)).FirstOrDefault();
-            if (item != null)
-            {
-                _newCourse.CourseID = item.CourseID;
-            }
             Assert.IsNotNull(item);
         }
 
         [TestMethod]
         public void TestCase2_UpdarteCourse_Success()
         {
+            Course _updatedCourse;
             _updatedCourse = _vmSearchCourse.Courses.ToList().Where(c => c.CourseDesc.Equals(_newCourseDesc)).FirstOrDefault();
             _updatedCourse.CourseDesc = _updatedCourseDesc;
             _vmSearchCourse.SelectedCourse = _updatedCourse;
@@ -71,11 +67,13 @@ namespace YZYUnitTest
         [TestMethod]
         public void TestCase3_DeleteCourse_Success()
         {
-            _updatedCourse = _vmSearchCourse.Courses.ToList().Where(c => c.CourseDesc.Equals(_updatedCourseDesc)).FirstOrDefault();
-            _vmSearchCourse.SelectedCourse = _updatedCourse;
+            Course _deletedCourse;
+            _deletedCourse = _vmSearchCourse.Courses.ToList().Where(c => c.CourseDesc.Equals(_updatedCourseDesc)).FirstOrDefault();
+            _vmSearchCourse.SelectedCourse = _deletedCourse;
+
             _vmSearchCourse.OnDelete();
 
-            var item = _vmSearchCourse.Courses.ToList().Where(c => c.CourseID == _updatedCourse.CourseID).FirstOrDefault();
+            var item = _vmSearchCourse.Courses.ToList().Where(c => c.CourseID == _deletedCourse.CourseID).FirstOrDefault();
             Assert.IsNull(item);
         }
     }
