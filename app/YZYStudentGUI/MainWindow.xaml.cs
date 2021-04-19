@@ -31,28 +31,28 @@ namespace YZYStudentGUI
         public MainWindow()
         {
             //TODO: language has to be set here before initialize window
-            CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
+            //CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
+            //Thread.CurrentThread.CurrentCulture = culture;
+            //Thread.CurrentThread.CurrentUICulture = culture;
 
             InitializeComponent();
-            //Form1 form = new Form1();
 
-            //form.CallCamera();
 
-            switch (ConfigurationManager.AppSettings["DefaultCulture"])
-            {
-                case "zh-Hans":
-                    LanguageToggle.IsChecked = true;
-                    break;
-                case "en":
-                    LanguageToggle.IsChecked = false;
-                    break;
-            }
+            //switch (ConfigurationManager.AppSettings["DefaultCulture"])
+            //{
+            //    case "zh-Hans":
+            //        btEnglish.Visibility = Visibility.Visible;
+            //        btChinese.Visibility = Visibility.Hidden;
+            //        break;
+            //    case "en":
+            //        btEnglish.Visibility = Visibility.Hidden;
+            //        btChinese.Visibility = Visibility.Visible;
+            //        break;
+            //}
             btManageCourse.IsEnabled = false;
             btProfile.IsEnabled = false;
             btPayment.IsEnabled = false;
-
+            tbWelcomeUsername.Text = "";
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
@@ -85,23 +85,39 @@ namespace YZYStudentGUI
             regvmInstance.SelectedCategoryID = comboSearchCourse.SelectedIndex;
         }
 
-        private void LanguageToggle_Click(object sender, RoutedEventArgs e)
+        //private void LanguageToggle_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+        //    config.AppSettings.Settings.Remove("DefaultCulture");
+        //    if (LanguageToggle.IsChecked == true)
+        //    {
+        //        //config.AppSettings.Settings.Add("DefaultCulture", "zh-Hans");// TODO: to add selected language string replacing "FIXME"
+        //        //CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
+        //        App.ChangeCulture(new CultureInfo("zh-Hans"));
+        //    }
+        //    else
+        //    {
+        //            //config.AppSettings.Settings.Add("DefaultCulture", "en");// TODO: to add selected language string replacing "FIXME"
+        //        //CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
+        //        App.ChangeCulture(new CultureInfo("en"));
+
+        //    }
+        //    config.Save(ConfigurationSaveMode.Modified);
+
+
+
+        //}
+
+
+        private void btEnglish_Click(object sender, RoutedEventArgs e)
         {
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            App.ChangeCulture(new CultureInfo("en"));
+        }
 
-            config.AppSettings.Settings.Remove("DefaultCulture");
-            if (LanguageToggle.IsChecked == true)
-            {
-                config.AppSettings.Settings.Add("DefaultCulture", "zh-Hans");// TODO: to add selected language string replacing "FIXME"
-
-            }
-            else
-            {
-                    config.AppSettings.Settings.Add("DefaultCulture", "en");// TODO: to add selected language string replacing "FIXME"
-
-            }
-            config.Save(ConfigurationSaveMode.Modified);
-
+        private void btChinese_Click(object sender, RoutedEventArgs e)
+        {
+            App.ChangeCulture(new CultureInfo("zh-Hans"));
         }
 
 
@@ -120,7 +136,7 @@ namespace YZYStudentGUI
                     //user.MName = rd.tbNewMiddleName.Text;
                     //user.LName = rd.tbNewLastName.Text;
                     //user.UserSIN = rd.tbNewSIN.Text;
-                    //user.UserRole = (UserRoleEnum)Enum.Parse(typeof(UserRoleEnum),"Student",true);
+                    //user.UserRole = (UserRoleEnum)Enum.Parse(typeof(UserRoleEnum), "Student", true);
                     //user.Gender = (GenderEnum)Enum.Parse(typeof(GenderEnum), rd.tbNewGender.Text, true);
                     //user.StreetNo = rd.tbNewStreetNo.Text;
                     //user.StreetName = rd.tbNewStreetName.Text;
@@ -130,11 +146,13 @@ namespace YZYStudentGUI
                     //user.Phone = rd.tbNewPhone.Text;
                     //user.Cell = rd.tbNewCell.Text;
                     //user.Email = rd.tbNewEmail.Text;
-                    //user.Password = rd.tbNewPassword.Text;
-                    //user.Photo = GlobalSettings.currentPhoto;
+                    //user.Password = rd.tbNewPassword.Password;
+                    //if (GlobalSettings.currentPhoto != null && GlobalSettings.currentPhoto.Length > 0)
+                    //{ user.Photo = GlobalSettings.currentPhoto; }
+                
                     //ctx.Users.Add(user);
                     //ctx.SaveChanges();
-                    System.Windows.MessageBox.Show("Hello, Succuess!", "My App");
+                    System.Windows.MessageBox.Show("Hello, Succuess! You Login Now", "My App");
                 }
             }
             //catch (SystemException ex)
@@ -192,7 +210,9 @@ namespace YZYStudentGUI
                             btManageCourse.IsEnabled = true;
                             btProfile.IsEnabled = true;
                             btPayment.IsEnabled = true;
-                            MessageBox.Show("Login Success", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
+                            btLogin.Visibility = Visibility.Hidden;
+                            User curUser = ctx.Users.Where(r => r.UserID == GlobalSettings.userID).FirstOrDefault();
+                            tbWelcomeUsername.Text = "Welcome" +" " +curUser.FullName;
                         }
                         else
                         {

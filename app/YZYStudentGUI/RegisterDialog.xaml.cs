@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using YZYLibraryAzure;
+using WebcamCamera;
+
 
 namespace YZYStudentGUI
 {
@@ -193,16 +195,18 @@ namespace YZYStudentGUI
                 if (registereErrorList.Count != 0)
                 {
                     MessageBox.Show(this, string.Join("\n", registereErrorList), "Input error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                    DialogResult = false;
                 }
 
                 GlobalSettings.newPassword = tbNewPassword.Password;
+
                 DialogResult = true;
 
             }
             catch (InvalidParameterException ex)
             {
                 MessageBox.Show(this, ex.Message, "Input error", MessageBoxButton.OK, MessageBoxImage.Error);
+                DialogResult = false;
             }
         }
 
@@ -211,7 +215,7 @@ namespace YZYStudentGUI
             this.Close();
         }
 
-        private byte[] _photo = null;
+        private byte[] _photo;
         private BitmapImage ToImage(byte[] array)
         {
             using (var ms = new System.IO.MemoryStream(array))
@@ -245,19 +249,49 @@ namespace YZYStudentGUI
         }
         private void btPickPicture_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image files (*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png|All files (*.*)|*.*";
-            openFileDialog.FilterIndex = 1;
-            if (openFileDialog.ShowDialog() == true)
+            if (MessageBox.Show("Do you want to capture picture from camera?","Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+                byte[] im = null;
+                using (Camera camera = new Camera())
+                {
+                    System.Windows.Forms.DialogResult dr = camera.ShowDialog();
+                    if (dr == System.Windows.Forms.DialogResult.OK)
+                    {
+                        im = camera.CameraPhoto;
+                        Console.WriteLine("this is byte" + im.ToString());
+                    }
+                }
+
                 try
                 {
-                    _photo = File.ReadAllBytes(openFileDialog.FileName);
+                    _photo = im;
                     showImage();
                 }
                 catch (IOException ex)
                 {
                     Log.WriteLine(ex.Message);
+                }
+
+                imageViewer.Source = ToImage(im);
+            
+            }
+            else
+            {
+
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 1;
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    try
+                    {
+                        _photo = File.ReadAllBytes(openFileDialog.FileName);
+                        showImage();
+                    }
+                    catch (IOException ex)
+                    {
+                        Log.WriteLine(ex.Message);
+                    }
                 }
             }
         }

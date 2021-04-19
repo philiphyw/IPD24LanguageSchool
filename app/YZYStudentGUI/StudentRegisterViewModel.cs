@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,9 @@ namespace YZYStudentGUI
                     Environment.Exit(1);
                 }
                 Users = new ObservableCollection<User>();
-                RegisterCommand = new YZYCommand(this.OnAdd, this.CanAdd);
+                //RegisterCommand = new YZYCommand(this.OnAdd, this.CanAdd);
+                RegisterCommand = new YZYCommand(this.OnAdd);
+
             }
 
             private User _newUser = new User();
@@ -518,11 +521,13 @@ namespace YZYStudentGUI
                 //TOFIX: add item cannot reuse controller bound with list view
                 NewUser.Password = GlobalSettings.newPassword;
                 NewUser.UserRole = (UserRoleEnum)Enum.Parse(typeof(UserRoleEnum), "Student", true);
-                NewUser.Photo = GlobalSettings.currentPhoto;
+                if (GlobalSettings.currentPhoto != null && GlobalSettings.currentPhoto.Length > 0)
+                { NewUser.Photo = GlobalSettings.currentPhoto; }
+  
                     database.Users.Add(NewUser);
                     database.SaveChanges();
 
-                }
+            }
                 catch (Exception ex)
                     when ((ex is InvalidParameterException) || (ex is SystemException))
                 {
@@ -530,21 +535,21 @@ namespace YZYStudentGUI
                     Console.WriteLine(ex.Message);
 
                 }
-                //catch (DbEntityValidationException e)
-                //{
-                //    foreach (var eve in e.EntityValidationErrors)
-                //    {
-                //        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                //            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                //        foreach (var ve in eve.ValidationErrors)
-                //        {
-                //            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                //                ve.PropertyName, ve.ErrorMessage);
-                //        }
-                //    }
-                //    throw;
-                //}
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
             }
+        }
         }
     
 }

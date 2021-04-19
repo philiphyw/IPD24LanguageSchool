@@ -6,7 +6,7 @@
         xmlns:p="clr-namespace:YZYStudentGUI.Properties"
         xmlns:local="clr-namespace:YZYStudentGUI"
         mc:Ignorable="d" MouseDown="Window_MouseDown"
-        Title="{x:Static p:Resources.windows_title}" MinHeight="720" MinWidth="1024"
+        Title="{x:Static p:Resources.windows_title}" MinHeight="730" MinWidth="1024"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         WindowStyle="None" WindowStartupLocation="CenterScreen">
     <WindowChrome.WindowChrome>
@@ -124,17 +124,23 @@
               Orientation="Horizontal">
                 <Button
                  Style="{DynamicResource MaterialDesignFlatButton}"
-                 Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_login}" Click="Button_Sign_Click"/>
+                 Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_login}" 
+                                        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Top}"
+                    Click="Button_Sign_Click"/>
                 <Button
                 Style="{DynamicResource MaterialDesignFlatButton}"
-                Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_register_button}" Click="ButtonRegister_Click"/>
+                Margin="4" VerticalAlignment="Center" Content="{x:Static p:Resources.content_register_button}" 
+                                        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Top}"
+                    Click="ButtonRegister_Click"/>
                 <Button
                     Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                     CommandParameter="{x:Static Dock.Top}"
                     Style="{DynamicResource MaterialDesignFlatButton}"
                     Margin="4"
                     VerticalAlignment="Center">
-                    <materialDesign:PackIcon Kind="KeyboardBackspace"/>
+                    <materialDesign:PackIcon Kind="ArrowUpBold"/>
                 </Button>
             </StackPanel>
         </materialDesign:DrawerHost.TopDrawerContent>
@@ -392,7 +398,7 @@
                                 Click="Button_Search_Course_Click">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Width="159">
                                     <materialDesign:PackIcon Kind="EmailEditOutline" Width="30" Height="30"/>
-                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_contact_us}" /> 
+                                    <TextBlock Margin="15 0" Text="{x:Static p:Resources.content_contact_us}" />
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -407,7 +413,7 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ListViewItem.RenderTransform>
- 
+
                             <Button Click="ButtonManageCourse_Click"         
                                   Width="189" HorizontalAlignment="Left"
                                 Background="{x:Null}" BorderBrush="{x:Null}" x:Name="btManageCourse">
@@ -520,7 +526,7 @@
                     <TextBlock Text="{x:Static p:Resources.windows_title}" Foreground="White" FontSize="28" FontFamily="Nirmala UI Semilight" Margin="10 70" VerticalAlignment="Top"/>
                     <!--<TextBlock Text="Language" Foreground="White" FontSize="28" FontFamily="Nirmala UI Semilight" Margin="10 100" VerticalAlignment="Top"/>-->
                     <!--<StackPanel Margin="0 150">-->
-                        <!--<Grid Height="60" Margin="20 50 20 0">
+                    <!--<Grid Height="60" Margin="20 50 20 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="20*"/>
@@ -536,7 +542,7 @@
                             <TextBlock Text="FOLLOWING" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Margin="5,0,5,5" Grid.Column="2"/>
                             <TextBlock Text="2.3K" VerticalAlignment="Top" Foreground="#FFFBFBFB" Grid.Row="1" Margin="10 0" Grid.Column="2"/>
                         </Grid>-->
-                        <!--<TextBlock TextWrapping="Wrap" Margin="10,60" Foreground="#FFFBFBFB" FontSize="14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat ligula et ornare rutrum. Suspendisse vel nibh massa. Sed maximus porta augue eget viverra. Sed ullamcorper interdum ligula. Aenean vitae.</TextBlock>
+                    <!--<TextBlock TextWrapping="Wrap" Margin="10,60" Foreground="#FFFBFBFB" FontSize="14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat ligula et ornare rutrum. Suspendisse vel nibh massa. Sed maximus porta augue eget viverra. Sed ullamcorper interdum ligula. Aenean vitae.</TextBlock>
                     </StackPanel>-->
                     <StackPanel Margin="0 150">
                         <Grid Height="60" Margin="20 50 20 0">
@@ -561,7 +567,7 @@
                 <!--middle part-->
                 <Grid Background="white">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="65"/>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -571,10 +577,10 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="ButtonCloseMenu" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="ButtonCloseMenu_Click" Visibility="Collapsed" >
+                    <Button x:Name="ButtonCloseMenu" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="ButtonCloseMenu_Click" Visibility="Collapsed" Grid.Row="0" Grid.Column="0" >
                         <materialDesign:PackIcon Kind="ArrowBack" Width="30" Height="30" Foreground="#FF3580BF"/>
                     </Button>
-                    <Button x:Name="ButtonOpenMenu" Width="40" Height="40" Padding="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="ButtonOpenMenu_Click" Grid.ColumnSpan="2">
+                    <Button x:Name="ButtonOpenMenu" Width="40" Height="40" Padding="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5,0,0" Click="ButtonOpenMenu_Click" Grid.Row="0" Grid.Column="0">
                         <materialDesign:PackIcon Kind="Menu" Width="30" Height="30" Foreground="#FF3580BF"/>
                     </Button>
                     <!--<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
@@ -612,14 +618,15 @@
                         
                         
                     </StackPanel>-->
-                    <TextBlock Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Margin="8">
+                    <TextBlock Foreground="#FF3580BF" Height="55" Grid.Row="0" Margin="119,8,8.5,0" Grid.ColumnSpan="3" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Right">
+                        <TextBlock  Name="tbWelcomeUsername" Width="300" Height="30" FontSize="20" FontWeight="Bold" VerticalAlignment="Top"/>
                               <Button
                                 Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                                 CommandParameter="{x:Static Dock.Top}"
                                   Width="70" Height="30" Margin="5"
                                   Style="{StaticResource MaterialDesignFlatButton}"
                       ToolTip="MaterialDesignOutlinedButton"
-                      Content="{x:Static p:Resources.content_login}"/>
+                      Content="{x:Static p:Resources.content_login}" x:Name="btLogin" HorizontalAlignment="Right"/>
 
                     </TextBlock>
                     <TextBlock Text="{x:Static p:Resources.content_why_choose_yzy}" Foreground="#FF3580BF" FontSize="30" FontWeight="Bold" Margin="15" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
@@ -871,7 +878,6 @@
                         </materialDesign:Flipper>
 
                         <!--forth Flipper-->
-
                         <materialDesign:Flipper
   Style="{StaticResource MaterialDesignCardFlipper}"
   materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="20">
@@ -1124,7 +1130,48 @@
                 </Button>-->
 
                 <!--language switch button-->
-                <TextBlock
+                <!--<Button
+                                Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                CommandParameter="{x:Static Dock.Top}"
+                                  Width="70" Height="30"
+                                  Style="{StaticResource MaterialDesignFlatButton}"
+                      ToolTip="MaterialDesignOutlinedButton"
+                      Content="English" x:Name="btEnglish" HorizontalAlignment="Right" Click="btEnglish_Click" Foreground="white"/>-->
+
+                <materialDesign:PopupBox
+                      Style="{StaticResource MaterialDesignToolForegroundPopupBox}"
+                      PlacementMode="BottomAndAlignCentres"
+                      ToggleCheckedContentCommand="{Binding FloatingActionDemoCommand}"
+                      ToggleCheckedContentCommandParameter="wowsers"
+                      ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionAccentPopupBox">
+                    <materialDesign:PopupBox.ToggleContent>
+                        <materialDesign:PackIcon
+                              Kind="GTranslate"
+                              Width="30"
+                              Height="30" Foreground="white"/>
+                    </materialDesign:PopupBox.ToggleContent>
+                    <StackPanel>
+                        <Button
+                          ToolTip="One"
+                          Content="En" Click="btEnglish_Click" Foreground="#FF2196F3" FontWeight="Bold"/>
+                        <Button
+                          ToolTip="Two"
+                          Content="中文" Click="btChinese_Click" Foreground="#FF2196F3" FontWeight="Bold"/>
+
+                    </StackPanel>
+                </materialDesign:PopupBox>
+
+                <!--<Button
+                                Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                CommandParameter="{x:Static Dock.Top}"
+                                  Width="70" Height="30"
+                                  Style="{StaticResource MaterialDesignFlatButton}"
+                      ToolTip="MaterialDesignOutlinedButton"
+                      Content="中文" x:Name="btChinese" HorizontalAlignment="Right" Click="btChinese_Click" Foreground="white"/>-->
+
+
+
+                <!--<TextBlock
                 VerticalAlignment="Center"
                 Text="En" Foreground="White"/>
                 <ToggleButton
@@ -1134,7 +1181,7 @@
                 x:Name="LanguageToggle" Click="LanguageToggle_Click"/>
                 <TextBlock
                 VerticalAlignment="Center"
-                Text="Zh" Foreground="White"/>
+                Text="中文" Foreground="White"/>-->
                 <Button x:Name="ButtonClose" Width="30" Height="30" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonClose_Click">
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>

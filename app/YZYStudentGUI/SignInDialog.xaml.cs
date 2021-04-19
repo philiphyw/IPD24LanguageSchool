@@ -26,6 +26,11 @@ namespace YZYStudentGUI
 
         private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
         {
+            if (tbEmail.Text == "" || tbPassword.Password == "")
+            {
+                MessageBox.Show("Password or UserName could not be empty, Please try again", "Login", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             DialogResult = true;
         }
     }

@@ -59,7 +59,7 @@ namespace YZYStudentGUI
                     tbLastName.Text = curUser.LName;
                     tbUserRole.Text =Enum.GetName(typeof(UserRoleEnum), curUser.UserRole);
 
-                    if (curUser.Photo.Length>0)
+                    if (curUser.Photo != null)
                     {
                         using (MemoryStream stream = new MemoryStream(curUser.Photo))
                         {

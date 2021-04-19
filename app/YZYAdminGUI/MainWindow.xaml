@@ -13,8 +13,8 @@
     <DockPanel>
         <Grid DockPanel.Dock="Top" Height="66" Background="#ffbf80">
             <TextBlock Text="{x:Static p:Resources.windows_title}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" FontWeight="Bold"/>
-            <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Right" Margin="10 10 70 10" >
-                <!--language switch button-->
+            <!--<StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Right" Margin="10 10 70 10" >
+                --><!--language switch button--><!--
                 <TextBlock
                 VerticalAlignment="Center"
                 Text="En" Foreground="white"/>
@@ -26,7 +26,31 @@
                 Foreground="white" xml:lang="zh-Hans">
                     中文
                 </TextBlock>
-            </StackPanel>
+            </StackPanel>-->
+
+            <materialDesign:PopupBox
+                      Style="{StaticResource MaterialDesignToolForegroundPopupBox}"
+                      PlacementMode="BottomAndAlignCentres"
+                      ToggleCheckedContentCommand="{Binding FloatingActionDemoCommand}"
+                      ToggleCheckedContentCommandParameter="wowsers"
+                      ToolTip="PopupBox, Style MaterialDesignMultiFloatingActionAccentPopupBox" HorizontalAlignment="Right" Margin="0,0,50,0" >
+                <materialDesign:PopupBox.ToggleContent>
+                    <materialDesign:PackIcon
+                              Kind="GTranslate"
+                              Width="30"
+                              Height="30" Foreground="white"/>
+                </materialDesign:PopupBox.ToggleContent>
+                <StackPanel>
+                    <Button
+                          ToolTip="One"
+                          Content="En" Click="btEnglish_Click" Foreground="#FF2196F3" FontWeight="Bold"/>
+                    <Button
+                          ToolTip="Two"
+                          Content="中文" Click="btChinese_Click" Foreground="#FF2196F3" FontWeight="Bold"/>
+
+                </StackPanel>
+            </materialDesign:PopupBox>
+
             <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_close_Click">
                 <materialDesign:PackIcon Kind="Power"/>
             </Button>
