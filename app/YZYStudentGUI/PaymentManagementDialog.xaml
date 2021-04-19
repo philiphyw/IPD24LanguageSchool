@@ -60,12 +60,12 @@
 
                             </GridView>
                         </ListView.View>
-                        <ListView.ContextMenu>
+                        <!--<ListView.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="{x:Static p:Resources.content_edit}" Name="miEdit" />
                                 <MenuItem Header="{x:Static p:Resources.content_delete}" Name="miDelete"/>
                             </ContextMenu>
-                        </ListView.ContextMenu>
+                        </ListView.ContextMenu>-->
                     </ListView>
                 </ScrollViewer>
             </materialDesign:ColorZone>

@@ -25,5 +25,9 @@ namespace YZYLibraryAzure
         public string StartDateStr { get { return $"{StartDate:d}"; } }
         public string EndDateStr { get { return $"{EndDate:d}"; } }
         public string TuitionStr { get { return Tuition == 0 ? "0" : string.Format("{0:.##}", Tuition); } }
+<<<<<<< HEAD
+=======
+
+>>>>>>> d3f353581edae5b0547266bb7fd310fbb58cd9b2
     }
 }

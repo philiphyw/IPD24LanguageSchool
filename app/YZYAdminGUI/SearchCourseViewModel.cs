@@ -9,7 +9,7 @@ using YZYLibraryAzure;
 
 namespace YZYAdminGUI
 {
-    class SearchCourseViewModel
+    public class SearchCourseViewModel
     {
 
         private YZYDbContextAzure ctx;
