@@ -21,8 +21,8 @@ namespace YZYAdminGUI
             Thread.CurrentThread.CurrentUICulture = newCulture;
             var oldWindow = Application.Current.MainWindow;
             Application.Current.MainWindow = new MainWindow();
-            Application.Current.MainWindow.Show();
             oldWindow.Close();
+            Application.Current.MainWindow.Show();
         }
     }
 }

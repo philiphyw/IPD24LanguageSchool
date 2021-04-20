@@ -27,8 +27,13 @@ namespace YZYAdminGUI
         public MainWindow()
         {
             Log.setLogOnFile();
+<<<<<<< HEAD
         //TODO: language has to be set here before initialize window
         CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
+=======
+            //TODO: language has to be set here before initialize window
+            CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
+>>>>>>> 4257877770a15e3e87cbe04bffc70d786d70d717
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
 
@@ -37,33 +42,41 @@ namespace YZYAdminGUI
             {
                 string email = loginDlg.tbEmail.Text;
                 string password = loginDlg.tbPassword.Password;
-                try
+                if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 {
-                    YZYDbContextAzure ctx = new YZYDbContextAzure();
-                    User loginUser = ctx.Users.ToList().Where(u => (u.Email == email && u.Password == password)).FirstOrDefault();
-                    if (loginUser != null)
+                    GlobalSettings.userRole = UserRoleEnum.Student;
+                    GlobalSettings.userID = -1;
+                }
+                else
+                {
+                    try
                     {
-                        if (loginUser.UserRole == UserRoleEnum.Admin)
+                        YZYDbContextAzure ctx = new YZYDbContextAzure();
+                        User loginUser = ctx.Users.ToList().Where(u => (u.Email == email && u.Password == password)).FirstOrDefault();
+                        if (loginUser != null)
                         {
-                            GlobalSettings.userRole = UserRoleEnum.Admin;
-                            GlobalSettings.userID = loginUser.UserID;
-                        }
-                        else if (loginUser.UserRole == UserRoleEnum.Teacher)
-                        {
-                            GlobalSettings.userRole = UserRoleEnum.Teacher;
-                            GlobalSettings.userID = loginUser.UserID;
-                        }
-                        else
-                        {
-                            GlobalSettings.userRole = UserRoleEnum.Student;
-                            GlobalSettings.userID = -1;
+                            if (loginUser.UserRole == UserRoleEnum.Admin)
+                            {
+                                GlobalSettings.userRole = UserRoleEnum.Admin;
+                                GlobalSettings.userID = loginUser.UserID;
+                            }
+                            else if (loginUser.UserRole == UserRoleEnum.Teacher)
+                            {
+                                GlobalSettings.userRole = UserRoleEnum.Teacher;
+                                GlobalSettings.userID = loginUser.UserID;
+                            }
+                            else
+                            {
+                                GlobalSettings.userRole = UserRoleEnum.Student;
+                                GlobalSettings.userID = -1;
+                            }
                         }
                     }
-                }
-                catch (SystemException ex)
-                {
-                    Log.WriteLine(ex.Message);
-                    Environment.Exit(1);
+                    catch (SystemException ex)
+                    {
+                        Log.WriteLine(ex.Message);
+                        Environment.Exit(1);
+                    }
                 }
             }
             else
@@ -117,6 +130,7 @@ namespace YZYAdminGUI
         private void LanguageToggle_Click(object sender, RoutedEventArgs e)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+<<<<<<< HEAD
 
             config.AppSettings.Settings.Remove("DefaultCulture");
             if (LanguageToggle.IsChecked == true)
@@ -128,6 +142,19 @@ namespace YZYAdminGUI
                 config.AppSettings.Settings.Add("DefaultCulture", "en");// TODO: to add selected language string replacing "FIXME"
             }
             config.Save(ConfigurationSaveMode.Modified);
+=======
+            config.AppSettings.Settings.Remove("DefaultCulture");
+            config.AppSettings.Settings.Add("DefaultCulture", "en");
+            App.ChangeCulture(new CultureInfo("en"));
+        }
+
+        private void btChinese_Click(object sender, RoutedEventArgs e)
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings.Remove("DefaultCulture");
+            config.AppSettings.Settings.Add("DefaultCulture", "zh-Hans");
+            App.ChangeCulture(new CultureInfo("zh-Hans"));
+>>>>>>> 4257877770a15e3e87cbe04bffc70d786d70d717
         }
 
         //private void btEnglish_Click(object sender, RoutedEventArgs e)

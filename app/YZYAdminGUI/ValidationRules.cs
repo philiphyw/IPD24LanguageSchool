@@ -43,7 +43,8 @@ namespace YZYAdminGUI
         public static void checkPostCode(string value)
         {
             //Canadian Postal Code in the format of "M3A 1A5"
-            string pattern = "^[ABCEGHJ-NPRSTVXY]{1}[0-9]{1}[ABCEGHJ-NPRSTV-Z]{1}[ ]?[0-9]{1}[ABCEGHJ-NPRSTV-Z]{1}[0-9]{1}$";
+            //string pattern = "^[ABCEGHJ-NPRSTVXY]{1}[0-9]{1}[ABCEGHJ-NPRSTV-Z]{1}[ ]?[0-9]{1}[ABCEGHJ-NPRSTV-Z]{1}[0-9]{1}$";
+            string pattern = "^[A-Z]{1}[0-9]{1}[A-Z]{1}[ ]?[0-9]{1}[A-Z]{1}[0-9]{1}$";
             Regex reg = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
             if (!(reg.IsMatch(value)))
