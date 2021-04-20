@@ -27,13 +27,8 @@ namespace YZYAdminGUI
         public MainWindow()
         {
             Log.setLogOnFile();
-<<<<<<< HEAD
-        //TODO: language has to be set here before initialize window
-        CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
-=======
-            //TODO: language has to be set here before initialize window
+
             CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
->>>>>>> 4257877770a15e3e87cbe04bffc70d786d70d717
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
 
@@ -130,7 +125,6 @@ namespace YZYAdminGUI
         private void LanguageToggle_Click(object sender, RoutedEventArgs e)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-<<<<<<< HEAD
 
             config.AppSettings.Settings.Remove("DefaultCulture");
             if (LanguageToggle.IsChecked == true)
@@ -142,30 +136,8 @@ namespace YZYAdminGUI
                 config.AppSettings.Settings.Add("DefaultCulture", "en");// TODO: to add selected language string replacing "FIXME"
             }
             config.Save(ConfigurationSaveMode.Modified);
-=======
-            config.AppSettings.Settings.Remove("DefaultCulture");
-            config.AppSettings.Settings.Add("DefaultCulture", "en");
-            App.ChangeCulture(new CultureInfo("en"));
         }
 
-        private void btChinese_Click(object sender, RoutedEventArgs e)
-        {
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings.Remove("DefaultCulture");
-            config.AppSettings.Settings.Add("DefaultCulture", "zh-Hans");
-            App.ChangeCulture(new CultureInfo("zh-Hans"));
->>>>>>> 4257877770a15e3e87cbe04bffc70d786d70d717
-        }
-
-        //private void btEnglish_Click(object sender, RoutedEventArgs e)
-        //{
-        //    App.ChangeCulture(new CultureInfo("en"));
-        //}
-
-        //private void btChinese_Click(object sender, RoutedEventArgs e)
-        //{
-        //    App.ChangeCulture(new CultureInfo("zh-Hans"));
-        //}
     }
 
     public class GlobalSettings

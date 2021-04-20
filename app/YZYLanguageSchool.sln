@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYLibraryAzure", "YZYLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YZYUnitTest", "YZYUnitTest\YZYUnitTest.csproj", "{59512B3A-067C-4314-8561-29CD63AE3ADB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebcamCamera", "Camera\WebcamCamera.csproj", "{A7D055EF-7E92-4923-B412-B3F3B34FDD5F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{59512B3A-067C-4314-8561-29CD63AE3ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59512B3A-067C-4314-8561-29CD63AE3ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59512B3A-067C-4314-8561-29CD63AE3ADB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7D055EF-7E92-4923-B412-B3F3B34FDD5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7D055EF-7E92-4923-B412-B3F3B34FDD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7D055EF-7E92-4923-B412-B3F3B34FDD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7D055EF-7E92-4923-B412-B3F3B34FDD5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

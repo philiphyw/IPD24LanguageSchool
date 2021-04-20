@@ -15,14 +15,18 @@ namespace YZYAdminGUI
     /// </summary>
     public partial class App : Application
     {
+        /*
         public static void ChangeCulture(CultureInfo newCulture)
         {
+            
             Thread.CurrentThread.CurrentCulture = newCulture;
             Thread.CurrentThread.CurrentUICulture = newCulture;
             var oldWindow = Application.Current.MainWindow;
             Application.Current.MainWindow = new MainWindow();
             oldWindow.Close();
             Application.Current.MainWindow.Show();
+            
         }
+        */
     }
 }

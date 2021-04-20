@@ -17,12 +17,9 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-<<<<<<< HEAD
-    <PublishUrl>publish\</PublishUrl>
-=======
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\IPD24\StudentGUI\</PublishUrl>
->>>>>>> 4257877770a15e3e87cbe04bffc70d786d70d717
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -32,17 +29,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-<<<<<<< HEAD
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-=======
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
->>>>>>> 4257877770a15e3e87cbe04bffc70d786d70d717
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -213,10 +203,6 @@
     <Resource Include="Assets\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Camera\WebcamCamera.csproj">
-      <Project>{a7d055ef-7e92-4923-b412-b3f3b34fdd5f}</Project>
-      <Name>WebcamCamera</Name>
-    </ProjectReference>
     <ProjectReference Include="..\YZYLibraryAzure\YZYLibraryAzure.csproj">
       <Project>{fc188ebe-555a-42a6-b1ad-0db94c59994d}</Project>
       <Name>YZYLibraryAzure</Name>
@@ -226,12 +212,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Resource Include="YZY.ico" />
   </ItemGroup>
   <ItemGroup>
->>>>>>> 4257877770a15e3e87cbe04bffc70d786d70d717
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
