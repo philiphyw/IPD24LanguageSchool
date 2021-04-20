@@ -22,10 +22,6 @@ namespace YZYLibraryAzure
     
         public virtual User User { get; set; }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d3f353581edae5b0547266bb7fd310fbb58cd9b2
         public string AmountStr { get { return Amount == 0 ? "0" : string.Format("{0:.##}", Amount); } }
         public string PayDateStr { get { return $"{PayDate:d}"; } }
     }
