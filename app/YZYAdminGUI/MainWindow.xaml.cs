@@ -27,10 +27,10 @@ namespace YZYAdminGUI
         public MainWindow()
         {
             Log.setLogOnFile();
-            //TODO: language has to be set here before initialize window
-            //CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
-            //Thread.CurrentThread.CurrentCulture = culture;
-            //Thread.CurrentThread.CurrentUICulture = culture;
+        //TODO: language has to be set here before initialize window
+        CultureInfo culture = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"]);
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
             var loginDlg = new AdminLoginDialog();
             if (loginDlg.ShowDialog() == true)
@@ -74,15 +74,15 @@ namespace YZYAdminGUI
 
             InitializeComponent();
 
-            //switch (ConfigurationManager.AppSettings["DefaultCulture"])
-            //{
-            //    case "zh-Hans":
-            //        LanguageToggle.IsChecked = true;
-            //        break;
-            //    case "en":
-            //        LanguageToggle.IsChecked = false;
-            //        break;
-            //}
+            switch (ConfigurationManager.AppSettings["DefaultCulture"])
+            {
+                case "zh-Hans":
+                    LanguageToggle.IsChecked = true;
+                    break;
+                case "en":
+                    LanguageToggle.IsChecked = false;
+                    break;
+            }
 
             ucCourse.Visibility = Visibility.Hidden;
             ucAccount.Visibility = Visibility.Hidden;
@@ -114,31 +114,31 @@ namespace YZYAdminGUI
         }
 
 
-        //private void LanguageToggle_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        private void LanguageToggle_Click(object sender, RoutedEventArgs e)
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-        //    config.AppSettings.Settings.Remove("DefaultCulture");
-        //    if (LanguageToggle.IsChecked == true)
-        //    {
-        //        config.AppSettings.Settings.Add("DefaultCulture", "zh-Hans");// TODO: to add selected language string replacing "FIXME"
-        //    }
-        //    else
-        //    {
-        //        config.AppSettings.Settings.Add("DefaultCulture", "en");// TODO: to add selected language string replacing "FIXME"
-        //    }
-        //    config.Save(ConfigurationSaveMode.Modified);
+            config.AppSettings.Settings.Remove("DefaultCulture");
+            if (LanguageToggle.IsChecked == true)
+            {
+                config.AppSettings.Settings.Add("DefaultCulture", "zh-Hans");// TODO: to add selected language string replacing "FIXME"
+            }
+            else
+            {
+                config.AppSettings.Settings.Add("DefaultCulture", "en");// TODO: to add selected language string replacing "FIXME"
+            }
+            config.Save(ConfigurationSaveMode.Modified);
+        }
+
+        //private void btEnglish_Click(object sender, RoutedEventArgs e)
+        //{
+        //    App.ChangeCulture(new CultureInfo("en"));
         //}
 
-        private void btEnglish_Click(object sender, RoutedEventArgs e)
-        {
-            App.ChangeCulture(new CultureInfo("en"));
-        }
-
-        private void btChinese_Click(object sender, RoutedEventArgs e)
-        {
-            App.ChangeCulture(new CultureInfo("zh-Hans"));
-        }
+        //private void btChinese_Click(object sender, RoutedEventArgs e)
+        //{
+        //    App.ChangeCulture(new CultureInfo("zh-Hans"));
+        //}
     }
 
     public class GlobalSettings

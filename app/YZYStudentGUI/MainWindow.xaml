@@ -1152,11 +1152,11 @@
                     </materialDesign:PopupBox.ToggleContent>
                     <StackPanel>
                         <Button
-                          ToolTip="One"
-                          Content="En" Click="btEnglish_Click" Foreground="#FF2196F3" FontWeight="Bold"/>
+                         
+                          Content="En" Click="btEnglish_Click" Foreground="#FF2196F3" FontWeight="Bold"  Style="{StaticResource MaterialDesignFlatButton}"/>
                         <Button
-                          ToolTip="Two"
-                          Content="中文" Click="btChinese_Click" Foreground="#FF2196F3" FontWeight="Bold"/>
+                          
+                          Content="中文" Click="btChinese_Click" Foreground="#FF2196F3" FontWeight="Bold"  Style="{StaticResource MaterialDesignFlatButton}"/>
 
                     </StackPanel>
                 </materialDesign:PopupBox>

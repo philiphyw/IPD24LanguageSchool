@@ -152,7 +152,7 @@ namespace YZYStudentGUI
                 
                     //ctx.Users.Add(user);
                     //ctx.SaveChanges();
-                    System.Windows.MessageBox.Show("Hello, Succuess! You Login Now", "My App");
+                    System.Windows.MessageBox.Show("Hello, Succuess! Please Login Now", "My App");
                 }
             }
             //catch (SystemException ex)
